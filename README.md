@@ -6,6 +6,8 @@ For simplicity, the dataset is removed to [puzzlekit-dataset](https://github.com
 
 This repo also provides **bidirectional conversion between [puzz.link](https://puzz.link) and [Penpa+](https://swaroopg92.github.io/penpa-edit/) puzzle URLs** for supported genres (19 for now) via a shared intermediate representation. puzz.link-like links from common mirrors (e.g., `pzplus.tck.mn`, `pzv.jp`) are also accepted.
 
+A TypeScript CLI lives in [`cli/`](cli/README.md). Install it and run `pzk` to turn dataset text into a pzpr / puzz.link URL. The Python package under `src/puzzlekit` is unchanged.
+
 <details>
   <summary><strong>Table of puzzles, datasets and solvers.</strong></summary>
 

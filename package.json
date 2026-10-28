@@ -1,0 +1,40 @@
+{
+  "name": "@smilingwayne/pzk",
+  "version": "0.1.0",
+  "description": "Parse puzzle inputs into a pzpr board. The CLI writes that board out as a puzz.link URL.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "pzk": "./cli/dist/cli.js"
+  },
+  "main": "./cli/dist/index.js",
+  "types": "./cli/dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./cli/dist/index.d.ts",
+      "import": "./cli/dist/index.js"
+    }
+  },
+  "files": [
+    "cli/dist",
+    "cli/README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmilingWayne/puzzlekit.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsx --test cli/test/*.test.ts",
+    "pzk": "tsx cli/src/cli.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

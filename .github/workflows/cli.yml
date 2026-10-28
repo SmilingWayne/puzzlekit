@@ -1,0 +1,31 @@
+name: CLI
+
+on:
+  pull_request:
+    paths:
+      - "cli/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "tsconfig.json"
+      - ".github/workflows/cli.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: pzk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable pnpm
+        run: corepack enable && corepack prepare pnpm@10.33.0 --activate
+
+      - name: Install, test, and build
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm test
+          pnpm build
