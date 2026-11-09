@@ -1,6 +1,6 @@
 # PuzzleInstance 数据结构文档
 
-> PuzzleInstance 是 PuzzleKit 中的**中间表示（Intermediate Representation, IR）**，用于在不同谜题格式（如 puzz.link、Penpa+、Janko 等）之间进行统一的转换和处理。
+> PuzzleInstance 是 PuzzleKit 中的**中间表示（Intermediate Representation, IR）**，用于在不同谜题格式（如 puzz.link、Janko 等）之间进行统一的转换和处理。
 
 ---
 
@@ -120,7 +120,7 @@ class CellState:
 ```python
 @dataclass
 class SymbolState:
-    symbol_index: int = 0       # 符号索引（Penpa 兼容）
+    symbol_index: int = 0       # 符号索引
     symbol_type: str = "circle_L"  # 符号类型，如 "circle_L", "x", "sun_moon" 等
     symbol_style: int = 1       # 符号样式
 ```
@@ -268,23 +268,6 @@ for (r, c), cell_state in puzzle.cells.items():
         print(f"位置 ({r}, {c}) 有线索：{cell_state.clue}")
 ```
 
-### 示例 3: 使用 PenpaConverter 解码/编码
-
-```python
-from puzzlekit.formats.penpa_converter import PenpaConverter
-
-converter = PenpaConverter()
-
-# 解码 Penpa URL
-penpa_url = "https://swaroopg92.github.io/penpa-edit/#m=edit&p=..."
-puzzle = converter.decode(penpa_url)
-
-# 编码回 Penpa URL
-new_url = converter.encode(puzzle)
-```
-
----
-
 ## 从不同格式转换
 
 ### 从 puzz.link 转换
@@ -299,33 +282,6 @@ puzzle = converter.decode("https://puzz.link/p?heyawake/5/5/...")
 ```
 
 **坐标映射**: puzz.link 的坐标直接映射到 PuzzleInstance 的 `(row, col)`，从 `(0, 0)` 开始。
-
-### 从 Penpa+ 转换
-
-Penpa+ 使用复杂的索引系统，`PenpaConverter` 负责坐标转换：
-
-**Penpa 索引系统**:
-- Penpa 使用一维索引表示单元格位置
-- 索引计算考虑了边距和 padding
-- 转换公式：`index = row * real_cols + col + offset`
-
-```python
-from puzzlekit.formats.penpa_converter import PenpaConverter
-
-converter = PenpaConverter()
-puzzle = converter.decode("https://swaroopg92.github.io/penpa-edit/#...")
-```
-
-**PenpaConverter 的坐标转换方法**:
-
-```python
-# 内部方法：将 Penpa 索引转换为 (row, col)
-def index_to_coord(self, index: int, type_: str = 'cell'):
-    # type_ 可以是 "cell", "edge", "edge_center"
-    category, index = divmod(index, self.real_rows * self.real_cols)
-    if type_ == "cell":
-        return (index // self.real_cols - 2, index % self.real_cols - 2), category
-```
 
 ### 从 Janko.at 转换
 
@@ -424,7 +380,6 @@ puzzlink_url = puzzlink_converter.encode(puzzle)
 ```python
 from puzzlekit.formats.base import PuzzleInstance, CellState, EdgeState, NumberClue
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
-from puzzlekit.formats.penpa_converter import PenpaConverter
 
 # 1. 从 puzzlink 解码
 puzzlink_converter = PuzzlinkConverter()
@@ -437,12 +392,7 @@ print(f"原始谜题：{puzzle.puzzle_type}, {puzzle.rows}x{puzzle.cols}")
 # 添加额外的线索
 puzzle.cells[(5, 5)] = CellState(clue=NumberClue(value=10))
 
-# 3. 编码为 Penpa URL
-penpa_converter = PenpaConverter()
-penpa_url = penpa_converter.encode(puzzle)
-print(f"Penpa URL: {penpa_url}")
-
-# 4. 或者重新编码回 puzzlink URL
+# 3. 重新编码回 puzzlink URL
 new_puzzlink_url = puzzlink_converter.encode(puzzle)
 print(f"puzz.link URL: {new_puzzlink_url}")
 ```
@@ -455,6 +405,5 @@ print(f"puzz.link URL: {new_puzzlink_url}")
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | [`src/puzzlekit/formats/base.py`](../src/puzzlekit/formats/base.py)                             | PuzzleInstance、CellState、EdgeState 等核心类定义 |
 | [`src/puzzlekit/formats/puzzlink_converter.py`](../src/puzzlekit/formats/puzzlink_converter.py) | puzz.link 格式转换器                              |
-| [`src/puzzlekit/formats/penpa_converter.py`](../src/puzzlekit/formats/penpa_converter.py)       | Penpa+ 格式转换器                                 |
 | [`src/puzzlekit/formats/janko_converter.py`](../src/puzzlekit/formats/janko_converter.py)       | Janko.at 格式转换器（支持 decode）                |
 | [`src/puzzlekit/formats/puzzle_types.py`](../src/puzzlekit/formats/puzzle_types.py)             | 谜题类型定义和映射                                |

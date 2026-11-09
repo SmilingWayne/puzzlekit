@@ -3,19 +3,11 @@ from puzzlekit.solvers import get_solver_class
 from puzzlekit.parsers.registry import get_parser
 from puzzlekit.formats.base import PuzzleInstance
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
-from puzzlekit.formats.penpa_converter import (
-    PenpaConverter,
-    PENPA_PREFIX,
-    PENPA_URLPREFIX,
-    PenpaDecodeError,
-)
 
 
 _FORMAT_ALIASES = {
     "puzzlink": "puzzlink",
     "pzl": "puzzlink",
-    "penpa": "penpa",
-    "ppa": "penpa",
     "ir": "ir",
     "instance": "ir",
     "puzzleinstance": "ir",
@@ -27,38 +19,20 @@ def _normalize_format_name(name: str) -> str:
         raise ValueError("Format name must be a non-empty string.")
     key = name.strip().lower()
     if key not in _FORMAT_ALIASES:
-        raise ValueError(f"Unknown format '{name}'. Supported: puzzlink, penpa, ir.")
+        raise ValueError(f"Unknown format '{name}'. Supported: puzzlink, ir.")
     return _FORMAT_ALIASES[key]
-
-
-def _normalize_penpa_source(source: str) -> str:
-    s = source.strip()
-    if s.startswith("#"):
-        s = s[1:]
-    if s.startswith(PENPA_PREFIX):
-        return s
-    if s.startswith(PENPA_URLPREFIX):
-        frag = s.split("#", 1)[1] if "#" in s else ""
-        if frag.startswith("#"):
-            frag = frag[1:]
-        return frag if frag.startswith(PENPA_PREFIX) else f"{PENPA_PREFIX}{frag}"
-    return s
 
 
 def _detect_source_format(source: str) -> str:
     s = source.strip()
     if "puzz.link/p?" in s:
         return "puzzlink"
-    if s.startswith(PENPA_PREFIX) or s.startswith("#" + PENPA_PREFIX) or PENPA_URLPREFIX in s:
-        return "penpa"
     raise ValueError("Cannot detect source format. Please pass source_format explicitly.")
 
 
 def _build_converter(fmt: str, converter_config: Optional[Dict[str, Any]] = None):
     if fmt == "puzzlink":
         return PuzzlinkConverter(converter_config or {})
-    if fmt == "penpa":
-        return PenpaConverter(converter_config or {})
     raise ValueError(f"Unsupported converter format '{fmt}'.")
 
 def solve(
@@ -186,8 +160,8 @@ def decode(
     Decode puzzle URL/text into PuzzleInstance (IR).
 
     Args:
-        source: puzz.link URL, penpa URL, or penpa payload (`m=edit&p=...`).
-        source_format: Optional explicit source format ('puzzlink' or 'penpa').
+        source: puzz.link URL.
+        source_format: Optional explicit source format ('puzzlink').
         converter_config: Optional converter config dict.
     """
     if not isinstance(source, str):
@@ -198,8 +172,7 @@ def decode(
         raise ValueError("decode(source_format='ir') is not valid.")
 
     converter = _build_converter(fmt, converter_config)
-    normalized_source = _normalize_penpa_source(source) if fmt == "penpa" else source
-    return converter.decode(normalized_source)
+    return converter.decode(source)
 
 
 def encode(
@@ -212,7 +185,7 @@ def encode(
 
     Args:
         instance: PuzzleInstance IR.
-        target_format: 'puzzlink' or 'penpa'.
+        target_format: 'puzzlink'.
         converter_config: Optional converter config dict.
     """
     if not isinstance(instance, PuzzleInstance):
@@ -235,12 +208,10 @@ def convert(
     encode_converter_config: Optional[Dict[str, Any]] = None,
 ) -> Union[str, PuzzleInstance]:
     """
-    Convert between puzzlink/penpa/IR.
+    Convert between puzz.link and IR.
 
     Examples:
         - URL -> IR: convert(url, "ir")
-        - puzzlink -> penpa: convert(url, "penpa")
-        - penpa -> puzzlink: convert(url, "puzzlink")
         - IR -> puzzlink: convert(ir, "puzzlink")
 
     Notes:
@@ -273,7 +244,6 @@ __all__ = [
     "decode",
     "encode",
     "convert",
-    "PenpaDecodeError",
     "InferenceResult",
     "InferenceTrace",
     "InferenceState",

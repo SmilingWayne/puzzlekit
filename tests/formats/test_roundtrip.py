@@ -1,6 +1,5 @@
 # tests/test_roundtrip.py
 import pytest
-from puzzlekit.formats.penpa_converter import PenpaConverter
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
 
 class TestPuzzlelinkRoundTrip:
@@ -73,24 +72,14 @@ class TestPuzzlelinkRoundTrip:
             assert ir == ref, f"Mismatch for URL: {u}"
 
 
-class TestPenpaTrip:
-    """
-    TEST Penpa Round Trip.
-    """
-    
-    def test_self_roundtrip(self, penpa_test_urls):
-        for puzzle, url in penpa_test_urls.items():
-            # First decode, from url -> IR1
-            converter1 = PenpaConverter()
-            ir1 = converter1.decode(url)
-            
-            # First Encode, from IR -> url2
-            url2 = converter1.encode(ir1)
-            
-            # Second decode, from url2 -> IR2
-            converter2 = PenpaConverter()
-            ir2 = converter2.decode(url2)
-            
-            # If IR1 ?== IR2 
-            assert ir1 == ir2, f"[Penpa] Puzzle {puzzle} wrong. URL: {url}"
+def test_public_api_puzzlink_roundtrip_and_removed_penpa():
+    import puzzlekit
 
+    url = "https://puzz.link/p?slither/6/6/276bi1bbhd2di880a"
+    instance = puzzlekit.decode(url)
+    assert puzzlekit.decode(puzzlekit.encode(instance, "puzzlink")) == instance
+    assert puzzlekit.convert(url, "ir") == instance
+    with pytest.raises(ValueError, match="Unknown format"):
+        puzzlekit.encode(instance, "penpa")
+    with pytest.raises(ValueError, match="Unknown format"):
+        puzzlekit.decode("m=edit&p=example", source_format="penpa")

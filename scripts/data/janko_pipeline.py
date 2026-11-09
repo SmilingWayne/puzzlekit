@@ -20,7 +20,6 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from puzzlekit.formats.janko_converter import JankoConverter
-from puzzlekit.formats.penpa_converter import PenpaConverter
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
 
 FixFunc = Callable[[str], str]
@@ -33,8 +32,6 @@ class CaseResult:
     decode_error: str | None = None
     success_puzzlink: bool = False
     puzzlink_error: str | None = None
-    success_penpa: bool = False
-    penpa_error: str | None = None
 
 
 def _normalize_whitespace(raw: str) -> str:
@@ -237,7 +234,6 @@ def run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
 
     janko = JankoConverter()
     puzzlink = PuzzlinkConverter()
-    penpa = PenpaConverter()
 
     now = datetime.now(timezone.utc).isoformat()
     results: List[CaseResult] = []
@@ -320,15 +316,6 @@ def run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
                 case_result.puzzlink_error = _error_code_from_exception(exc)
                 error_to_cases[f"puzzlink::{case_result.puzzlink_error}"].append(case_id)
 
-        if args.augment_penpa:
-            try:
-                # case.setdefault("artifacts", {})["penpa_url"] = penpa.encode(inst)
-                case["penpa_url"] = penpa.encode(inst)
-                case_result.success_penpa = True
-            except Exception as exc:  # noqa: BLE001
-                case_result.penpa_error = _error_code_from_exception(exc)
-                error_to_cases[f"penpa::{case_result.penpa_error}"].append(case_id)
-
         if args.write_status:
             case["_pipeline"] = {
                 "updated_at": now,
@@ -337,8 +324,6 @@ def run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
                 "decode_error": case_result.decode_error,
                 "puzzlink_ok": case_result.success_puzzlink if args.augment_puzzlink else None,
                 "puzzlink_error": case_result.puzzlink_error if args.augment_puzzlink else None,
-                "penpa_ok": case_result.success_penpa if args.augment_penpa else None,
-                "penpa_error": case_result.penpa_error if args.augment_penpa else None,
                 "fixes_applied_problem": applied_problem,
                 "fixes_applied_solution": applied_solution,
             }
@@ -356,7 +341,6 @@ def run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
     total = len(results)
     decode_ok = sum(1 for r in results if r.success_decode)
     puzzlink_ok = sum(1 for r in results if r.success_puzzlink)
-    penpa_ok = sum(1 for r in results if r.success_penpa)
 
     top_errors = sorted(
         (
@@ -382,12 +366,6 @@ def run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
             "ok": puzzlink_ok,
             "ok_ratio_over_total": round((puzzlink_ok / total), 6) if total else 0.0,
             "ok_ratio_over_decoded": round((puzzlink_ok / decode_ok), 6) if decode_ok else 0.0,
-        },
-        "penpa": {
-            "requested": args.augment_penpa,
-            "ok": penpa_ok,
-            "ok_ratio_over_total": round((penpa_ok / total), 6) if total else 0.0,
-            "ok_ratio_over_decoded": round((penpa_ok / decode_ok), 6) if decode_ok else 0.0,
         },
         "fix": {
             "applied": bool(args.apply_fixes and args.fix_strategies),
@@ -437,7 +415,6 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="Fix strategies to apply in order",
     )
     parser.add_argument("--augment-puzzlink", action="store_true", help="Write puzz.link URLs")
-    parser.add_argument("--augment-penpa", action="store_true", help="Write penpa URLs")
     parser.add_argument("--write-status", action="store_true", help="Write case._pipeline")
     parser.add_argument(
         "--grid-token-map",

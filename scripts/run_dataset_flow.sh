@@ -33,7 +33,6 @@ GRID_TOKEN_MAP_FILE="${GRID_TOKEN_MAP_FILE:-}"
 GRID_TOKEN_MAP_TARGETS="${GRID_TOKEN_MAP_TARGETS:-both}"
 SYNC_BACK="${SYNC_BACK:-0}"  # 1 => local -> external after write
 AUGMENT_PUZZLINK="${AUGMENT_PUZZLINK:-0}"  # 1 => write puzz.link URL
-AUGMENT_PENPA="${AUGMENT_PENPA:-0}"        # 1 => write penpa URL
 WRITE_STATUS="${WRITE_STATUS:-0}"          # 1 => write _pipeline status
 DEDUPE="${DEDUPE:-0}"                      # 1 => dedupe cases
 DEDUPE_KEY="${DEDUPE_KEY:-problem}"        # problem | problem_solution
@@ -90,9 +89,6 @@ if [[ -n "$GRID_TOKEN_MAP_FILE" ]]; then
 fi
 if [[ "$AUGMENT_PUZZLINK" == "1" ]]; then
   CMD+=(--augment-puzzlink)
-fi
-if [[ "$AUGMENT_PENPA" == "1" ]]; then
-  CMD+=(--augment-penpa)
 fi
 if [[ "$WRITE_STATUS" == "1" ]]; then
   CMD+=(--write-status)

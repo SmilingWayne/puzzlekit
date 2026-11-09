@@ -1,6 +1,6 @@
 # PuzzleInstance Intermediate Representation Specification
 
-> **PuzzleInstance** is the **Intermediate Representation (IR)** used throughout PuzzleKit. It provides a unified data model for converting and processing puzzles across different formats, including [puzz.link](https://puzz.link), [Penpa+](https://swaroopg92.github.io/penpa-edit/), and [Janko.at](https://www.janko.at).
+> **PuzzleInstance** is the **Intermediate Representation (IR)** used throughout PuzzleKit. It provides a unified data model for converting and processing puzzles across different formats, including [puzz.link](https://puzz.link) and [Janko.at](https://www.janko.at).
 
 ---
 
@@ -120,7 +120,7 @@ class CellState:
 ```python
 @dataclass
 class SymbolState:
-    symbol_index: int = 0       # Symbol index (Penpa-compatible)
+    symbol_index: int = 0       # Symbol index
     symbol_type: str = "circle_L"  # Symbol type, e.g., "circle_L", "x", "sun_moon", etc.
     symbol_style: int = 1       # Symbol style
 ```
@@ -268,23 +268,6 @@ for (r, c), cell_state in puzzle.cells.items():
         print(f"Position ({r}, {c}) has clue: {cell_state.clue}")
 ```
 
-### Example 3: Decoding/Encoding with PenpaConverter
-
-```python
-from puzzlekit.formats.penpa_converter import PenpaConverter
-
-converter = PenpaConverter()
-
-# Decode Penpa URL
-penpa_url = "https://swaroopg92.github.io/penpa-edit/#m=edit&p=..."
-puzzle = converter.decode(penpa_url)
-
-# Encode back to Penpa URL
-new_url = converter.encode(puzzle)
-```
-
----
-
 ## Format Conversion
 
 ### From puzz.link
@@ -299,33 +282,6 @@ puzzle = converter.decode("https://puzz.link/p?heyawake/5/5/...")
 ```
 
 **Coordinate Mapping**: puzz.link coordinates map directly to PuzzleInstance `(row, col)`, starting from `(0, 0)`.
-
-### From Penpa+
-
-Penpa+ uses a more complex indexing system. `PenpaConverter` handles coordinate transformations:
-
-**Penpa Index System**:
-- Penpa uses a 1D index to represent cell positions
-- Index calculation accounts for margins and padding
-- Conversion formula: `index = row * real_cols + col + offset`
-
-```python
-from puzzlekit.formats.penpa_converter import PenpaConverter
-
-converter = PenpaConverter()
-puzzle = converter.decode("https://swaroopg92.github.io/penpa-edit/#...")
-```
-
-**PenpaConverter Coordinate Transformation**:
-
-```python
-# Internal method: Convert Penpa index to (row, col)
-def index_to_coord(self, index: int, type_: str = 'cell'):
-    # type_ can be "cell", "edge", "edge_center"
-    category, index = divmod(index, self.real_rows * self.real_cols)
-    if type_ == "cell":
-        return (index // self.real_cols - 2, index % self.real_cols - 2), category
-```
 
 ### From Janko.at
 
@@ -426,7 +382,6 @@ puzzlink_url = puzzlink_converter.encode(puzzle)
 ```python
 from puzzlekit.formats.base import PuzzleInstance, CellState, EdgeState, NumberClue
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
-from puzzlekit.formats.penpa_converter import PenpaConverter
 
 # 1. Decode from puzz.link
 puzzlink_converter = PuzzlinkConverter()
@@ -439,12 +394,7 @@ print(f"Original puzzle: {puzzle.puzzle_type}, {puzzle.rows}x{puzzle.cols}")
 # Add an extra clue
 puzzle.cells[(5, 5)] = CellState(clue=NumberClue(value=10))
 
-# 3. Encode as Penpa URL
-penpa_converter = PenpaConverter()
-penpa_url = penpa_converter.encode(puzzle)
-print(f"Penpa URL: {penpa_url}")
-
-# 4. Or re-encode back to puzz.link URL
+# 3. Re-encode back to puzz.link URL
 new_puzzlink_url = puzzlink_converter.encode(puzzle)
 print(f"puzz.link URL: {new_puzzlink_url}")
 ```
@@ -457,7 +407,6 @@ print(f"puzz.link URL: {new_puzzlink_url}")
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | [`src/puzzlekit/formats/base.py`](../src/puzzlekit/formats/base.py)                             | Core class definitions: PuzzleInstance, CellState, EdgeState |
 | [`src/puzzlekit/formats/puzzlink_converter.py`](../src/puzzlekit/formats/puzzlink_converter.py) | puzz.link format converter                                   |
-| [`src/puzzlekit/formats/penpa_converter.py`](../src/puzzlekit/formats/penpa_converter.py)       | Penpa+ format converter                                      |
 | [`src/puzzlekit/formats/janko_converter.py`](../src/puzzlekit/formats/janko_converter.py)       | Janko.at format converter (decode support)                   |
 | [`src/puzzlekit/formats/puzzle_types.py`](../src/puzzlekit/formats/puzzle_types.py)             | Puzzle type definitions and mappings                         |
 

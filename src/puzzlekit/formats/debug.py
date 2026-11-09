@@ -7,7 +7,6 @@ from typing import Any, Dict, List, Tuple, Optional, Iterable
 import copy
 
 from puzzlekit.formats.base import PuzzleInstance
-from puzzlekit.formats.penpa_converter import PENPA_PREFIX, PENPA_URLPREFIX, PenpaConverter
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter, parse_puzzlink_input
 
 
@@ -31,7 +30,6 @@ def _resolve_two_inputs(args: argparse.Namespace) -> Tuple[str, str]:
     - --pair-file (two non-empty lines)
     - --left/--right
     - --left-file/--right-file
-    - legacy: --puzzlink-url/--penpa-url (+ corresponding *-file)
     """
     # 1) pair-file
     if args.pair_file:
@@ -52,60 +50,23 @@ def _resolve_two_inputs(args: argparse.Namespace) -> Tuple[str, str]:
     if left and right:
         return left, right
 
-    # 3) legacy flags (kept for compatibility)
-    puzzlink_url = args.puzzlink_url
-    penpa_url = args.penpa_url
-
-    if args.puzzlink_file:
-        puzzlink_url = _first_line_from_file(args.puzzlink_file, "--puzzlink-file")
-    if args.penpa_file:
-        penpa_url = _first_line_from_file(args.penpa_file, "--penpa-file")
-
-    if puzzlink_url and penpa_url:
-        return puzzlink_url, penpa_url
-
     raise ValueError(
-        "Please provide two inputs via --pair-file, or --left/--right, "
-        "or --left-file/--right-file (legacy: --puzzlink-url/--penpa-url)."
+        "Please provide two inputs via --pair-file, --left/--right, "
+        "or --left-file/--right-file."
     )
 
 
-def _normalize_penpa_url(url: str) -> str:
-    """
-    PenpaConverter.decode expects text starting with `m=edit&p=`.
-    Accept full Penpa URL and convert it into expected format.
-    """
-    url = url.strip()
-    if url.startswith(PENPA_PREFIX):
-        return url
-    if url.startswith(PENPA_URLPREFIX):
-        frag = url.split("#", 1)[1] if "#" in url else ""
-        return frag if frag.startswith(PENPA_PREFIX) else f"{PENPA_PREFIX}{frag}"
-    return url
-
-
 def _detect_format(url: str) -> str:
-    u = url.strip()
-    if u.startswith(PENPA_PREFIX) or u.startswith(PENPA_URLPREFIX):
-        return "penpa"
-    if "#" in u:
-        frag = u.split("#", 1)[1]
-        if "m=" in frag and "p=" in frag:
-            return "penpa"
     try:
-        parse_puzzlink_input(u)
+        parse_puzzlink_input(url.strip())
         return "puzzlink"
-    except ValueError:
-        pass
-    raise ValueError("Unknown URL format. Please provide puzz.link or penpa URL.")
+    except ValueError as exc:
+        raise ValueError("Unknown URL format. Please provide a puzz.link URL.") from exc
 
 
 def decode_url_to_ir(url: str) -> Tuple[str, PuzzleInstance]:
     fmt = _detect_format(url)
-    if fmt == "puzzlink":
-        return fmt, PuzzlinkConverter().decode(url)
-    normalized = _normalize_penpa_url(url)
-    return fmt, PenpaConverter().decode(normalized)
+    return fmt, PuzzlinkConverter().decode(url)
 
 
 def summarize_ir(ir: PuzzleInstance) -> Dict[str, Any]:
@@ -387,9 +348,6 @@ def _safe_roundtrip(fmt: str, ir: PuzzleInstance) -> Dict[str, Any]:
         if fmt == "puzzlink":
             encoded = PuzzlinkConverter().encode(ir)
             decoded = PuzzlinkConverter().decode(encoded)
-        elif fmt == "penpa":
-            encoded = PenpaConverter().encode(ir)
-            decoded = PenpaConverter().decode(encoded)
         else:
             return {"ok": False, "error": f"Unknown format: {fmt}"}
 
@@ -467,34 +425,19 @@ def _setup_logging(args: argparse.Namespace) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Compare two puzzle URLs (puzz.link / penpa) by IR diff + similarity."
+        description="Compare two puzz.link URLs by IR diff + similarity."
     )
     # New generic interface
-    parser.add_argument("--left", type=str, default="", help="Left input: puzz.link URL or penpa URL/payload")
-    parser.add_argument("--right", type=str, default="", help="Right input: puzz.link URL or penpa URL/payload")
+    parser.add_argument("--left", type=str, default="", help="Left input: puzz.link URL")
+    parser.add_argument("--right", type=str, default="", help="Right input: puzz.link URL")
     parser.add_argument("--left-file", type=str, default="", help="Read left input from file (first non-empty line)")
     parser.add_argument("--right-file", type=str, default="", help="Read right input from file (first non-empty line)")
 
-    # Legacy interface (kept for compatibility)
-    parser.add_argument("--puzzlink-url", type=str, default="", help="puzz.link URL")
-    parser.add_argument("--penpa-url", type=str, default="", help="penpa URL or m=edit&p=...")
-    parser.add_argument(
-        "--puzzlink-file",
-        type=str,
-        default="",
-        help="read puzz.link URL from file (first non-empty line)",
-    )
-    parser.add_argument(
-        "--penpa-file",
-        type=str,
-        default="",
-        help="read penpa URL from file (first non-empty line)",
-    )
     parser.add_argument(
         "--pair-file",
         type=str,
         default="",
-        help="read two URLs from one file: line1=puzzlink, line2=penpa",
+        help="read two puzz.link URLs from one file",
     )
     parser.add_argument("--max-diff", type=int, default=20, help="max diff examples per section")
     parser.add_argument(

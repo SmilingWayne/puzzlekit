@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Set
+from typing import Dict, Optional, Set
 
 # Single source of truth: canonical IR type -> per-format metadata.
 # key: Intermediate Representation (IR) puzzle type.
@@ -6,98 +6,73 @@ from typing import Dict, List, Optional, Set
 # - puzzlink.aliases: accepted source names / aliases
 # - puzzlink.primary: preferred type token when encoding puzz.link URL
 # - puzzlink.family: decode/encode pipeline family in PuzzlinkConverter
-# - penpa.aliases: accepted genre-tag aliases when decoding penpa
-# - penpa.genre_tag: preferred genre tag when encoding penpa
-# If penpa.genre_tag is omitted, a placeholder (canonical type) is used.
 
 PUZZLE_TYPES_DICT: Dict[str, Dict[str, Dict[str, object]]] = {
     "heyawake": {
         "puzzlink": {"aliases": ["heyawake", "heyawacky", "heyawack"], "primary": "heyawake", "family": "heyawake_family"},
-        "penpa": {"aliases": ["heyawake"], "genre_tag": "heyawake"},
     },
     "shikaku": {
         "puzzlink": { "aliases": ["shikaku"], "primary": "shikaku", "family": "heyawake_family"},
-        "penpa": { "aliases": ["shikaku"], 'genre_tag': ['shikaku']},
     },
     "aqre": {
         "puzzlink": {"aliases": ["aqre"], "primary": "aqre", "family": "heyawake_family"},
-        "penpa": {"aliases": ["aqre"], "genre_tag": "aqre"},
     },
     "shimaguni": {
         "puzzlink": {"aliases": ["shimaguni"], "primary": "shimaguni", "family": "heyawake_family"},
-        "penpa": {"aliases": ["shimaguni (islands)"], "genre_tag": "shimaguni (islands)"},
     },
     "stostone": {
         "puzzlink": {"aliases": ["stostone"], "primary": "stostone", "family": "heyawake_family"},
-        "penpa": {"aliases": ["stostone"]},
     },
     "ayeheya": {
         "puzzlink": {"aliases": ["ayeheya"], "primary": "ayeheya", "family": "heyawake_family"},
-        "penpa": {"aliases": ["ayeheya (ekawayeh)"], "genre_tag": "ayeheya (ekawayeh)"},
     },
     "country": {
         "puzzlink": {"aliases": ["country"], "primary": "country", "family": "heyawake_family"},
-        "penpa": {"aliases": ["country road"], "genre_tag": "country road"},
     },
     "nonogram": {
         "puzzlink": {"aliases": ["nonogram"], "primary": "nonogram", "family": "nonogram_family"},
-        "penpa": {"aliases": ["nonogram"]},
     },
     "nurikabe": {
         "puzzlink": {"aliases": ["nurikabe"], "primary": "nurikabe", "family": "nurikabe_family"},
-        "penpa": {"aliases": ["nurikabe"]},
     },
     "kurochute": {
         "puzzlink": {"aliases": ["kurochute", "kuroshuto", "kurochuto"], "primary": "kurochute", "family": "nurikabe_family"},
-        "penpa": {"aliases": ["kurochute"], "genre_tag": "kurochute"},
     },
     "kurodoko": {
         "puzzlink": {"aliases": ["kurodoko"], "primary": "kurodoko", "family": "nurikabe_family"},
-        "penpa": {"aliases": ["kurodoko"]},
     },
     "kurotto": {
         "puzzlink": {"aliases": ["kurotto"], "primary": "kurotto", "family": "nurikabe_family"},
-        "penpa": {"aliases": ["kurotto"]},
     },
     "nurimisaki": {
         "puzzlink": {"aliases": ["nurimisaki"], "primary": "nurimisaki", "family": "nurikabe_family"},
-        "penpa": {"aliases": ["nurimisaki"]},
     },
     "moonsun": {
         "puzzlink": {"aliases": ["moonsun"], "primary": "moonsun", "family": "masyu_family"},
-        "penpa": {"aliases": ["moonsun"], 'genre_tag': 'moon or sun'},
     },
     "masyu": {
         "puzzlink": {"aliases": ["masyu", "mashu", "pearl"], "primary": "masyu", "family": "masyu_family"},
-        "penpa": {"aliases": ["masyu"]},
     },
     "slitherlink": {
         "puzzlink": {"aliases": ["slitherlink", "slither", "vslither", "tslither"], "primary": "slither", "family": "slither_family"},
-        "penpa": {"aliases": ["slitherlink"], "genre_tag": "slitherlink"},
     },
     "tapa": {
         "puzzlink": {"aliases": ["tapa"], "primary": "tapa", "family": "tapa_family"},
-        "penpa": {"aliases": ["tapa"], "genre_tag": "tapa"},
     },
     "tapaloop": {
         "puzzlink": {"aliases": ["tapaloop", "tapa-like-loop"], "primary": "tapaloop", "family": "tapaloop_family"},
-        "penpa": {"aliases": ["tapalikeloop", "tapa-like-loop"], "genre_tag": "tapa-like-loop"},
     },
     "yajilin": {
         "puzzlink": {"aliases": ["yajilin", "yajirin"], "primary": "yajilin", "family": "yajilin_family"},
-        "penpa": {"aliases": ["yajilin"], "genre_tag": "yajilin"},
     },
     "castle": {
         "puzzlink": {"aliases": ["castle"], "primary": "castle", "family": "yajilin_family"},
-        "penpa": {"aliases": ["castlewall"], "genre_tag": "castlewall"},
     },
     "hebi": {
         "puzzlink": {"aliases": ["hebi", "snakes"], "primary": "hebi", "family": "yajilin_family"},
-        "penpa": {"aliases": ["hebi-ichigo"], "genre_tag": "hebi-ichigo"},
     },
     "fillomino": {
         "puzzlink": {"aliases": ["fillomino"], "primary": "fillomino", "family": "fillomino_family"},
-        "penpa": {"aliases": ["fillomino"], "genre_tag": "fillomino"},
     }
 }
 
@@ -121,8 +96,6 @@ PUZZLE_TYPE_ALIASES: Dict[str, str] = {}
 for canonical, meta in PUZZLE_TYPES_DICT.items():
     PUZZLE_TYPE_ALIASES[canonical] = canonical
     for alias in meta.get("puzzlink", {}).get("aliases", []):
-        PUZZLE_TYPE_ALIASES[str(alias).strip().lower()] = canonical
-    for alias in meta.get("penpa", {}).get("aliases", []):
         PUZZLE_TYPE_ALIASES[str(alias).strip().lower()] = canonical
 
 # Canonical -> primary puzz.link type token for encoding URLs.
@@ -164,19 +137,6 @@ def normalize_puzzle_type(puzzle_type: str) -> str:
 def to_puzzlink_type(canonical_type: str) -> str:
     """Map canonical IR type to a puzz.link type token."""
     return IR_TO_PUZZLINK_TYPE.get(canonical_type, canonical_type)
-
-
-def get_penpa_genre_tags(canonical_type: str) -> List[str]:
-    """
-    Return penpa genre tags for encoding.
-
-    If genre_tag is not explicitly provided, use canonical type as placeholder.
-    """
-    norm = normalize_puzzle_type(canonical_type)
-    meta = PUZZLE_TYPES_DICT.get(norm, {})
-    penpa_meta = meta.get("penpa", {})
-    genre_tag = str(penpa_meta.get("genre_tag", norm))
-    return [genre_tag]
 
 
 def get_puzzlink_decode_family(canonical_type: str) -> Optional[str]:

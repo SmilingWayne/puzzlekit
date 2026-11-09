@@ -302,7 +302,6 @@ class PuzzlinkConverter:
 
 
 if __name__ == "__main__":
-    from puzzlekit.formats.penpa_converter import PenpaConverter
     PzpCvtr = PuzzlinkConverter()
     url_list = [
         "https://puzz.link/p?hebi/10/10/d0.b35c150.a44k0.a25c0.41a0.d0.e41a0.b25a0.e0.d0.a0.0.c30a23k44a0.43c0.b35d"
@@ -314,8 +313,3 @@ if __name__ == "__main__":
         logger.info(p_ir.cells)
         url_new = PzpCvtr.encode(p_ir)
         logger.info(f" -> {url_new}")
-        penpa = PenpaConverter()
-        penpa_url = penpa.encode(p_ir)
-        
-        logger.info(penpa_url)
-        
