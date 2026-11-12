@@ -1,40 +1,78 @@
-name: Publish to PyPI
+name: Build wheels and publish
 
-# Trigger: only when a tag starting with 'v' is pushed to the repository
-# For example: git push origin v0.1.0 (will trigger)
 on:
+  pull_request:
+    branches: [main, v0.4.0-dev]
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 jobs:
-  build-n-test:
+  test:
     uses: ./.github/workflows/reusable_build_test.yml
     with:
-      python_version: "3.10"
-      upload_artifact: true
-      build_package: true
+      python_version: "3.12"
+      upload_artifact: false
+      build_package: false
 
-  # Second stage: publish to PyPI
-  # Only run if the build-n-test stage succeeds
-  publish-to-pypi:
-    name: Publish to PyPI
-    needs: build-n-test # Dependency: must wait for tests to pass
+  wheels:
+    name: Wheels (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, windows-latest, macos-14, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: pypa/cibuildwheel@v3.3.0
+        with:
+          output-dir: wheelhouse
+        env:
+          CIBW_BEFORE_ALL_LINUX: "curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal"
+          CIBW_ENVIRONMENT_LINUX: 'PATH="$HOME/.cargo/bin:$PATH"'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}
+          path: wheelhouse/*.whl
+
+  sdist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build
+      - run: python -m build --sdist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-distribution
+          path: dist/*.tar.gz
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [test, wheels, sdist]
     runs-on: ubuntu-latest
     environment:
       name: pypi
       url: https://pypi.org/p/puzzlekit
     permissions:
-      id-token: write # This line is important for new Trusted Publishing, but also compatible with Token method
-
+      id-token: write
     steps:
-      - name: Download all the dists
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
-          name: python-package-distributions
+          pattern: wheels-*
+          merge-multiple: true
           path: dist/
-
-      - name: Publish distribution 📦 to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-distribution
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}

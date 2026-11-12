@@ -1,13 +1,8 @@
 name: Deploy Docs
 
 on:
-  # Trigger: main or basic-dev branch has push
-  push:
-    branches:
-      - main
-      - basic-dev  # You can test the effect on the development branch
-  
-  # Allow manual trigger (click the button on the Actions page)
+  # This site still documents the legacy API. Re-enable automatic deployment
+  # when its content has been migrated to the URL solver.
   workflow_dispatch:
 
 # Permission setting: must give write permission to push to gh-pages branch
@@ -37,7 +32,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install .  
-          pip install mkdocs-material
+          pip install mkdocs-material ortools numpy matplotlib typeguard
 
       - name: Generate Puzzle Docs
         run: |

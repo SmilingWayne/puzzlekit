@@ -1,0 +1,13 @@
+[package]
+name = "puzzlekit-cspuz"
+version = "0.4.0-dev"
+edition = "2021"
+publish = false
+
+[lib]
+name = "_cspuz"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.27", features = ["extension-module"] }
+cspuz_solver_backend = { git = "https://github.com/semiexp/cspuz_core.git", rev = "d6424dc3da9f8128682c9b02669e77cdedb13c72" }

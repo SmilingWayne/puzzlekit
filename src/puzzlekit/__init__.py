@@ -1,6 +1,7 @@
 from typing import Dict, Any, Optional, Union
-from puzzlekit.solvers import get_solver_class
-from puzzlekit.parsers.registry import get_parser
+import json
+
+from puzzlekit.core.result import PuzzleResult
 from puzzlekit.formats.base import PuzzleInstance
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
 
@@ -35,120 +36,49 @@ def _build_converter(fmt: str, converter_config: Optional[Dict[str, Any]] = None
         return PuzzlinkConverter(converter_config or {})
     raise ValueError(f"Unsupported converter format '{fmt}'.")
 
-def solve(
-    source: Union[str, Dict[str, Any]],
-    puzzle_type: str,
-    solver_options: Optional[Dict[str, Any]] = None,
-    **kwargs
-) -> Any:
+def solve(source: str, puzzle_type: Optional[str] = None, solver_options: Optional[Dict[str, Any]] = None, **kwargs) -> PuzzleResult:
+    """Solve a URL supported by the bundled cspuz backend.
+
+    For Nurikabe, the board contains the answer facts shared by all solutions.
+    Dataset text conversion is a separate operation. Legacy per-puzzle solver classes and
+    OR-Tools options are no longer supported in v0.4.
     """
-    Unified entry point for solving puzzles.
+    if puzzle_type is not None or solver_options is not None or kwargs:
+        raise ValueError("v0.4 solves puzzle URLs; dataset text and legacy solver options are not accepted")
+    if not isinstance(source, str) or not source.strip():
+        raise ValueError("source must be a non-empty puzzle URL")
+    from puzzlekit._cspuz import solve_url as _solve_url
 
-    Args:
-        source:
-            - A string containing the raw puzzle data (with headers, e.g. "9 9\n...").
-            - A dictionary (pre-parsed data).
-        puzzle_type: The snake_case type name (e.g., 'akari', 'fuzuli').
-        solver_options: Optional dict of OR-Tools solver parameters.
-                       Common options:
-                       - time_limit_sec: Maximum solving time in seconds (default: 30.0)
-                       - num_search_workers: Number of parallel search workers
-                       - use_branching: Enable branching heuristic
-        show: Whether to visualize the result.
-        **kwargs: Overrides for solver parameters.
-    """
-
-    # --- 1.  (Parsing) ---
-    init_params = {}
-
-    if isinstance(source, dict):
-        init_params = source.copy()
-
-    elif isinstance(source, str):
-        try:
-            target_parser = get_parser(puzzle_type)
-            parsed_data = target_parser(source.strip())
-
-            if parsed_data is None:
-                raise ValueError(f"Parser returned None for type '{puzzle_type}'")
-
-            init_params.update(parsed_data)
-        except ValueError as e:
-            raise ValueError(f"Parsing failed for type '{puzzle_type}': {e}")
-
-    else:
-        raise TypeError(f"Source must be dict or raw string, got {type(source)}")
-
-    init_params.update(kwargs)
-
+    source = source.strip()
+    board_json, status = _solve_url(source)
     try:
-        SolverClass = get_solver_class(puzzle_type)
-    except ValueError as e:
-        raise ValueError(f"Unknown puzzle type '{puzzle_type}'.") from e
+        board = json.loads(board_json)
+    except (TypeError, ValueError) as exc:
+        raise RuntimeError("cspuz returned an invalid board representation") from exc
+    return PuzzleResult(source=source, status=status, board=board)
 
 
-    solver_instance = SolverClass(**init_params)
-
-    result = solver_instance.solve(solver_options=solver_options)
-
-    return result
+def solve_url(source: str) -> PuzzleResult:
+    """Solve a puzzle URL. Alias of :func:`solve`."""
+    return solve(source)
 
 
-_INFERENCE_REMOVAL_MESSAGE = (
-    "puzzlekit.infer() and Inference* types were removed from PuzzleKit. "
-    "Use puzzlekit.solve() for direct puzzle -> answer solving."
-)
+def supported_puzzles() -> list[tuple[str, str]]:
+    """Return upstream's (English, Japanese) supported puzzle entries.
 
-
-class _RemovedInferenceSymbol:
-    """Compatibility placeholder for removed inference data models."""
-
-    def __init__(self, *_args, **_kwargs):
-        raise RuntimeError(_INFERENCE_REMOVAL_MESSAGE)
-
-
-class InferenceResult(_RemovedInferenceSymbol):
-    pass
-
-
-class InferenceTrace(_RemovedInferenceSymbol):
-    pass
-
-
-class InferenceState(_RemovedInferenceSymbol):
-    pass
-
-
-def infer(
-    source: PuzzleInstance,
-    puzzle_type: Optional[str] = None,
-    *,
-    engine: str = "trivial",
-    initial_state: Optional[InferenceState] = None,
-) -> InferenceResult:
+    Entries include multiple URL formats and variants; presence does not imply
+    that every format or arbitrary variant is supported.
     """
-    Deprecated compatibility API for removed inference subsystem.
-    """
-    _ = (source, puzzle_type, engine, initial_state)
-    raise RuntimeError(_INFERENCE_REMOVAL_MESSAGE)
+    from puzzlekit._cspuz import supported_puzzles as _supported_puzzles
+    return _supported_puzzles()
 
 
-def solver(puzzle_type: str, data: Dict[str, Any] = None, **kwargs) -> Any:
-    # return solve(source=data, puzzle_type=puzzle_type, **kwargs)
-    init_params = {}
+def solver(*_args, **_kwargs):
+    raise RuntimeError("per-puzzle solver classes were removed in v0.4; use puzzlekit.solve(url)")
 
-    if isinstance(data, dict):
-        init_params = data.copy()
-    else:
-        raise TypeError(f"Source must be dict or raw string, got {type(data)}")
 
-    init_params.update(kwargs)
-
-    try:
-        SolverClass = get_solver_class(puzzle_type)
-    except ValueError as e:
-        raise ValueError(f"Unknown puzzle type '{puzzle_type}'.") from e
-    return SolverClass(**init_params)
+def infer(*_args, **_kwargs):
+    raise RuntimeError("puzzlekit.infer() was removed; rule-based solving is not part of this API")
 
 
 def decode(
@@ -237,17 +167,7 @@ def convert(
         return ir
     return encode(ir, dst, converter_config=encode_cfg)
 
-__all__ = [
-    "solve",
-    "infer",
-    "solver",
-    "decode",
-    "encode",
-    "convert",
-    "InferenceResult",
-    "InferenceTrace",
-    "InferenceState",
-]
+__all__ = ["solve", "solve_url", "supported_puzzles", "PuzzleResult", "decode", "encode", "convert"]
 
 from importlib.metadata import PackageNotFoundError, version
 try:

@@ -1,9 +1,15 @@
 include README.md
 include LICENSE
+include LICENSE-cspuz
 include pyproject.toml
 
 graft src
 graft tests
+graft rust
+prune rust/target
+include docs/CSPUZ_INTEGRATION.md
+global-exclude *.py[cod]
+global-exclude __pycache__/*
 prune crawlers
 prune scripts
 prune assets
