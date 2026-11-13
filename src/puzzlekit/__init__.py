@@ -1,9 +1,13 @@
 from typing import Dict, Any, Optional, Union
 import json
+import re
 
 from puzzlekit.core.result import PuzzleResult
 from puzzlekit.formats.base import PuzzleInstance
 from puzzlekit.formats.puzzlink_converter import PuzzlinkConverter
+from puzzlekit.formats.shading import (TYPES, ALIASES, puzzle_path, decode_shading,
+                                      encode_shading, check_backend_clues)
+from puzzlekit.formats import extended, regions, yajilin
 
 
 _FORMAT_ALIASES = {
@@ -13,6 +17,14 @@ _FORMAT_ALIASES = {
     "instance": "ir",
     "puzzleinstance": "ir",
 }
+
+
+_ADAPTER_TOKENS = TYPES | set(ALIASES) | set(extended.ALIASES) | regions.TYPES | yajilin.ALIASES
+
+
+def _has_adapter_path(source: str) -> bool:
+    tokens = "|".join(sorted(_ADAPTER_TOKENS))
+    return bool(re.search(r"(?:^|[?&](?:p=)?)(?:" + tokens + r")/", source))
 
 
 def _normalize_format_name(name: str) -> str:
@@ -28,6 +40,12 @@ def _detect_source_format(source: str) -> str:
     s = source.strip()
     if "puzz.link/p?" in s:
         return "puzzlink"
+    try:
+        path = puzzle_path(s)
+        if path.split('/', 1)[0] in _ADAPTER_TOKENS:
+            return "puzzlink"
+    except ValueError:
+        pass
     raise ValueError("Cannot detect source format. Please pass source_format explicitly.")
 
 
@@ -50,12 +68,44 @@ def solve(source: str, puzzle_type: Optional[str] = None, solver_options: Option
     from puzzlekit._cspuz import solve_url as _solve_url
 
     source = source.strip()
-    board_json, status = _solve_url(source)
+    instance = None
+    normalized = source
+    # Keep the existing upstream dispatch for other URL families, but fully
+    # validate and canonicalize the verified puzz.link varieties.
+    try:
+        path = puzzle_path(source)
+    except ValueError:
+        if _has_adapter_path(source):
+            raise
+        path = ""
+    token = path.split("/", 1)[0]
+    if token in yajilin.ALIASES:
+        instance = yajilin.decode(source)
+        normalized = yajilin.encode(instance)
+        yajilin.check_backend_rules(instance)
+    elif token in regions.TYPES:
+        instance = regions.decode_regions(source)
+        normalized = regions.encode_regions(instance)
+        regions.check_backend_clues(instance)
+    elif token in extended.ALIASES:
+        instance = extended.decode_extended(source)
+        if instance.puzzle_type == 'shikaku':
+            check_backend_clues(instance)
+        extended.check_backend_rules(instance)
+        normalized = extended.encode_extended(instance)
+    elif ALIASES.get(token, token) in TYPES:
+        instance = decode_shading(source)
+        check_backend_clues(instance)
+        normalized = encode_shading(instance)
+    backend_input = (extended.backend_url(normalized)
+                     if instance and instance.puzzle_type in extended.TYPES else normalized)
+    board_json, status = _solve_url(backend_input)
     try:
         board = json.loads(board_json)
     except (TypeError, ValueError) as exc:
         raise RuntimeError("cspuz returned an invalid board representation") from exc
-    return PuzzleResult(source=source, status=status, board=board)
+    return PuzzleResult(source=source, status=status, board=board,
+                        puzzle=instance, normalized_url=normalized)
 
 
 def solve_url(source: str) -> PuzzleResult:
@@ -101,6 +151,20 @@ def decode(
     if fmt == "ir":
         raise ValueError("decode(source_format='ir') is not valid.")
 
+    try:
+        path = puzzle_path(source)
+        token = path.split("/", 1)[0]
+        if token in yajilin.ALIASES:
+            return yajilin.decode(source)
+        if token in regions.TYPES:
+            return regions.decode_regions(source)
+        if token in extended.ALIASES:
+            return extended.decode_extended(source)
+        if ALIASES.get(token, token) in TYPES:
+            return decode_shading(source)
+    except ValueError:
+        if _has_adapter_path(source):
+            raise
     converter = _build_converter(fmt, converter_config)
     return converter.decode(source)
 
@@ -124,6 +188,15 @@ def encode(
     fmt = _normalize_format_name(target_format)
     if fmt == "ir":
         raise ValueError("encode(target_format='ir') is not valid.")
+
+    if instance.puzzle_type == 'yajilin':
+        return yajilin.encode(instance)
+    if instance.puzzle_type in regions.TYPES:
+        return regions.encode_regions(instance)
+    if instance.puzzle_type in extended.TYPES:
+        return extended.encode_extended(instance)
+    if ALIASES.get(instance.puzzle_type, instance.puzzle_type) in TYPES:
+        return encode_shading(instance)
 
     converter = _build_converter(fmt, converter_config)
     return converter.encode(instance)

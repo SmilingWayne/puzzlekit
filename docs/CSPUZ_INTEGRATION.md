@@ -24,9 +24,8 @@ serialization is exposed by our extension. They should not be presented as
 current Python APIs. If introduced later, bounded enumeration and common facts
 should remain distinct, and unsupported formats and variants must be tested.
 
-A future pzprjs adapter should interpret each genre's board items and map only
-known answer facts to the corresponding player marks. It must handle clues,
-unknown cells and no-solution results explicitly, verify coordinate conventions
-against pzprjs, and round-trip generated state links through the actual pzprjs
-implementation. A cspuz JSON board is not itself a pzprjs state. Dataset text
-conversion should independently create a link, then call the same URL solver.
+The fifteen pzprjs adapters map known shading, loop, partition and bulb facts
+to native player marks; their input limits, state semantics and verification are
+documented in [V040_EXTENDED_ADAPTERS.md](V040_EXTENDED_ADAPTERS.md). Other genres still need
+their own mappings and pzprjs checks. A cspuz JSON board is not itself a pzprjs
+state. Dataset text conversion remains separate from the URL solver.
