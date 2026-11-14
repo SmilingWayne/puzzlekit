@@ -1,0 +1,18 @@
+[
+  {
+    "path": "nanro/4/4/7pgkloi11l3j",
+    "status": "unique",
+    "record": "nanro0037",
+    "fileio": "pzprv3.1\nnanro\n4\n4\n0 0 1 \n1 1 1 \n1 0 0 \n1 1 0 \n1 0 1 0 \n0 1 0 1 \n0 1 1 1 \n. . . 1 \n1 . . . \n. . . 3 \n. . . . \n- - 2 . \n. 2 3 - \n- 3 - . \n- 1 2 2 \n"
+  },
+  {
+    "path": "nanro/2/2/00.2h",
+    "status": "unique",
+    "fileio": "pzprv3.1\nnanro\n2\n2\n0 \n0 \n0 0 \n- 2 \n. . \n. . \n- - \n"
+  },
+  {
+    "path": "nanro/2/2/00j",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nnanro\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n. . \n. . \n"
+  }
+]

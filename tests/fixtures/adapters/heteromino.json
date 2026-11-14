@@ -1,0 +1,17 @@
+[
+  {
+    "path": "heteromino/5/5/f7a7f7a7g",
+    "status": "unique",
+    "record": "heteromino0018",
+    "fileio": "pzprv3\nheteromino\n5\n5\n. . . . . \n. * . * . \n. . . . . \n* . * . . \n. . . . . \n0 -1 1 1 -1 0 \n0 0 0 0 0 0 \n0 -1 1 1 -1 0 \n0 0 0 0 1 0 \n0 -1 -1 1 -1 0 \n0 0 0 0 0 \n-1 0 -1 0 -1 \n1 0 -1 0 1 \n0 -1 0 -1 1 \n0 1 0 1 -1 \n0 0 0 0 0 \n"
+  },
+  {
+    "path": "heteromino/5/5/d7b7a7b7b77c7d",
+    "status": "unique",
+    "fileio": "pzprv3\nheteromino\n5\n5\n. . . . * \n. . * . * \n. . * . . \n* * . . . \n* . . . . \n0 -1 1 -1 0 0 \n0 1 0 0 0 0 \n0 -1 0 0 1 0 \n0 0 0 -1 1 0 \n0 0 -1 -1 1 0 \n0 0 0 0 0 \n-1 1 0 -1 0 \n1 -1 0 1 0 \n0 0 0 -1 -1 \n0 0 1 1 -1 \n0 0 0 0 0 \n"
+  },
+  {
+    "path": "heteromino/2/2/d",
+    "status": "no_solution"
+  }
+]

@@ -3,7 +3,7 @@ from puzzlekit.puzzles import (
     akari, aqre, cave, heyawake, hitori, kuromasu, kurotto, lits, masyu,
     norinori, nurikabe, nurimisaki, shikaku, slitherlink, yajilin,
     ayeheya, chocona, shimaguni, mines, aquapelago, chainedb, cbanana,
-    context, tasquare, canal, araf, squarejam, fillomino, gokigen, shakashaka, tapa, stostone, sudoku, simpleloop, yinyang, hashi, nonogram
+    context, tasquare, canal, araf, squarejam, fillomino, gokigen, shakashaka, tapa, stostone, sudoku, simpleloop, yinyang, hashi, nonogram, fivecells, fourcells, paintarea, geradeweg, country, nagenawa, doubleback, dbchoco, ringring, sashigane, sukoro, moonsun, nanro, putteria, ripple, circlesquare, dominion, heteromino, fillmat, nikoji
 )
 
 ADAPTERS = (
@@ -44,5 +44,25 @@ ADAPTERS = (
     yinyang.ADAPTER,
     hashi.ADAPTER,
     nonogram.ADAPTER,
+    fivecells.ADAPTER,
+    fourcells.ADAPTER,
+    paintarea.ADAPTER,
+    geradeweg.ADAPTER,
+    country.ADAPTER,
+    nagenawa.ADAPTER,
+    doubleback.ADAPTER,
+    dbchoco.ADAPTER,
+    ringring.ADAPTER,
+    sashigane.ADAPTER,
+    sukoro.ADAPTER,
+    moonsun.ADAPTER,
+    nanro.ADAPTER,
+    putteria.ADAPTER,
+    ripple.ADAPTER,
+    circlesquare.ADAPTER,
+    dominion.ADAPTER,
+    heteromino.ADAPTER,
+    fillmat.ADAPTER,
+    nikoji.ADAPTER,
 )
 BY_TOKEN = {token: adapter for adapter in ADAPTERS for token in adapter.aliases}

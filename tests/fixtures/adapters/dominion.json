@@ -1,0 +1,14 @@
+[
+  {
+    "path": "dominion/6/6/m4h2g4g1l1m3g3j",
+    "status": "unique",
+    "record": "dominion0003",
+    "fileio": "pzprv3\ndominion\n6\n6\n. . . . . . \n. 4 . . 2 . \n4 . 1 . . . \n. . . 1 . . \n. . . . . 3 \n. 3 . . . . \n# # + + + # \n+ + # # + # \n+ # + + # + \n+ # + + # + \n# + # # + + \n# + + + + + \n"
+  },
+  {
+    "path": "dominion/6/6/i1p1g3g2m2i2h3h",
+    "status": "unique",
+    "record": "dominion0005",
+    "fileio": "pzprv3\ndominion\n6\n6\n. . . 1 . . \n. . . . . . \n. . 1 . 3 . \n2 . . . . . \n. . 2 . . . \n2 . . 3 . . \n+ + + + # # \n# + + # + + \n# + + # + + \n+ # # + + + \n+ + + # # + \n+ # # + + + \n"
+  }
+]

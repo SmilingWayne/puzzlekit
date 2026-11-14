@@ -10,4 +10,6 @@ class Puzzle:
     cells: dict = field(default_factory=dict)
     borders: dict = field(default_factory=dict)
     display_b: bool = False
+    rule_flag: str = ""
     body: str = ""
+    holes: dict = field(default_factory=dict)

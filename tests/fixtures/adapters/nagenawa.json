@@ -1,0 +1,14 @@
+[
+  {
+    "path": "nagenawa/4/4/94g1s03h1",
+    "status": "unique",
+    "record": "nagenawa0019",
+    "fileio": "pzprv3\nnagenawa\n4\n4\n4\n0 0 1 1 \n0 0 1 1 \n2 2 3 3 \n2 2 3 3 \n3 . . . \n. . . . \n. . 1 . \n. . . . \n1 1 -1 \n-1 -1 -1 \n1 1 -1 \n-1 -1 -1 \n1 -1 1 -1 \n1 -1 1 -1 \n-1 -1 -1 -1 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n"
+  },
+  {
+    "path": "nagenawa/4/4/iqg21g462",
+    "status": "unique",
+    "record": "nagenawa0020",
+    "fileio": "pzprv3\nnagenawa\n4\n4\n3\n0 1 1 1 \n0 1 1 2 \n0 1 1 2 \n0 0 2 2 \n4 6 . . \n. . . . \n. . . . \n. . 2 . \n-1 -1 1 \n1 -1 -1 \n-1 -1 1 \n1 -1 -1 \n-1 -1 1 1 \n1 1 1 1 \n1 1 -1 -1 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n"
+  }
+]

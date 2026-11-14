@@ -1,0 +1,18 @@
+[
+  {
+    "path": "ripple/4/4/rc00fo2g1o1i",
+    "status": "unique",
+    "record": "ripple0082",
+    "fileio": "pzprv3\nripple\n4\n4\n1 1 0 \n1 1 0 \n1 1 0 \n0 0 0 \n0 0 0 0 \n0 0 1 1 \n1 1 1 1 \n2 . 1 . \n. . . . \n. . . . \n1 . . . \n. 3 . 2 \n1 2 4 3 \n3 1 2 1 \n. 4 3 2 \n"
+  },
+  {
+    "path": "ripple/2/2/00123.",
+    "status": "unique",
+    "fileio": "pzprv3\nripple\n2\n2\n0 \n0 \n0 0 \n1 2 \n3 - \n. . \n. . \n"
+  },
+  {
+    "path": "ripple/2/2/00j8",
+    "status": "multiple",
+    "fileio": "pzprv3\nripple\n2\n2\n0 \n0 \n0 0 \n. # \n. . \n. . \n. . \n"
+  }
+]

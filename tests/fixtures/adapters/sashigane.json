@@ -1,0 +1,13 @@
+[
+  {
+    "path": "sashigane/4/3/u4",
+    "status": "unique",
+    "record": "sashigane0048",
+    "fileio": "pzprv3\nsashigane\n3\n4\n. . . . \n. . . . \n. . . o4 \n-1 -1 1 \n1 -1 1 \n1 1 -1 \n-1 1 1 -1 \n-1 -1 1 -1 \n"
+  },
+  {
+    "path": "sashigane/6/6/l4mjm.ngpgkjmiq",
+    "status": "unique",
+    "fileio": "pzprv3\nsashigane\n6\n6\n. . o4 . . . \n4 . . . o . \n. . . 1 . . \n. . . . 1 . \n4 . . . 3 . \n. . . . . . \n-1 -1 1 -1 -1 \n-1 1 1 1 -1 \n1 1 1 1 1 \n-1 1 1 1 1 \n-1 -1 1 -1 1 \n-1 -1 -1 -1 -1 \n1 1 -1 -1 1 1 \n1 -1 1 -1 -1 1 \n-1 1 -1 1 -1 -1 \n1 1 -1 -1 1 -1 \n1 1 1 1 1 -1 \n"
+  }
+]

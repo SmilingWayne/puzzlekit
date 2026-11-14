@@ -122,3 +122,24 @@ def test_minesweeper_impossible_clue_has_no_solution():
 def test_new_puzzle_limits_and_unsupported_variants(path):
     with pytest.raises(ValueError):
         puzzlekit.solve(path)
+
+
+@pytest.mark.parametrize('path', [
+    'heteromino/2/2/1c',     # pinned backend only understands blocked clues
+    'dominion/2/2/.i',         # unknown territory labels differ across models
+    'sukoro/2/2/0c',          # zero is not a backend clue
+    'circlesquare/2/2/00',    # cspuz also admits the all-white square
+    'nagenawa/2/2/00g',       # cspuz also admits empty loops
+    'sashigane/2/2/@n',       # unspecified arrow direction is not supported
+    'ripple/2/2/001ig',       # a hole cannot also contain a clue
+])
+def test_new_adapters_reject_incompatible_clues(path):
+    with pytest.raises(ValueError):
+        puzzlekit.solve(path)
+
+
+def test_geradeweg_full_loop_without_clues():
+    result = puzzlekit.solve('geradeweg/f/2/2/j')
+    assert result.status == 'unique'
+    assert result.normalized_url.endswith('geradeweg/f/2/2/j')
+    assert '\nf\n' in result.to_pzpr()

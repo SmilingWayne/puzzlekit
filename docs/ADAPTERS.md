@@ -15,9 +15,19 @@ state export.
 | Chained Block | `chainedb` | Cell shading |
 | Choco Banana | `cbanana` | Cell shading |
 | Chocona | `chocona` | Cell shading |
+| Circles and Squares | `circlesquare` | Cell shading |
 | Context | `context` | Cell shading |
+| Country Road | `country` | Cell loop |
+| Dominion | `dominion` | Cell shading |
+| Double Back | `doubleback` | Cell loop |
+| Double Choco | `dbchoco` | Region boundaries |
+| Fillmat | `fillmat` | Region boundaries |
 | Fillomino | `fillomino` | Cell numbers and region boundaries |
+| FiveCells | `fivecells` | Region boundaries |
+| FourCells | `fourcells` | Region boundaries |
+| Geradeweg | `geradeweg` | Cell loop |
 | Hashiwokakero | `hashikake`, `hashi`, `bridges` | Single and double bridges |
+| Heteromino | `heteromino` | Region boundaries |
 | Heyawake | `heyawake` | Cell shading |
 | Hitori | `hitori` | Cell shading |
 | Kuromasu | `kurodoko` | Cell shading |
@@ -25,10 +35,19 @@ state export.
 | LITS | `lits` | Cell shading |
 | Masyu | `mashu`, `masyu`, `pearl` | Cell loop |
 | Minesweeper | `mines` | Mines and empty cells |
+| Moon or Sun | `moonsun` | Cell loop |
+| Nagenawa | `nagenawa` | Rectangular loops |
+| Nanro | `nanro` | Cell numbers and empty marks |
+| NIKOJI | `nikoji` | Region boundaries |
 | Nonogram | `nonogram` | Cell shading |
 | Norinori | `norinori` | Cell shading |
 | Nurikabe | `nurikabe` | Cell shading |
 | Nurimisaki | `nurimisaki` | Cell shading |
+| Paintarea | `paintarea` | Cell shading |
+| Putteria | `putteria` | Cell numbers and empty marks |
+| Ring-ring | `ringring` | Rectangular loops |
+| Ripple Effect | `ripple` | Cell numbers |
+| Sashigane | `sashigane` | Region boundaries |
 | Shakashaka | `shakashaka` | Triangles and empty cells |
 | Shikaku | `shikaku` | Region boundaries |
 | Shimaguni | `shimaguni` | Cell shading |
@@ -38,6 +57,7 @@ state export.
 | Square Jam | `squarejam` | Region boundaries |
 | Stostone | `stostone` | Cell shading |
 | Sudoku | `sudoku` | Cell numbers |
+| Sukoro | `sukoro` | Cell numbers and empty marks |
 | Tapa | `tapa` | Cell shading |
 | Tasquare | `tasquare` | Cell shading |
 | Yajilin | `yajilin`, `yajirin` | Cell shading and cell loop |
@@ -49,8 +69,30 @@ The adapters accept puzz.link, pzplus and pzpr-trace URLs, along with
 `?p=type/width/height/data`, `?type/width/height/data` and bare puzzle paths.
 PuzzleKit solves from the clues and rules and ignores player `state` and
 `trace`. It rejects unknown query options and unsupported rule variants.
-Yajilin's display flag `b` is preserved.
+Yajilin's display flag `b`, Country Road's empty-room variant `e` and
+Geradeweg's full-loop variant `f` are preserved.
 
+- The new room, loop, and partition adapters require at least two rows and
+  columns. Country Road requires a room boundary or a positive clue; otherwise
+  cspuz may count the empty loop. Geradeweg
+  requires a clue unless the full-loop variant is selected. Nagenawa requires
+  a positive room clue, and Ring-ring requires an unblocked cell, to exclude
+  empty loop answers. Double Back supports optional hole cells.
+- FiveCells and FourCells accept blocked cells, unknown clues, and numeric
+  clues 0–4. Heteromino supports blocked cells only; its numbered variant is
+  not available in the pinned backend. Fillmat accepts clues 1–4 and `?`.
+- Double Choco accepts color cells and clues 1–4095 or `?`. Circles and
+  Squares accepts both circle colors, but on a square board requires a black
+  clue to rule out cspuz's all-white answer. Dominion accepts positive clues
+  1–4095; unknown clues are not supported because backend semantics differ.
+- Sashigane supports directional clues, unnumbered corners and corner numbers
+  0–255; the unspecified-direction clue is not supported. NIKOJI accepts
+  positive clues 1–4095 and requires at least one clue.
+- Paintarea accepts cell clues 0–4 and `?`. Sukoro accepts clues 1–4 or `?`
+  and requires at least one clue to exclude the empty answer. Nanro accepts
+  clues 1–4095 or `?`. Putteria accepts clues 1–4095 and fixed empty cells.
+  Ripple Effect accepts clues 1–4095 or `?` and optional holes; holes cannot
+  also carry clues. Multiple answers retain only established numbers and marks.
 - Hitori accepts clues from 1 to 35 and empty cells.
 - Nurikabe, Kuromasu, Cave, Nurimisaki and Shikaku accept clues from 1 to
   4095 and `?`. Kurotto, Heyawake and Aqre also accept 0.

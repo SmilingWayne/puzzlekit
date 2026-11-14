@@ -1,0 +1,13 @@
+[
+  {
+    "path": "nikoji/3/3/6f-15h-12i",
+    "status": "unique",
+    "record": "nikoji0010",
+    "fileio": "pzprv3\nnikoji\n3\n3\n6 15 21 \n. . 18 \n. . . \n1 1 \n1 1 \n1 -1 \n-1 -1 1 \n-1 1 -1 \n"
+  },
+  {
+    "path": "nikoji/6/5/1i3m21g5h3i4h4g211",
+    "status": "unique",
+    "fileio": "pzprv3\nnikoji\n5\n6\n1 . . . 3 . \n. . . . . . \n2 1 . 5 . . \n3 . . . 4 . \n. 4 . 2 1 1 \n1 -1 -1 1 -1 \n1 -1 -1 1 1 \n1 1 1 -1 1 \n-1 1 1 1 -1 \n1 -1 1 1 1 \n1 -1 -1 -1 -1 1 \n-1 1 1 -1 1 -1 \n1 1 -1 1 1 -1 \n-1 1 -1 -1 1 1 \n"
+  }
+]

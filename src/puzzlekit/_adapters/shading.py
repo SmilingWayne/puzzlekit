@@ -8,7 +8,7 @@ from urllib.parse import unquote, urlsplit
 from puzzlekit._adapters.model import Puzzle
 
 TYPES = frozenset({"nurikabe", "hitori", "kurodoko", "cave", "nurimisaki", "kurotto", "shikaku",
-                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal"})
+                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal", "dominion"})
 ALIASES = {"bag": "cave"}
 _DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 
@@ -178,7 +178,7 @@ def encode_shading(instance):
 
 
 def check_backend_clues(instance):
-    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal'}
+    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal', 'dominion'}
     if instance.puzzle_type in two_dimensional and (instance.rows < 2 or instance.cols < 2):
         raise ValueError('cspuz requires at least two rows and columns for this puzzle')
     for value in instance.cells.values():
@@ -189,6 +189,8 @@ def check_backend_clues(instance):
             value >= 4096 or (value == 0 and instance.puzzle_type not in {'kurotto', 'mines', 'context', 'canal'})
         ):
             raise ValueError("cspuz cannot faithfully represent this number16 clue")
+    if instance.puzzle_type == 'dominion' and any(v == '?' for v in instance.cells.values()):
+        raise ValueError('cspuz Dominion cannot faithfully represent unknown clues')
     if instance.puzzle_type in {'canal', 'context'} and not any(
         isinstance(v, int) and v > 0 for v in instance.cells.values()
     ):
