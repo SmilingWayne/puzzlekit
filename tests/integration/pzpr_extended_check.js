@@ -22,7 +22,7 @@ function eq(a, b, message) {
         }
         eq(state.exportText(p), text, 'native file differs ' + item.source);
         const ans = item.answers;
-        if (item.type === 'lightup' || ['nurikabe', 'hitori', 'kurodoko', 'cave', 'nurimisaki', 'kurotto', 'heyawake', 'aqre', 'lits', 'norinori', 'yajilin'].includes(item.type)) {
+        if (ans && (item.type === 'lightup' || ['nurikabe', 'hitori', 'kurodoko', 'cave', 'nurimisaki', 'kurotto', 'heyawake', 'aqre', 'lits', 'norinori', 'yajilin'].includes(item.type))) {
             const values = item.type === 'yajilin' ? ans.cells : ans;
             for (let r = 0; r < item.height; r++) for (let c = 0; c < item.width; c++) {
                 const cell = p.board.getc(2*c+1, 2*r+1);
@@ -34,7 +34,7 @@ function eq(a, b, message) {
                 eq(actual, values[r][c], 'cell mismatch ' + item.source + ' ' + r + ',' + c);
             }
         }
-        if (['slither', 'mashu', 'shikaku', 'yajilin'].includes(item.type)) {
+        if (ans && ['slither', 'mashu', 'shikaku', 'yajilin'].includes(item.type)) {
             const outer = item.type === 'slither';
             for (const orient of ['vertical', 'horizontal']) {
                 for (let r = 0; r < ans[orient].length; r++) for (let c = 0; c < ans[orient][r].length; c++) {

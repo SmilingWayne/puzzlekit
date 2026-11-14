@@ -66,3 +66,20 @@ def test_rejects_legacy_entry_point():
 
 def test_upstream_puzzle_list():
     assert any(name == "Nurikabe" for name, _ in puzzlekit.supported_puzzles())
+
+
+def test_public_board_json_and_removed_conversion_api():
+    import json
+
+    result = puzzlekit.solve(BASE + '1i')
+    assert json.loads(result.board_json) == result.board
+    assert not hasattr(result, 'to_dict')
+    assert not hasattr(result, 'to_json')
+    assert not any(hasattr(puzzlekit, name) for name in ('decode', 'encode', 'convert'))
+
+
+def test_registered_puzzle_aliases_are_unique():
+    from puzzlekit.registry import ADAPTERS
+
+    aliases = [alias for adapter in ADAPTERS for alias in adapter.aliases]
+    assert len(aliases) == len(set(aliases))

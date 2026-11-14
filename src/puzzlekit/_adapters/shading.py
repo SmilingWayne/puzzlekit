@@ -5,7 +5,7 @@ import re
 import zlib
 from urllib.parse import unquote, urlsplit
 
-from puzzlekit.formats.base import CellState, NumberClue, PuzzleInstance
+from puzzlekit._adapters.model import Puzzle
 
 TYPES = frozenset({"nurikabe", "hitori", "kurodoko", "cave", "nurimisaki", "kurotto", "shikaku"})
 ALIASES = {"bag": "cave"}
@@ -106,30 +106,21 @@ def decode_shading(source):
         if pos >= width * height:
             raise ValueError("puzzle data exceeds grid")
         if value is not None:
-            cells[divmod(pos, width)] = CellState(clue=NumberClue(value=value))
+            cells[divmod(pos, width)] = value
         pos += 1
         i += length
-    return PuzzleInstance(puzzle_type=pid, title=pid, rows=height, cols=width,
-                          margins=[0, 0, 0, 0], cells=cells,
-                          metadata={"source": "puzz.link", "original_url": source})
+    return Puzzle(puzzle_type=pid, rows=height, cols=width, cells=cells)
 
 
 def encode_shading(instance):
     pid = ALIASES.get(instance.puzzle_type, instance.puzzle_type)
-    if pid not in TYPES or instance.grid_type != "square" or instance.rows < 1 or instance.cols < 1:
+    if pid not in TYPES or instance.rows < 1 or instance.cols < 1:
         raise ValueError("invalid shading puzzle")
-    if instance.margins not in ([], [0, 0, 0, 0]) or instance.edges:
-        raise ValueError("shading puzzles do not support margins or edges")
     size = instance.rows * instance.cols
     values = [None] * size
-    for (r, c), cell in instance.cells.items():
+    for (r, c), value in instance.cells.items():
         if not (0 <= r < instance.rows and 0 <= c < instance.cols):
             raise ValueError("clue outside grid")
-        if cell.clue is None:
-            continue
-        if not isinstance(cell.clue, NumberClue):
-            raise ValueError("expected a number clue")
-        value = cell.clue.value
         if value in ("?", " "):
             value = "?"
         else:
@@ -186,8 +177,7 @@ def encode_shading(instance):
 
 
 def check_backend_clues(instance):
-    for cell in instance.cells.values():
-        value = cell.clue.value
+    for value in instance.cells.values():
         if instance.puzzle_type == "hitori":
             if value == "?" or value == 0 or value >= 36:
                 raise ValueError("cspuz Hitori supports clues 1–35 and empty cells")
@@ -202,8 +192,7 @@ def fileio(instance, answers):
     for r in range(height):
         clues, marks, combined = [], [], []
         for c in range(width):
-            cell = instance.cells.get((r, c))
-            clue = cell.clue.value if cell and cell.clue else None
+            clue = instance.cells.get((r, c))
             token = "." if clue is None else "-" if clue in ("?", " ") else str(clue)
             answer = answers[r][c]
             mark = "#" if answer == "black" else "+" if answer == "white" else "."
@@ -223,3 +212,27 @@ def compress_state(file_text):
     compressor = zlib.compressobj(level=9, wbits=-15)
     payload = compressor.compress(file_text.encode("utf-8")) + compressor.flush()
     return base64.urlsafe_b64encode(payload).decode("ascii").rstrip("=")
+
+
+def answer(p, board, status):
+    """Map cspuz cell facts to pzpr shading marks."""
+    answers = [[None for _ in range(p.cols)] for _ in range(p.rows)]
+    if status == 'no_solution':
+        return answers
+    if p.puzzle_type != 'hitori':
+        for r, c in p.cells:
+            answers[r][c] = 'white'
+    black_item = 'fill' if p.puzzle_type in ('hitori', 'kurodoko', 'nurimisaki', 'kurotto') else 'block'
+    for item in board['data']:
+        if item['color'] != 'green':
+            continue
+        kind, y, x = item['item'], item['y'], item['x']
+        if kind not in (black_item, 'dot'):
+            raise RuntimeError('unexpected cspuz answer item')
+        if y % 2 != 1 or x % 2 != 1:
+            raise RuntimeError('unexpected cspuz answer coordinates')
+        r, c = y // 2, x // 2
+        if not (0 <= r < p.rows and 0 <= c < p.cols):
+            raise RuntimeError('cspuz answer is outside the puzzle')
+        answers[r][c] = 'black' if kind == black_item else 'white'
+    return answers

@@ -1,8 +1,8 @@
 """Standard room-shading puzzle adapters."""
-from puzzlekit.formats.base import CellState, EdgeState, NumberClue, PuzzleInstance
-from puzzlekit.formats.puzzlink.codecs import BorderCodec
-from puzzlekit.formats.puzzlink.utils import border_to_region_grid, region_grid_to_borders
-from puzzlekit.formats.shading import decode_shading, encode_shading, puzzle_path
+from puzzlekit._adapters.model import Puzzle
+from puzzlekit._adapters.codecs import BorderCodec
+from puzzlekit._adapters.grid import border_to_region_grid
+from puzzlekit._adapters.shading import decode_shading, encode_shading, puzzle_path
 
 TYPES = frozenset({'heyawake', 'aqre', 'lits', 'norinori'})
 NUMBERED = frozenset({'heyawake', 'aqre'})
@@ -21,20 +21,6 @@ def _parts(source):
     if w < 2 or h < 2:
         raise ValueError('cspuz room puzzles require at least two rows and columns')
     return parts[0], w, h, parts[3]
-
-
-def _edges(borders, h, w):
-    out = {}
-    n = h * (w - 1)
-    for i in borders:
-        if i < n:
-            r, c = divmod(i, w - 1)
-            key = ((r, c + 1), (r + 1, c + 1))
-        else:
-            r, c = divmod(i - n, w)
-            key = ((r + 1, c), (r + 1, c + 1))
-        out[key] = EdgeState(connected=True, edge_type=2)
-    return out
 
 
 def _anchors(grid):
@@ -63,20 +49,13 @@ def decode_regions(source):
             clues[anchors[i]] = cell
     elif rest:
         raise ValueError('unexpected room puzzle data')
-    return PuzzleInstance(puzzle_type=pid, title=pid, rows=h, cols=w,
-                          margins=[0, 0, 0, 0], cells=clues,
-                          edges=_edges(border, h, w),
-                          metadata={'source': 'puzz.link', 'original_url': source})
+    return Puzzle(puzzle_type=pid, rows=h, cols=w, cells=clues, borders=border)
 
 
 def room_data(p):
-    if p.puzzle_type not in TYPES or p.rows < 2 or p.cols < 2 or p.grid_type != 'square':
+    if p.puzzle_type not in TYPES or p.rows < 2 or p.cols < 2:
         raise ValueError('invalid room puzzle')
-    if p.margins not in ([], [0, 0, 0, 0]):
-        raise ValueError('unsupported margins')
-    border = region_grid_to_borders(p.edges, p.rows, p.cols)
-    if len(border) != len(p.edges):
-        raise ValueError('invalid room borders')
+    border = p.borders
     grid, max_id = border_to_region_grid(border, p.rows, p.cols)
     anchors = _anchors(grid)
     if p.puzzle_type not in NUMBERED and p.cells:
@@ -88,10 +67,8 @@ def room_data(p):
         cell = p.cells.get(anchors[i])
         if cell is None:
             values.append(None)
-        elif not isinstance(cell.clue, NumberClue):
-            raise ValueError('invalid room clue')
         else:
-            v = cell.clue.value
+            v = cell
             if v in ('?', ' '):
                 v = '?'
             else:
@@ -113,15 +90,15 @@ def encode_regions(p):
     border, grid, values = room_data(p)
     body = BorderCodec().encode(border, p.rows, p.cols)
     if p.puzzle_type in NUMBERED:
-        cells = {(0, i): CellState(clue=NumberClue(value=v)) for i, v in enumerate(values) if v is not None}
-        tmp = PuzzleInstance(puzzle_type='nurikabe', rows=1, cols=len(values), margins=[0, 0, 0, 0], cells=cells)
+        cells = {(0, i): v for i, v in enumerate(values) if v is not None}
+        tmp = Puzzle(puzzle_type='nurikabe', rows=1, cols=len(values), cells=cells)
         body += encode_shading(tmp).split('?', 1)[1].split('/', 3)[3]
     end = '/' if body.endswith('.') else ''
     return f'https://puzz.link/p?{p.puzzle_type}/{p.cols}/{p.rows}/{body}{end}'
 
 
 def clues(p):
-    return [[p.cells[(r, c)].clue.value if (r, c) in p.cells else None
+    return [[p.cells.get((r, c))
              for c in range(p.cols)] for r in range(p.rows)]
 
 

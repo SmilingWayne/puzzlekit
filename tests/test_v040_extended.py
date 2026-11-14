@@ -8,6 +8,8 @@ import subprocess
 import pytest
 import puzzlekit
 
+BASELINE = json.loads((Path(__file__).parent / 'fixtures/v040_samples.json').read_text())
+
 # Record IDs and URLs from puzzlekit-dataset/puzzlink_crawlers/logs/merged_puzzles.csv.
 SAMPLES = [
     ('slitherlink0446', 'slither/3/2/h17d'), ('slitherlink3255', 'slither/2/3/716c'),
@@ -42,9 +44,8 @@ PARTIAL = [
 def test_real_samples(record, path):
     result = puzzlekit.solve(path)
     assert result.status == 'unique', record
-    assert result.to_dict()['complete'], record
-    assert json.loads(result.to_json()) == result.to_dict()
-    assert puzzlekit.encode(puzzlekit.decode(path), 'puzzlink') == result.normalized_url
+    assert result.to_pzpr() == BASELINE[path]['file'], record
+    assert json.loads(result.board_json) == result.board
     assert result.to_trace_url().startswith('https://pzpr-trace.net/p?state=')
 
 
@@ -52,7 +53,7 @@ def test_real_samples(record, path):
 def test_multiple_and_no_solution(multiple, no_solution):
     result = puzzlekit.solve(multiple)
     assert result.status == 'multiple'
-    assert not result.to_dict()['complete']
+    assert result.to_pzpr() == BASELINE[multiple]['file']
     assert result.to_state()
     bad = puzzlekit.solve(no_solution)
     assert bad.status == 'no_solution'
@@ -63,7 +64,6 @@ def test_multiple_and_no_solution(multiple, no_solution):
 @pytest.mark.parametrize('path', ['slither/2/2/0000', 'slither/2/2/j',
                                    'mashu/3/3/000', 'yajilin/2/2/20202020'])
 def test_rejects_models_that_could_count_empty_loops(path):
-    puzzlekit.decode(path)  # Still a valid puzzle for the URL codec.
     with pytest.raises(ValueError, match='empty .*loop'):
         puzzlekit.solve(path)
 
@@ -77,9 +77,6 @@ def test_rule_variants_not_silently_dropped(path):
 
 @pytest.mark.parametrize('path', ['yajilin/3/3/-1100h', 'aqre/2/2/00=000'])
 def test_codec_keeps_clues_outside_cspuz_limits(path):
-    puzzle = puzzlekit.decode(path)
-    encoded = puzzlekit.encode(puzzle, 'puzzlink')
-    assert puzzlekit.encode(puzzlekit.decode(encoded), 'puzzlink') == encoded
     with pytest.raises(ValueError, match='cspuz'):
         puzzlekit.solve(path)
 
@@ -110,9 +107,9 @@ def test_real_pzpr_state_import():
     cases = []
     for path in [p for _, p in SAMPLES] + [p for p, _ in PARTIAL]:
         result = puzzlekit.solve(path)
-        data = result.to_dict()
+        data = BASELINE[path]
         cases.append({'source': path, 'url': result.normalized_url, 'state': result.to_state(),
-                      'file': result.to_pzpr(), 'type': data['puzzle_type'], 'width': data['width'],
+                      'file': result.to_pzpr(), 'type': data['type'], 'width': data['width'],
                       'height': data['height'], 'answers': data['answers'], 'complete': data['complete']})
     script = Path(__file__).parent / 'integration/pzpr_extended_check.js'
     subprocess.run([node, str(script), str(root)], input=json.dumps(cases), text=True, check=True)

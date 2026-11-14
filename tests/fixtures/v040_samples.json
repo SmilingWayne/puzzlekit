@@ -1,0 +1,948 @@
+{
+  "nurikabe/4/1/2h1": {
+    "status": "unique",
+    "url": "https://puzz.link/p?nurikabe/4/1/2h1",
+    "file": "pzprv3\nnurikabe\n1\n4\n2 + # 1 \n",
+    "type": "nurikabe",
+    "width": 4,
+    "height": 1,
+    "clues": [[2, null, null, 1]],
+    "answers": [["white", "white", "black", "white"]],
+    "complete": true
+  },
+  "nurikabe/3/2/i2g2": {
+    "status": "unique",
+    "url": "https://puzz.link/p?nurikabe/3/2/i2g2",
+    "file": "pzprv3\nnurikabe\n2\n3\n+ # + \n2 # 2 \n",
+    "type": "nurikabe",
+    "width": 3,
+    "height": 2,
+    "clues": [
+      [null, null, null],
+      [2, null, 2]
+    ],
+    "answers": [
+      ["white", "black", "white"],
+      ["white", "black", "white"]
+    ],
+    "complete": true
+  },
+  "hitori/6/4/114514123456456123364364": {
+    "status": "unique",
+    "url": "https://puzz.link/p?hitori/6/4/114514123456456123364364",
+    "file": "pzprv3\nhitori\n4\n6\n1 1 4 5 1 4 \n1 2 3 4 5 6 \n4 5 6 1 2 3 \n3 6 4 3 6 4 \n# + # + # + \n+ + + + + + \n+ + + + + + \n+ # + # + # \n",
+    "type": "hitori",
+    "width": 6,
+    "height": 4,
+    "clues": [
+      [1, 1, 4, 5, 1, 4],
+      [1, 2, 3, 4, 5, 6],
+      [4, 5, 6, 1, 2, 3],
+      [3, 6, 4, 3, 6, 4]
+    ],
+    "answers": [
+      ["black", "white", "black", "white", "black", "white"],
+      ["white", "white", "white", "white", "white", "white"],
+      ["white", "white", "white", "white", "white", "white"],
+      ["white", "black", "white", "black", "white", "black"]
+    ],
+    "complete": true
+  },
+  "hitori/5/5/2141545324512133415222351": {
+    "status": "unique",
+    "url": "https://puzz.link/p?hitori/5/5/2141545324512133415222351",
+    "file": "pzprv3\nhitori\n5\n5\n2 1 4 1 5 \n4 5 3 2 4 \n5 1 2 1 3 \n3 4 1 5 2 \n2 2 3 5 1 \n+ + + # + \n# + + + + \n+ # + + + \n+ + + # + \n# + # + + \n",
+    "type": "hitori",
+    "width": 5,
+    "height": 5,
+    "clues": [
+      [2, 1, 4, 1, 5],
+      [4, 5, 3, 2, 4],
+      [5, 1, 2, 1, 3],
+      [3, 4, 1, 5, 2],
+      [2, 2, 3, 5, 1]
+    ],
+    "answers": [
+      ["white", "white", "white", "black", "white"],
+      ["black", "white", "white", "white", "white"],
+      ["white", "black", "white", "white", "white"],
+      ["white", "white", "white", "black", "white"],
+      ["black", "white", "black", "white", "white"]
+    ],
+    "complete": true
+  },
+  "kurodoko/3/3/g3g3j3": {
+    "status": "unique",
+    "url": "https://puzz.link/p?kurodoko/3/3/g3g3j3",
+    "file": "pzprv3\nkurodoko\n3\n3\n. 3 . \n3 . . \n. . 3 \n# + # \n+ + + \n# + + \n",
+    "type": "kurodoko",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, 3, null],
+      [3, null, null],
+      [null, null, 3]
+    ],
+    "answers": [
+      ["black", "white", "black"],
+      ["white", "white", "white"],
+      ["black", "white", "white"]
+    ],
+    "complete": true
+  },
+  "kurodoko/4/4/g3k64k5g": {
+    "status": "unique",
+    "url": "https://puzz.link/p?kurodoko/4/4/g3k64k5g",
+    "file": "pzprv3\nkurodoko\n4\n4\n. 3 . . \n. . . 6 \n4 . . . \n. . 5 . \n+ + # + \n+ + + + \n+ # + + \n+ + + # \n",
+    "type": "kurodoko",
+    "width": 4,
+    "height": 4,
+    "clues": [
+      [null, 3, null, null],
+      [null, null, null, 6],
+      [4, null, null, null],
+      [null, null, 5, null]
+    ],
+    "answers": [
+      ["white", "white", "black", "white"],
+      ["white", "white", "white", "white"],
+      ["white", "black", "white", "white"],
+      ["white", "white", "white", "black"]
+    ],
+    "complete": true
+  },
+  "cave/5/3/6l2l3": {
+    "status": "unique",
+    "url": "https://puzz.link/p?cave/5/3/6l2l3",
+    "file": "pzprv3\ncave\n3\n5\n6 . . . . \n. . 2 . . \n. . . . 3 \n+ + + + + \n+ # + # + \n# # # # + \n",
+    "type": "cave",
+    "width": 5,
+    "height": 3,
+    "clues": [
+      [6, null, null, null, null],
+      [null, null, 2, null, null],
+      [null, null, null, null, 3]
+    ],
+    "answers": [
+      ["white", "white", "white", "white", "white"],
+      ["white", "black", "white", "black", "white"],
+      ["black", "black", "black", "black", "white"]
+    ],
+    "complete": true
+  },
+  "bag/5/5/j39k3g4k25j": {
+    "status": "unique",
+    "url": "https://puzz.link/p?cave/5/5/j39k3g4k25j",
+    "file": "pzprv3\ncave\n5\n5\n. . . . 3 \n9 . . . . \n. 3 . 4 . \n. . . . 2 \n5 . . . . \n+ # # + + \n+ + + + + \n+ + # + # \n+ # # + + \n+ # # # # \n",
+    "type": "cave",
+    "width": 5,
+    "height": 5,
+    "clues": [
+      [null, null, null, null, 3],
+      [9, null, null, null, null],
+      [null, 3, null, 4, null],
+      [null, null, null, null, 2],
+      [5, null, null, null, null]
+    ],
+    "answers": [
+      ["white", "black", "black", "white", "white"],
+      ["white", "white", "white", "white", "white"],
+      ["white", "white", "black", "white", "black"],
+      ["white", "black", "black", "white", "white"],
+      ["white", "black", "black", "black", "black"]
+    ],
+    "complete": true
+  },
+  "nurimisaki/3/3/g.h.j": {
+    "status": "unique",
+    "url": "https://puzz.link/p?nurimisaki/3/3/g.h.j",
+    "file": "pzprv3\nnurimisaki\n3\n3\n. - . \n. - . \n. . . \n# + # \n# + # \n# # # \n",
+    "type": "nurimisaki",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, "?", null],
+      [null, "?", null],
+      [null, null, null]
+    ],
+    "answers": [
+      ["black", "white", "black"],
+      ["black", "white", "black"],
+      ["black", "black", "black"]
+    ],
+    "complete": true
+  },
+  "nurimisaki/3/3/g.g2j./": {
+    "status": "unique",
+    "url": "https://puzz.link/p?nurimisaki/3/3/g.g2j./",
+    "file": "pzprv3\nnurimisaki\n3\n3\n. - . \n2 . . \n. . - \n# + # \n+ + # \n# + + \n",
+    "type": "nurimisaki",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, "?", null],
+      [2, null, null],
+      [null, null, "?"]
+    ],
+    "answers": [
+      ["black", "white", "black"],
+      ["white", "white", "black"],
+      ["black", "white", "white"]
+    ],
+    "complete": true
+  },
+  "slither/3/2/h17d": {
+    "status": "unique",
+    "url": "https://puzz.link/p?slither/3/2/h12g3",
+    "file": "pzprv3.1\nslither\n2\n3\n. . 1 \n2 . 3 \n0 0 0 \n0 0 0 \n1 1 -1 -1 \n1 -1 -1 1 \n1 -1 -1 \n-1 1 1 \n1 1 1 \n",
+    "type": "slither",
+    "width": 3,
+    "height": 2,
+    "clues": [
+      [null, null, 1],
+      [2, null, 3]
+    ],
+    "answers": {
+      "vertical": [
+        [true, true, false, false],
+        [true, false, false, true]
+      ],
+      "horizontal": [
+        [true, false, false],
+        [false, true, true],
+        [true, true, true]
+      ]
+    },
+    "complete": true
+  },
+  "slither/2/3/716c": {
+    "status": "unique",
+    "url": "https://puzz.link/p?slither/2/3/2g11g2",
+    "file": "pzprv3.1\nslither\n3\n2\n2 . \n1 1 \n. 2 \n0 0 \n0 0 \n0 0 \n1 -1 1 \n1 -1 1 \n1 -1 1 \n1 1 \n-1 -1 \n-1 -1 \n1 1 \n",
+    "type": "slither",
+    "width": 2,
+    "height": 3,
+    "clues": [
+      [2, null],
+      [1, 1],
+      [null, 2]
+    ],
+    "answers": {
+      "vertical": [
+        [true, false, true],
+        [true, false, true],
+        [true, false, true]
+      ],
+      "horizontal": [
+        [true, true],
+        [false, false],
+        [false, false],
+        [true, true]
+      ]
+    },
+    "complete": true
+  },
+  "mashu/3/3/313": {
+    "status": "unique",
+    "url": "https://puzz.link/p?mashu/3/3/313",
+    "file": "pzprv3\nmashu\n3\n3\n. 1 . \n. . 1 \n. 1 . \n1 1 \n-1 -1 \n1 1 \n1 -1 1 \n1 -1 1 \n",
+    "type": "mashu",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, 1, null],
+      [null, null, 1],
+      [null, 1, null]
+    ],
+    "answers": {
+      "vertical": [
+        [true, true],
+        [false, false],
+        [true, true]
+      ],
+      "horizontal": [
+        [true, false, true],
+        [true, false, true]
+      ]
+    },
+    "complete": true
+  },
+  "mashu/3/3/k0k": {
+    "status": "unique",
+    "url": "https://puzz.link/p?mashu/3/3/k0k",
+    "file": "pzprv3\nmashu\n3\n3\n2 . 2 \n. . . \n2 . 2 \n1 1 \n-1 -1 \n1 1 \n1 -1 1 \n1 -1 1 \n",
+    "type": "mashu",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [2, null, 2],
+      [null, null, null],
+      [2, null, 2]
+    ],
+    "answers": {
+      "vertical": [
+        [true, true],
+        [false, false],
+        [true, true]
+      ],
+      "horizontal": [
+        [true, false, true],
+        [true, false, true]
+      ]
+    },
+    "complete": true
+  },
+  "akari/2/3/bhb": {
+    "status": "unique",
+    "url": "https://puzz.link/p?lightup/2/3/1j1",
+    "file": "pzprv3\nlightup\n3\n2\n1 # \n+ + \n# 1 \n",
+    "type": "lightup",
+    "width": 2,
+    "height": 3,
+    "clues": [
+      [1, null],
+      [null, null],
+      [null, 1]
+    ],
+    "answers": [
+      [null, "bulb"],
+      ["empty", "empty"],
+      ["bulb", null]
+    ],
+    "complete": true
+  },
+  "akari/3/3/cl": {
+    "status": "unique",
+    "url": "https://puzz.link/p?lightup/3/3/2n",
+    "file": "pzprv3\nlightup\n3\n3\n2 # + \n# + + \n+ + # \n",
+    "type": "lightup",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [2, null, null],
+      [null, null, null],
+      [null, null, null]
+    ],
+    "answers": [
+      [null, "bulb", "empty"],
+      ["bulb", "empty", "empty"],
+      ["empty", "empty", "bulb"]
+    ],
+    "complete": true
+  },
+  "kurotto/5/5/c2g5zg": {
+    "status": "unique",
+    "url": "https://puzz.link/p?kurotto/5/5/c2g5zg",
+    "file": "pzprv3\nkurotto\n5\n5\n12 2 . 5 . \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n+ + # + # \n# + # + # \n# # + + # \n# # # # + \n# # # # # \n",
+    "type": "kurotto",
+    "width": 5,
+    "height": 5,
+    "clues": [
+      [12, 2, null, 5, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null]
+    ],
+    "answers": [
+      ["white", "white", "black", "white", "black"],
+      ["black", "white", "black", "white", "black"],
+      ["black", "black", "white", "white", "black"],
+      ["black", "black", "black", "black", "white"],
+      ["black", "black", "black", "black", "black"]
+    ],
+    "complete": true
+  },
+  "kurotto/5/5/0i0l0j2j09h": {
+    "status": "unique",
+    "url": "https://puzz.link/p?kurotto/5/5/0i0l0j2j09h",
+    "file": "pzprv3\nkurotto\n5\n5\n0 . . . 0 \n. . . . . \n. 0 . . . \n. 2 . . . \n. 0 9 . . \n+ + # + + \n+ + # # + \n+ + + # # \n# + # + # \n+ + + # # \n",
+    "type": "kurotto",
+    "width": 5,
+    "height": 5,
+    "clues": [
+      [0, null, null, null, 0],
+      [null, null, null, null, null],
+      [null, 0, null, null, null],
+      [null, 2, null, null, null],
+      [null, 0, 9, null, null]
+    ],
+    "answers": [
+      ["white", "white", "black", "white", "white"],
+      ["white", "white", "black", "black", "white"],
+      ["white", "white", "white", "black", "black"],
+      ["black", "white", "black", "white", "black"],
+      ["white", "white", "white", "black", "black"]
+    ],
+    "complete": true
+  },
+  "shikaku/4/2/11i24g": {
+    "status": "unique",
+    "url": "https://puzz.link/p?shikaku/4/2/11i24g",
+    "file": "pzprv3\nshikaku\n2\n4\n1 1 . . \n. 2 4 . \n1 1 -1 \n-1 1 -1 \n1 1 -1 -1 \n",
+    "type": "shikaku",
+    "width": 4,
+    "height": 2,
+    "clues": [
+      [1, 1, null, null],
+      [null, 2, 4, null]
+    ],
+    "answers": {
+      "vertical": [
+        [true, true, false],
+        [false, true, false]
+      ],
+      "horizontal": [[true, true, false, false]]
+    },
+    "complete": true
+  },
+  "shikaku/4/4/1111111111111111": {
+    "status": "unique",
+    "url": "https://puzz.link/p?shikaku/4/4/1111111111111111",
+    "file": "pzprv3\nshikaku\n4\n4\n1 1 1 1 \n1 1 1 1 \n1 1 1 1 \n1 1 1 1 \n1 1 1 \n1 1 1 \n1 1 1 \n1 1 1 \n1 1 1 1 \n1 1 1 1 \n1 1 1 1 \n",
+    "type": "shikaku",
+    "width": 4,
+    "height": 4,
+    "clues": [
+      [1, 1, 1, 1],
+      [1, 1, 1, 1],
+      [1, 1, 1, 1],
+      [1, 1, 1, 1]
+    ],
+    "answers": {
+      "vertical": [
+        [true, true, true],
+        [true, true, true],
+        [true, true, true],
+        [true, true, true]
+      ],
+      "horizontal": [
+        [true, true, true, true],
+        [true, true, true, true],
+        [true, true, true, true]
+      ]
+    },
+    "complete": true
+  },
+  "heyawake/3/3/fgtgm": {
+    "status": "unique",
+    "url": "https://puzz.link/p?heyawake/3/3/fgtgm",
+    "file": "pzprv3.1\nheyawake\n3\n3\n0 1 \n1 1 \n1 1 \n1 1 1 \n0 1 1 \n. . . \n. . . \n. . . \n+ + + \n+ # + \n+ + # \n",
+    "type": "heyawake",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ],
+    "answers": [
+      ["white", "white", "white"],
+      ["white", "black", "white"],
+      ["white", "white", "black"]
+    ],
+    "complete": true
+  },
+  "heyawake/3/3/pgmg1g111": {
+    "status": "unique",
+    "url": "https://puzz.link/p?heyawake/3/3/pgmg1g111",
+    "file": "pzprv3.1\nheyawake\n3\n3\n1 1 \n0 0 \n1 1 \n1 0 1 \n1 0 1 \n1 . 1 \n. . . \n1 . 1 \n# + # \n+ + + \n# + # \n",
+    "type": "heyawake",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [1, null, 1],
+      [null, null, null],
+      [1, null, 1]
+    ],
+    "answers": [
+      ["black", "white", "black"],
+      ["white", "white", "white"],
+      ["black", "white", "black"]
+    ],
+    "complete": true
+  },
+  "aqre/5/2/70jg011": {
+    "status": "unique",
+    "url": "https://puzz.link/p?aqre/5/2/70jg011",
+    "file": "pzprv3.1\naqre\n2\n5\n0 0 1 1 \n1 0 0 0 \n1 0 0 1 1 \n. . . 0 1 \n1 . . . . \n# # # + # \n# + # # # \n",
+    "type": "aqre",
+    "width": 5,
+    "height": 2,
+    "clues": [
+      [null, null, null, 0, 1],
+      [1, null, null, null, null]
+    ],
+    "answers": [
+      ["black", "black", "black", "white", "black"],
+      ["black", "white", "black", "black", "black"]
+    ],
+    "complete": true
+  },
+  "aqre/3/5/i9r6o1g001": {
+    "status": "unique",
+    "url": "https://puzz.link/p?aqre/3/5/i9r6o1g001",
+    "file": "pzprv3.1\naqre\n5\n3\n1 0 \n0 1 \n0 0 \n1 0 \n0 1 \n1 1 0 \n1 1 0 \n0 1 1 \n0 1 1 \n1 . . \n0 . . \n. . . \n. 0 . \n. . 1 \n# # # \n+ + # \n# # # \n# + + \n# # # \n",
+    "type": "aqre",
+    "width": 3,
+    "height": 5,
+    "clues": [
+      [1, null, null],
+      [0, null, null],
+      [null, null, null],
+      [null, 0, null],
+      [null, null, 1]
+    ],
+    "answers": [
+      ["black", "black", "black"],
+      ["white", "white", "black"],
+      ["black", "black", "black"],
+      ["black", "white", "white"],
+      ["black", "black", "black"]
+    ],
+    "complete": true
+  },
+  "aqre/5/5/v5kmlael1g010070": {
+    "status": "unique",
+    "url": "https://puzz.link/p?aqre/5/5/v5kmlael1g010070",
+    "file": "pzprv3.1\naqre\n5\n5\n1 1 1 1 \n1 0 0 1 \n0 1 1 0 \n1 0 0 1 \n0 1 1 0 \n1 0 1 0 1 \n0 1 0 1 0 \n0 1 1 1 0 \n1 0 1 0 1 \n1 . 0 . 1 \n0 . . . . \n. . . 0 . \n. . . . . \n7 . 0 . . \n# # + # # \n+ # # # + \n+ + # + + \n+ # # # + \n# # + # # \n",
+    "type": "aqre",
+    "width": 5,
+    "height": 5,
+    "clues": [
+      [1, null, 0, null, 1],
+      [0, null, null, null, null],
+      [null, null, null, 0, null],
+      [null, null, null, null, null],
+      [7, null, 0, null, null]
+    ],
+    "answers": [
+      ["black", "black", "white", "black", "black"],
+      ["white", "black", "black", "black", "white"],
+      ["white", "white", "black", "white", "white"],
+      ["white", "black", "black", "black", "white"],
+      ["black", "black", "white", "black", "black"]
+    ],
+    "complete": true
+  },
+  "lits/4/3/64cg": {
+    "status": "unique",
+    "url": "https://puzz.link/p?lits/4/3/64cg",
+    "file": "pzprv3.1\nlits\n3\n4\n0 0 1 \n1 0 0 \n0 1 0 \n0 1 1 0 \n0 1 0 0 \n# + + # \n# + # # \n# # # + \n",
+    "type": "lits",
+    "width": 4,
+    "height": 3,
+    "clues": [
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null]
+    ],
+    "answers": [
+      ["black", "white", "white", "black"],
+      ["black", "white", "black", "black"],
+      ["black", "black", "black", "white"]
+    ],
+    "complete": true
+  },
+  "lits/5/4/89104r4": {
+    "status": "unique",
+    "url": "https://puzz.link/p?lits/5/4/89104r4",
+    "file": "pzprv3.1\nlits\n4\n5\n0 1 0 0 \n0 0 1 0 \n0 1 0 0 \n0 0 1 0 \n0 0 1 0 0 \n1 1 0 1 1 \n0 0 1 0 0 \n+ + # # # \n+ # # + # \n# + # # + \n# # # + + \n",
+    "type": "lits",
+    "width": 5,
+    "height": 4,
+    "clues": [
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null],
+      [null, null, null, null, null]
+    ],
+    "answers": [
+      ["white", "white", "black", "black", "black"],
+      ["white", "black", "black", "white", "black"],
+      ["black", "white", "black", "black", "white"],
+      ["black", "black", "black", "white", "white"]
+    ],
+    "complete": true
+  },
+  "norinori/8/2/804vs": {
+    "status": "unique",
+    "url": "https://puzz.link/p?norinori/8/2/804vs",
+    "file": "pzprv3.1\nnorinori\n2\n8\n0 1 0 0 0 0 0 \n0 0 0 0 0 1 0 \n1 1 1 1 1 1 1 1 \n# # + + # # + + \n+ + # # + + # # \n",
+    "type": "norinori",
+    "width": 8,
+    "height": 2,
+    "clues": [
+      [null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null]
+    ],
+    "answers": [
+      ["black", "black", "white", "white", "black", "black", "white", "white"],
+      ["white", "white", "black", "black", "white", "white", "black", "black"]
+    ],
+    "complete": true
+  },
+  "norinori/4/4/n804jo": {
+    "status": "unique",
+    "url": "https://puzz.link/p?norinori/4/4/n804jo",
+    "file": "pzprv3.1\nnorinori\n4\n4\n1 0 1 \n1 1 0 \n1 0 0 \n0 0 0 \n0 0 1 0 \n0 1 0 0 \n1 1 1 1 \n+ # # + \n# + + # \n# + + # \n+ # # + \n",
+    "type": "norinori",
+    "width": 4,
+    "height": 4,
+    "clues": [
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null]
+    ],
+    "answers": [
+      ["white", "black", "black", "white"],
+      ["black", "white", "white", "black"],
+      ["black", "white", "white", "black"],
+      ["white", "black", "black", "white"]
+    ],
+    "complete": true
+  },
+  "yajilin/3/3/c40e": {
+    "status": "unique",
+    "url": "https://puzz.link/p?yajilin/3/3/c40e",
+    "file": "pzprv3\nyajilin\n3\n3\n. . . \n4,0 . . \n. . . \n# + + \n. + + \n# + + \n-1 1 \n-1 -1 \n-1 1 \n-1 1 1 \n-1 1 1 \n",
+    "type": "yajilin",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, null, null],
+      [{ "direction": 4, "value": 0 }, null, null],
+      [null, null, null]
+    ],
+    "answers": {
+      "cells": [
+        ["black", "white", "white"],
+        [null, "white", "white"],
+        ["black", "white", "white"]
+      ],
+      "vertical": [
+        [false, true],
+        [false, false],
+        [false, true]
+      ],
+      "horizontal": [
+        [false, true, true],
+        [false, true, true]
+      ]
+    },
+    "complete": true
+  },
+  "yajilin/3/3/d20d": {
+    "status": "unique",
+    "url": "https://puzz.link/p?yajilin/3/3/d20d",
+    "file": "pzprv3\nyajilin\n3\n3\n. . . \n. 2,0 . \n. . . \n+ + + \n+ . + \n+ + + \n1 1 \n-1 -1 \n1 1 \n1 -1 1 \n1 -1 1 \n",
+    "type": "yajilin",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, null, null],
+      [null, { "direction": 2, "value": 0 }, null],
+      [null, null, null]
+    ],
+    "answers": {
+      "cells": [
+        ["white", "white", "white"],
+        ["white", null, "white"],
+        ["white", "white", "white"]
+      ],
+      "vertical": [
+        [true, true],
+        [false, false],
+        [true, true]
+      ],
+      "horizontal": [
+        [true, false, true],
+        [true, false, true]
+      ]
+    },
+    "complete": true
+  },
+  "slither/2/2/1i": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?slither/2/2/1i",
+    "file": "pzprv3.1\nslither\n2\n2\n1 . \n. . \n0 0 \n0 0 \n-1 0 0 \n0 0 0 \n-1 0 \n0 0 \n0 0 \n",
+    "type": "slither",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [1, null],
+      [null, null]
+    ],
+    "answers": {
+      "vertical": [
+        [false, null, null],
+        [null, null, null]
+      ],
+      "horizontal": [
+        [false, null],
+        [null, null],
+        [null, null]
+      ]
+    },
+    "complete": false
+  },
+  "mashu/3/3/030": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?mashu/3/3/030",
+    "file": "pzprv3\nmashu\n3\n3\n. . . \n. 1 . \n. . . \n0 0 \n0 0 \n0 0 \n0 0 0 \n0 0 0 \n",
+    "type": "mashu",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, null, null],
+      [null, 1, null],
+      [null, null, null]
+    ],
+    "answers": {
+      "vertical": [
+        [null, null],
+        [null, null],
+        [null, null]
+      ],
+      "horizontal": [
+        [null, null, null],
+        [null, null, null]
+      ]
+    },
+    "complete": false
+  },
+  "lightup/2/2/j": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?lightup/2/2/j",
+    "file": "pzprv3\nlightup\n2\n2\n. . \n. . \n",
+    "type": "lightup",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "kurotto/2/2/j": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?kurotto/2/2/j",
+    "file": "pzprv3\nkurotto\n2\n2\n. . \n. . \n. . \n. . \n",
+    "type": "kurotto",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "shikaku/2/2/2h2": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?shikaku/2/2/2h2",
+    "file": "pzprv3\nshikaku\n2\n2\n2 . \n. 2 \n0 \n0 \n0 0 \n",
+    "type": "shikaku",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [2, null],
+      [null, 2]
+    ],
+    "answers": { "vertical": [[null], [null]], "horizontal": [[null, null]] },
+    "complete": false
+  },
+  "heyawake/2/2/00g": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?heyawake/2/2/00g",
+    "file": "pzprv3.1\nheyawake\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n. . \n. . \n",
+    "type": "heyawake",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "aqre/2/2/00g": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?aqre/2/2/00g",
+    "file": "pzprv3.1\naqre\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n. . \n. . \n",
+    "type": "aqre",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "lits/4/3/0000": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?lits/4/3/0000",
+    "file": "pzprv3.1\nlits\n3\n4\n0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 0 \n0 0 0 0 \n. . . . \n. . . . \n. . . . \n",
+    "type": "lits",
+    "width": 4,
+    "height": 3,
+    "clues": [
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null]
+    ],
+    "answers": [
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null]
+    ],
+    "complete": false
+  },
+  "norinori/2/2/00": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?norinori/2/2/00",
+    "file": "pzprv3.1\nnorinori\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n",
+    "type": "norinori",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "yajilin/3/3/i": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?yajilin/3/3/i",
+    "file": "pzprv3\nyajilin\n3\n3\n. . . \n. . . \n. . . \n. + . \n+ . + \n. + . \n0 0 \n0 0 \n0 0 \n0 0 0 \n0 0 0 \n",
+    "type": "yajilin",
+    "width": 3,
+    "height": 3,
+    "clues": [
+      [null, null, null],
+      [null, null, null],
+      [null, null, null]
+    ],
+    "answers": {
+      "cells": [
+        [null, "white", null],
+        ["white", null, "white"],
+        [null, "white", null]
+      ],
+      "vertical": [
+        [null, null],
+        [null, null],
+        [null, null]
+      ],
+      "horizontal": [
+        [null, null, null],
+        [null, null, null]
+      ]
+    },
+    "complete": false
+  },
+  "nurikabe/2/2/2i": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?nurikabe/2/2/2i",
+    "file": "pzprv3\nnurikabe\n2\n2\n2 . \n. # \n",
+    "type": "nurikabe",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [2, null],
+      [null, null]
+    ],
+    "answers": [
+      ["white", null],
+      [null, "black"]
+    ],
+    "complete": false
+  },
+  "hitori/2/2/....": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?hitori/2/2/..../",
+    "file": "pzprv3\nhitori\n2\n2\n. . \n. . \n. . \n. . \n",
+    "type": "hitori",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "kurodoko/2/2/j": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?kurodoko/2/2/j",
+    "file": "pzprv3\nkurodoko\n2\n2\n. . \n. . \n. . \n. . \n",
+    "type": "kurodoko",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "cave/2/2/j": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?cave/2/2/j",
+    "file": "pzprv3\ncave\n2\n2\n. . \n. . \n. . \n. . \n",
+    "type": "cave",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  },
+  "nurimisaki/2/2/j": {
+    "status": "multiple",
+    "url": "https://puzz.link/p?nurimisaki/2/2/j",
+    "file": "pzprv3\nnurimisaki\n2\n2\n. . \n. . \n. . \n. . \n",
+    "type": "nurimisaki",
+    "width": 2,
+    "height": 2,
+    "clues": [
+      [null, null],
+      [null, null]
+    ],
+    "answers": [
+      [null, null],
+      [null, null]
+    ],
+    "complete": false
+  }
+}

@@ -2,7 +2,7 @@
 
 This iteration adds ten adapters to the five documented in
 [V040_SHADING_ADAPTERS.md](V040_SHADING_ADAPTERS.md). All use the pinned cspuz
-Rust backend and export the original board, semantic facts, native pzpr FileIO,
+Rust backend and export the original board, native pzpr FileIO,
 compressed pzpr-trace state, and a trace link. The output is a snapshot of
 irrefutable facts, not a solving trace. `multiple` results preserve unknowns;
 `no_solution` and `unknown` cannot be exported as answer states.
@@ -17,16 +17,10 @@ irrefutable facts, not a solving trace. `multiple` results preserve unknowns;
 | Room shading | Heyawake, Aqre, LITS, Norinori | room boundaries plus black / white / unknown cells | `pzprv3.1` |
 | Mixed loop and shading | Yajilin | black / white / unknown cells and internal edges | `pzprv3` |
 
-`vertical` edge rows are left-to-right borders, and `horizontal` edge rows are
-top-to-bottom borders; `true` means a line/boundary, `false` means no
-line/boundary, and `null` means unknown. Slitherlink's vertical matrix has
-`height × (width + 1)` entries and horizontal has `(height + 1) × width`;
-other loop/partition types use `height × (width - 1)` and `(height - 1) × width`.
 Yajilin's backend omits edges touching a clue or a determined black cell; the
 adapter marks them absent because those edges cannot be on the loop. Room
 numbers are indexed by room but the native pzpr cell carrying a clue is the
-leftmost, then topmost, cell in that room. Region IDs in the semantic result
-are strings in row-major component discovery order.
+leftmost, then topmost, cell in that room.
 
 The supported URL sources, aliases, clue limits, variant handling, minimum
 sizes and conservative empty-loop guards are in the [README](../README.md).
@@ -34,8 +28,8 @@ In particular, cspuz's loop primitive permits an empty loop; the guard is an
 explicit limitation, not proof that all rejected puzzles have no solution.
 Yajilin display flag `b` is preserved. Full-loop, outside and other unverified
 rule variants are rejected. Extra unused Yajilin body data is rejected rather
-than silently discarded. Unsupported legal clue magnitudes can be decoded and
-re-encoded, but are rejected by `solve` where the backend cannot represent them.
+than silently discarded. Unsupported legal clue magnitudes are rejected by `solve` where the backend
+cannot represent them.
 
 ## Verification
 

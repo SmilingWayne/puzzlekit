@@ -14,16 +14,10 @@ Inventory counts are a snapshot and dataset and crawler records can overlap.
 | Cave | `cave` (`bag`) | 416 | 433 | complete within the documented backend clue limits |
 | Nurimisaki | `nurimisaki` | 100 | 1,156 | complete within the documented backend clue limits |
 
-For a ten-puzzle candidate set, the next five are Slitherlink, Masyu, Heyawake,
-Akari and Yajilin. These are inventory candidates, not claims that their
-PuzzleKit state adapters are implemented. In particular, line and region
-representations require separate mappings and verification.
-
 ## Contract
 
-The result retains `board` exactly as returned by cspuz. For these five types,
-`to_dict()` and `to_json()` additionally describe a row-major clue matrix and
-black/white/unknown answers. The Rust implementations use irrefutable facts
+The result retains cspuz `board` and exposes it as `board_json`.
+The Rust implementations use irrefutable facts
 for their answer variables. Their rendering conventions differ: `block` means
 black for Nurikabe and Cave, while `fill` means black for Hitori, Kurodoko and
 Nurimisaki; `dot` means white. Hitori can shade numbered cells. In the other
@@ -39,9 +33,8 @@ it to the canonical puzzle path.
 Player `state` and `trace` input is intentionally ignored when solving. The
 parser rejects unrecognized query parameters or rule variants. `bag` is the
 pzpr alias for Cave. The backend's clue limitations and accepted URL forms are
-listed in the [README](../README.md). Values outside those solver limits can
-still be round-tripped through the URL codec. This is not a dataset problem-text
-converter or a migration of existing dataset files.
+listed in the [README](../README.md). Values outside those solver limits are
+rejected. This is not a dataset problem-text converter.
 
 ## Repeatable checks
 

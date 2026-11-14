@@ -10,6 +10,8 @@ import zlib
 import pytest
 import puzzlekit
 
+BASELINE = json.loads((Path(__file__).parent / 'fixtures/v040_samples.json').read_text())
+
 # Small real samples from puzzlekit-dataset/puzzlink_crawlers/logs/merged_puzzles.csv.
 SAMPLES = [
     'nurikabe/4/1/2h1', 'nurikabe/3/2/i2g2',
@@ -22,16 +24,14 @@ SAMPLES = [
 
 @pytest.mark.parametrize('path', SAMPLES)
 def test_real_samples(path):
-    instance = puzzlekit.decode(path)
-    canonical = puzzlekit.encode(instance, 'puzzlink')
-    assert puzzlekit.decode(canonical).normalize()['cells'] == instance.normalize()['cells']
+    expected = BASELINE[path]
     result = puzzlekit.solve(path)
     assert result.status == 'unique'
-    assert result.to_dict()['complete']
-    assert json.loads(result.to_json()) == result.to_dict()
+    assert result.to_pzpr() == expected['file']
+    assert json.loads(result.board_json) == result.board
     state = result.to_state()
     assert zlib.decompress(base64.urlsafe_b64decode(state + '=' * (-len(state) % 4)), -15).decode() == result.to_pzpr()
-    assert result.to_trace_url() == f'https://pzpr-trace.net/p?state={state}&{canonical.split("?", 1)[1]}'
+    assert result.to_trace_url() == f'https://pzpr-trace.net/p?state={state}&{result.normalized_url.split("?", 1)[1]}'
 
 
 @pytest.mark.parametrize('url', [
@@ -46,18 +46,14 @@ def test_url_forms(url):
     result = puzzlekit.solve(url)
     assert result.normalized_url == 'https://puzz.link/p?nurikabe/2/2/1i'
     assert result.status == 'unique'
-    assert puzzlekit.decode(url).puzzle_type == 'nurikabe'
 
 
 def test_multiple_and_no_solution():
     result = puzzlekit.solve('nurikabe/2/2/2i')
     assert result.status == 'multiple'
-    assert result.to_dict()['answers'] == [['white', None], [None, 'black']]
-    assert result.to_dict()['complete'] is False
     assert result.to_pzpr().endswith('2 . \n. # \n')
     bad = puzzlekit.solve('nurikabe/2/2/1111')
     assert bad.status == 'no_solution'
-    assert bad.to_dict()['answers'] == [[None, None], [None, None]]
     with pytest.raises(ValueError):
         bad.to_state()
 
@@ -71,8 +67,7 @@ def test_multiple_and_no_solution():
 def test_other_puzzles_preserve_unknowns_and_reject_no_solution(multiple, unsatisfiable):
     result = puzzlekit.solve(multiple)
     assert result.status == 'multiple'
-    assert result.to_dict()['answers'] == [[None, None], [None, None]]
-    assert not result.to_dict()['complete']
+    assert result.to_pzpr() == BASELINE[multiple]['file']
     assert result.to_state()
     bad = puzzlekit.solve(unsatisfiable)
     assert bad.status == 'no_solution'
@@ -81,14 +76,10 @@ def test_other_puzzles_preserve_unknowns_and_reject_no_solution(multiple, unsati
 
 
 def test_number_encodings_and_literal_hitori_percent():
-    # '+' is puzzle data, not a URL-form space. '%' is a legacy Hitori clue,
-    # even when the next two characters could be mistaken for a URL escape.
-    p = puzzlekit.decode('https://puzz.link/?p=nurikabe/2/1/+100g')
-    assert p.cells[(0, 0)].clue.value == 256
-    assert puzzlekit.decode(puzzlekit.encode(p, 'puzzlink')).cells == p.cells
-    p = puzzlekit.decode('https://puzz.link/p?hitori/3/1/%20')
-    assert [p.cells[(0, c)].clue.value for c in range(3)] == ['?', 2, 0]
-    assert puzzlekit.decode(puzzlekit.encode(p, 'puzzlink')).cells == p.cells
+    result = puzzlekit.solve('https://puzz.link/?p=nurikabe/2/1/+100g')
+    assert '+100' in result.normalized_url
+    with pytest.raises(ValueError, match='cspuz'):
+        puzzlekit.solve('https://puzz.link/p?hitori/3/1/%20')
 
 
 @pytest.mark.parametrize('url', [
@@ -104,8 +95,6 @@ def test_rejects_bad_or_unhandled_input(url):
 @pytest.mark.parametrize('path', ['hitori/2/1/0.', 'hitori/1/1/-10',
                                  'hitori/1/1/@', 'nurikabe/1/1/=000'])
 def test_codec_support_does_not_overstate_backend_limits(path):
-    inst = puzzlekit.decode(path)
-    assert puzzlekit.decode(puzzlekit.encode(inst, 'puzzlink')).cells == inst.cells
     with pytest.raises(ValueError, match='cspuz'):
         puzzlekit.solve(path)
 
@@ -122,9 +111,9 @@ def test_real_pzpr_state_import():
     for source in SAMPLES + ['nurikabe/2/2/2i', 'hitori/2/2/....',
                              'kurodoko/2/2/j', 'cave/2/2/j', 'nurimisaki/2/2/j']:
         result = puzzlekit.solve(source)
-        data = result.to_dict()
+        data = BASELINE[source]
         cases.append({'url': result.normalized_url, 'state': result.to_state(),
-                      'file': result.to_pzpr(), 'type': data['puzzle_type'],
+                      'file': result.to_pzpr(), 'type': data['type'],
                       'clues': data['clues'], 'answers': data['answers'],
                       'complete': data['complete']})
     script = Path(__file__).parent / 'integration/pzpr_state_check.js'

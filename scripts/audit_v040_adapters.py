@@ -20,11 +20,10 @@ KINDS = {'slitherlink', 'masyu', 'akari', 'kurotto', 'shikaku', 'heyawake',
          'aqre', 'lits', 'norinori', 'yajilin', 'nurikabe', 'hitori',
          'kurodoko', 'cave', 'nurimisaki'}
 WORKER = '''import json,puzzlekit,sys
-r=puzzlekit.solve(sys.argv[1]); d=r.to_dict(); o={'status':r.status}
+r=puzzlekit.solve(sys.argv[1]); o={'status':r.status}
 if r.status in ('unique','multiple'):
     o.update({'source':sys.argv[1], 'url':r.normalized_url, 'state':r.to_state(),
-              'file':r.to_pzpr(), 'type':d['puzzle_type'], 'width':d['width'],
-              'height':d['height'], 'answers':d['answers'], 'complete':d['complete']})
+              'file':r.to_pzpr(), 'complete':r.status == 'unique'})
 print(json.dumps(o))'''
 
 

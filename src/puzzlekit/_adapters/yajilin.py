@@ -1,10 +1,8 @@
 """Standard Yajilin: arrow clues, shaded cells and loop edges."""
-from puzzlekit.formats.base import ArrowClue, CellState, Direction, NumberClue, PuzzleInstance
-from puzzlekit.formats.shading import puzzle_path
+from puzzlekit._adapters.model import Puzzle
+from puzzlekit._adapters.shading import puzzle_path
 
 ALIASES = {'yajilin', 'yajirin'}
-_DIR = {1: Direction.N, 2: Direction.S, 3: Direction.W, 4: Direction.E}
-_REV = {v: k for k, v in _DIR.items()}
 _HEX = '0123456789abcdef'
 
 
@@ -51,35 +49,19 @@ def decode(source):
             value = int(digits, 16)
         else:
             raise ValueError('invalid arrow clue')
-        clue = ArrowClue(value=value, direction=_DIR[direction]) if direction else NumberClue(value=value)
-        cells[divmod(pos, w)] = CellState(clue=clue)
+        cells[divmod(pos, w)] = (direction, value)
         pos += 1
         i += length + 1
-    return PuzzleInstance(puzzle_type='yajilin', title='yajilin', rows=h, cols=w,
-                          margins=[0, 0, 0, 0], cells=cells,
-                          metadata={'source': 'puzz.link', 'original_url': source, 'display_b': flag})
+    return Puzzle(puzzle_type='yajilin', rows=h, cols=w, cells=cells, display_b=flag)
 
 
 def _clue(cell):
-    clue = cell.clue
-    if isinstance(clue, ArrowClue):
-        if clue.direction not in _REV: raise ValueError('unsupported arrow direction')
-        direction, value = _REV[clue.direction], clue.value
-    elif isinstance(clue, NumberClue):
-        direction, value = 0, clue.value
-    else:
-        raise ValueError('invalid arrow clue')
-    if value in ('?', ' ', None): return direction, '?'
-    try: value = int(value)
-    except (TypeError, ValueError) as exc: raise ValueError('invalid arrow number') from exc
-    if not 0 <= value < 4096: raise ValueError('Yajilin arrow number is outside the pzpr URL range')
-    return direction, value
+    return cell
 
 
 def encode(p):
-    if p.puzzle_type != 'yajilin' or p.rows < 2 or p.cols < 2 or p.grid_type != 'square' or p.edges:
+    if p.puzzle_type != 'yajilin' or p.rows < 2 or p.cols < 2:
         raise ValueError('invalid Yajilin puzzle')
-    if p.margins not in ([], [0, 0, 0, 0]): raise ValueError('invalid margins')
     if any(not (0 <= r < p.rows and 0 <= c < p.cols) for r, c in p.cells):
         raise ValueError('clue outside grid')
     out, skip = [], 0
@@ -98,17 +80,11 @@ def encode(p):
             else: out.append('-' + str(direction) + format(value, '03x'))
     if skip: out.append(chr(ord('a') + skip - 1))
     body = ''.join(out)
-    flag = 'b/' if p.metadata.get('display_b') else ''
+    flag = 'b/' if p.display_b else ''
     end = '/' if body.endswith('.') else ''
     return f'https://puzz.link/p?yajilin/{flag}{p.cols}/{p.rows}/{body}{end}'
 
 
-def clues(p):
-    out = [[None] * p.cols for _ in range(p.rows)]
-    for (r, c), cell in p.cells.items():
-        direction, value = _clue(cell)
-        out[r][c] = {'direction': direction, 'value': value}
-    return out
 
 
 def check_backend_rules(p):
@@ -160,8 +136,6 @@ def answer(p, board, status):
     return {'cells': cells, 'vertical': vertical, 'horizontal': horizontal}
 
 
-def complete(p, a):
-    return all(a['cells'][r][c] is not None for r in range(p.rows) for c in range(p.cols) if (r, c) not in p.cells) and all(v is not None for key in ('vertical', 'horizontal') for row in a[key] for v in row)
 
 
 def fileio(p, a):

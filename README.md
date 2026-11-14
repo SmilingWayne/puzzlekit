@@ -40,11 +40,11 @@ import puzzlekit
 
 result = puzzlekit.solve("https://puzz.link/p?nurikabe/2/2/1i")
 print(result.status)  # unique
-print(result.board)   # cspuz's JSON board, decoded as a Python dict
+print(result.board)   # cspuz board as a Python dict
+print(result.board_json)  # the same board as a JSON string
 print(result.to_pzpr())       # native pzpr FileIO text
 print(result.to_state())      # compressed pzpr-trace state
 print(result.to_trace_url())  # open in pzpr-trace
-print(result.to_dict())       # versioned semantic result, including the board
 ```
 
 `solve_url` is an alias for `solve`. When the backend returns a board, `status` is
@@ -65,39 +65,28 @@ is not a solution. Other genres can use different board items and conventions.
 
 ## Verified URL and state adapters
 
-Fifteen standard puzzle types support the semantic result and both pzpr outputs:
+Fifteen standard puzzle types support cspuz solving and pzpr FileIO/state:
 Nurikabe, Hitori, Kuromasu (`kurodoko`), Cave (`cave`, `bag`), Nurimisaki,
 Slitherlink (`slither`), Masyu (`mashu`), Akari (`lightup`), Kurotto,
 Shikaku, Heyawake, Aqre, LITS, Norinori and Yajilin. They accept puzz.link,
 pzplus and pzpr-trace links, `?p=type/width/height/data`, `?type/...` and bare
-paths. `decode` and `encode` round-trip the clues through `PuzzleInstance`.
+paths.
 Input `state` and `trace` parameters are ignored when solving: they are player
 progress, not puzzle constraints. Other query options and puzzle variants are
 rejected for these adapters until their rules are verified.
 
-For these puzzles `to_dict()` / `to_json()` return schema version 1, the
-canonical type, dimensions, row-major clues and answers, status, completeness,
-original and normalized URLs, and the unmodified cspuz board. Shading answers
-are `"black"`, `"white"`, or `null` (undetermined); Akari uses `"bulb"`,
-`"empty"`, or `null`. Loop and partition answers contain `vertical` and
-`horizontal` edge matrices with `true`, `false`, or `null`. Slitherlink
-includes the outside edges; the others have only internal edges. Yajilin
-answers contain both `cells` and edge matrices. Room puzzles also include a
-`regions` matrix. Masyu clues are 1 (white) or 2 (black); Yajilin clues contain
-direction (0–4, where 1/2/3/4 mean up/down/left/right) and value.
-On `multiple` the answers and exported state contain only facts
-common to all solutions; on `no_solution` or `unknown`, state export raises
-`ValueError`. The native text includes clues and player marks and is encoded
-as raw DEFLATE plus unpadded URL-safe Base64. It can be imported into
-pzpr-trace, or copied into dataset storage without a link.
+For these puzzles, `to_pzpr()` returns native FileIO containing clues and
+confirmed player marks. On `multiple`, the exported state contains only facts
+common to all solutions. On `no_solution` or `unknown`, state export raises
+`ValueError`. `to_state()` compresses the native text with raw DEFLATE and
+unpadded URL-safe Base64; `to_trace_url()` produces a pzpr-trace link.
 
 The clue codec accepts native pzpr number formats, including Hitori's two-digit
 base-36 clues and number16's extended values. The pinned cspuz URL decoder
 cannot faithfully solve all of them: Hitori requires clues 1–35 or empty cells;
 Nurikabe, Kuromasu, Cave, Nurimisaki and Shikaku require positive clues up to
 4095 or `?`; Kurotto and numbered room puzzles also support 0. Yajilin's cspuz
-decoder supports arrow numbers up to 255. Other values can be round-tripped but
-raise `ValueError` when solved. Room puzzles and Masyu/Yajilin currently require
+decoder supports arrow numbers up to 255. Other values raise `ValueError` when solved. Room puzzles and Masyu/Yajilin currently require
 at least two rows and columns. Rule variants are rejected except Yajilin's
 display-only `b` flag, which is preserved.
 
@@ -105,12 +94,11 @@ The upstream loop constraint allows an empty loop, which pzpr rejects. Until
 the backend enforces a nonempty loop, Slitherlink requires a positive clue,
 Masyu at least one pearl, and Yajilin at least one adjacent pair of non-clue
 cells. These conservative checks reject some otherwise valid inputs rather
-than misreporting an empty-loop model as a pzpr solution. URL decoding and
-encoding remain available for those inputs.
+than misreporting an empty-loop model as a pzpr solution.
 
 The backend can dispatch other URLs, and `puzzlekit.supported_puzzles()` lists
 upstream puzzle names; that list is **not** a claim of verified PuzzleKit
-output support. Semantic, FileIO and state outputs on other types raise
+output support. FileIO and state outputs on other types raise
 `ValueError`. Dataset problem text conversion is not part of `solve`. See
 [the acceptance report](docs/V040_EXTENDED_ADAPTERS.md) for samples and scope.
 
@@ -123,14 +111,13 @@ See [the integration notes](docs/CSPUZ_INTEGRATION.md).
 
 ## Development and licensing
 
-The Python entry point is in `src/puzzlekit/__init__.py`, the result and state
-exports are in `src/puzzlekit/core/result.py`, and the URL and puzzle-specific
-adapters are in `src/puzzlekit/formats/` (`shading.py`, `extended.py`,
-`regions.py`, and `yajilin.py`). The native bridge is `rust/src/lib.rs`;
-the actual puzzle solvers come from the pinned upstream cspuz dependency.
-The `tests/test_v040_*.py` suites cover the verified adapters, and
-`scripts/audit_v040_adapters.py` audits them against local dataset and pzprjs
-checkouts. See the integration notes for the backend and adapter boundaries.
+The public entry point is `src/puzzlekit/api.py`, with result exports in
+`core/result.py`. Puzzle registrations live in `src/puzzlekit/puzzles/` and
+`registry.py`; shared URL and FileIO implementations live in `_adapters/`.
+Their lightweight internal puzzle data stores only the clues and borders needed
+for validation and export. `rust/src/lib.rs` bridges the pinned cspuz backend.
+The `tests/test_v040_*.py` suites and `scripts/audit_v040_adapters.py` check
+FileIO and state against the local dataset and custom pzprjs checkout.
 
 The Rust dependency is pinned in [rust/Cargo.toml](rust/Cargo.toml) and
 [rust/Cargo.lock](rust/Cargo.lock). CI builds and tests wheels separately from

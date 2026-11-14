@@ -5,7 +5,8 @@ The Python extension in `rust/src/lib.rs` calls the pinned upstream
 puzz.link, Kudamono and specially prefixed Penpa inputs according to upstream
 rules, then returns a `Board`. The extension maps its `Uniqueness` to a status
 and serializes the board using upstream `to_json`. Python parses that JSON into
-`PuzzleResult.board`; `supported_puzzles()` exposes upstream's solve list.
+`PuzzleResult.board`; `board_json` serializes that board for transport.
+`supported_puzzles()` exposes upstream's solve list.
 This list is neither a list of tested PuzzleKit integrations nor a per-format
 compatibility guarantee. Unsupported or malformed inputs currently both raise
 `ValueError` with the upstream message.

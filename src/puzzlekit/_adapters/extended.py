@@ -1,7 +1,7 @@
 """Adapters for standard loop, partition, and light-bulb puzzles."""
-from puzzlekit.formats.base import CellState, NumberClue, PuzzleInstance, SymbolState
-from puzzlekit.formats.puzzlink.codecs import Number3Codec
-from puzzlekit.formats.shading import puzzle_path
+from puzzlekit._adapters.model import Puzzle
+from puzzlekit._adapters.codecs import Number3Codec
+from puzzlekit._adapters.shading import puzzle_path
 
 ALIASES = {'slitherlink': 'slither', 'slither': 'slither', 'masyu': 'mashu',
            'mashu': 'mashu', 'pearl': 'mashu', 'akari': 'lightup',
@@ -30,7 +30,7 @@ def _header(source):
 def decode_extended(source):
     pid, w, h, body = _header(source)
     if pid == 'shikaku':
-        from puzzlekit.formats.shading import decode_shading
+        from puzzlekit._adapters.shading import decode_shading
         return decode_shading(source)
     cells = {}
     if pid == 'mashu':
@@ -41,7 +41,7 @@ def decode_extended(source):
             raise ValueError('nonempty Masyu padding')
         for i, value in enumerate(vals[:w * h]):
             if value:
-                cells[divmod(i, w)] = CellState(symbol=SymbolState(symbol_type='circle_L', symbol_index=value))
+                cells[divmod(i, w)] = value
     else:
         pos = 0
         for index, ch in enumerate(body):
@@ -60,50 +60,23 @@ def decode_extended(source):
             if value is not None:
                 if pos >= w * h:
                     raise ValueError('puzzle data exceeds grid')
-                cells[divmod(pos, w)] = CellState(clue=NumberClue(value=value))
+                cells[divmod(pos, w)] = value
             pos += advance
             if pos > w * h and index != len(body) - 1:
                 raise ValueError('puzzle data exceeds grid')
-    return PuzzleInstance(puzzle_type=pid, title=pid, rows=h, cols=w,
-                          margins=[0, 0, 0, 0], cells=cells,
-                          metadata={'source': 'puzz.link', 'original_url': source})
+    return Puzzle(puzzle_type=pid, rows=h, cols=w, cells=cells)
 
 
 def clue_value(p, r, c):
-    cell = p.cells.get((r, c))
-    if cell is None:
-        return None
-    if p.puzzle_type == 'mashu':
-        if cell.symbol is not None and cell.symbol.symbol_type in ('circle_L', 'circle'):
-            if cell.symbol.symbol_index in (0, 1):
-                return 1
-            if cell.symbol.symbol_index == 2:
-                return 2
-        if cell.clue is not None and str(cell.clue.value) in ('1', '2'):
-            return int(cell.clue.value)
-        raise ValueError('invalid Masyu pearl')
-    if cell.clue is None or not isinstance(cell.clue, NumberClue):
-        raise ValueError('invalid clue')
-    v = cell.clue.value
-    if v in ('?', ' '):
-        return '?'
-    try:
-        n = int(v)
-    except (ValueError, TypeError) as exc:
-        raise ValueError('invalid clue') from exc
-    if n not in range(5):
-        raise ValueError('number4 clue must be 0–4 or ?')
-    return n
+    return p.cells.get((r, c))
 
 
 def encode_extended(p):
     if p.puzzle_type == 'shikaku':
-        from puzzlekit.formats.shading import encode_shading
+        from puzzlekit._adapters.shading import encode_shading
         return encode_shading(p)
     if p.puzzle_type not in ('slither', 'mashu', 'lightup') or p.rows < 1 or p.cols < 1:
         raise ValueError('invalid puzzle')
-    if p.grid_type != 'square' or p.margins not in ([], [0, 0, 0, 0]) or p.edges:
-        raise ValueError('unsupported puzzle geometry')
     if any(not (0 <= r < p.rows and 0 <= c < p.cols) for r, c in p.cells):
         raise ValueError('clue outside grid')
     values = [clue_value(p, r, c) for r in range(p.rows) for c in range(p.cols)]
@@ -138,8 +111,8 @@ def check_backend_rules(p):
     # Slitherlink clue or a Masyu pearl forces a real loop; otherwise its status
     # and common facts may include a board rejected by pzpr's no-line check.
     if p.puzzle_type == 'slither' and not any(
-        isinstance(cell.clue, NumberClue) and str(cell.clue.value) in ('1', '2', '3', '4')
-        for cell in p.cells.values()
+        str(value) in ('1', '2', '3', '4')
+        for value in p.cells.values()
     ):
         raise ValueError('cspuz may count an empty Slitherlink loop; a positive clue is required')
     if p.puzzle_type == 'mashu' and not p.cells:
@@ -148,7 +121,7 @@ def check_backend_rules(p):
 
 def clues(p):
     if p.puzzle_type == 'shikaku':
-        return [[p.cells[(r, c)].clue.value if (r, c) in p.cells else None
+        return [[p.cells.get((r, c))
                  for c in range(p.cols)] for r in range(p.rows)]
     return [[clue_value(p, r, c) for c in range(p.cols)] for r in range(p.rows)]
 
@@ -194,11 +167,6 @@ def answer(p, board, status):
     return {'vertical': vertical, 'horizontal': horizontal}
 
 
-def complete(p, a):
-    if p.puzzle_type == 'lightup':
-        return all(a[r][c] is not None for r in range(p.rows) for c in range(p.cols)
-                   if (r, c) not in p.cells)
-    return all(value is not None for rows in a.values() for row in rows for value in row)
 
 
 def fileio(p, a):
