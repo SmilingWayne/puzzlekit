@@ -3,7 +3,7 @@ from puzzlekit.puzzles import (
     akari, aqre, cave, heyawake, hitori, kuromasu, kurotto, lits, masyu,
     norinori, nurikabe, nurimisaki, shikaku, slitherlink, yajilin,
     ayeheya, chocona, shimaguni, mines, aquapelago, chainedb, cbanana,
-    context, tasquare, canal
+    context, tasquare, canal, araf, squarejam, fillomino, gokigen, shakashaka, tapa, stostone, sudoku, simpleloop, yinyang, hashi, nonogram
 )
 
 ADAPTERS = (
@@ -32,5 +32,17 @@ ADAPTERS = (
     context.ADAPTER,
     tasquare.ADAPTER,
     canal.ADAPTER,
+    araf.ADAPTER,
+    squarejam.ADAPTER,
+    fillomino.ADAPTER,
+    gokigen.ADAPTER,
+    shakashaka.ADAPTER,
+    tapa.ADAPTER,
+    stostone.ADAPTER,
+    sudoku.ADAPTER,
+    simpleloop.ADAPTER,
+    yinyang.ADAPTER,
+    hashi.ADAPTER,
+    nonogram.ADAPTER,
 )
 BY_TOKEN = {token: adapter for adapter in ADAPTERS for token in adapter.aliases}

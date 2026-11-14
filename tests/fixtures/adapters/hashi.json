@@ -1,0 +1,19 @@
+[
+  {
+    "path": "hashi/3/3/4g4i4g4",
+    "status": "unique",
+    "record": "hashi0159",
+    "fileio": "pzprv3\nhashikake\n3\n3\n4 . 4 \n. . . \n4 . 4 \n2 2 \n-1 -1 \n2 2 \n2 -1 2 \n2 -1 2 \n"
+  },
+  {
+    "path": "hashi/5/5/3g3g.k4g8g4h2h1i./",
+    "status": "unique",
+    "record": "hashi0013",
+    "fileio": "pzprv3\nhashikake\n5\n5\n3 . 3 . - \n. . . . . \n4 . 8 . 4 \n. . 2 . . \n1 . . . - \n1 1 -1 -1 \n-1 -1 -1 -1 \n2 2 2 2 \n-1 -1 -1 -1 \n1 1 1 1 \n2 -1 2 -1 1 \n2 -1 2 -1 1 \n-1 -1 2 -1 1 \n-1 -1 -1 -1 1 \n"
+  },
+  {
+    "path": "hashikake/3/3/4g4i4g4",
+    "status": "unique",
+    "fileio": "pzprv3\nhashikake\n3\n3\n4 . 4 \n. . . \n4 . 4 \n2 2 \n-1 -1 \n2 2 \n2 -1 2 \n2 -1 2 \n"
+  }
+]

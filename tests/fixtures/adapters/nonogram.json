@@ -1,0 +1,13 @@
+[
+  {
+    "path": "nonogram/3/3/2g2g2g113g1g",
+    "status": "unique",
+    "fileio": "pzprv3\nnonogram\n3\n3\n. . . . . \n. . 2 2 2 \n1 1 # + # \n. 3 # # # \n. 1 + # + \n",
+    "record": "nonogram0008"
+  },
+  {
+    "path": "nonogram/2/2/1111",
+    "status": "multiple",
+    "fileio": "pzprv3\nnonogram\n2\n2\n. 1 1 \n1 . . \n1 . . \n"
+  }
+]

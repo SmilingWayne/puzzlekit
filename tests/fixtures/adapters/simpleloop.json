@@ -1,0 +1,14 @@
+[
+  {
+    "path": "simpleloop/5/5/hg00o",
+    "status": "unique",
+    "record": "simpleloop0095",
+    "fileio": "pzprv3\nsimpleloop\n5\n5\n* . . . * \n* . . . . \n. . . . . \n. . . . . \n* * . . . \n0 1 1 0 \n0 1 -1 1 \n1 1 -1 1 \n1 1 -1 1 \n0 0 1 1 \n0 1 -1 1 0 \n0 -1 1 -1 1 \n1 -1 -1 1 -1 \n0 0 1 -1 1 \n"
+  },
+  {
+    "path": "simpleloop/5/5/02804",
+    "status": "unique",
+    "record": "simpleloop0103",
+    "fileio": "pzprv3\nsimpleloop\n5\n5\n. . . . . \n. . . * . \n. * . . . \n. . . . . \n. . * . . \n1 -1 1 1 \n-1 1 0 0 \n0 0 1 -1 \n-1 1 -1 -1 \n1 0 0 1 \n1 1 1 0 1 \n1 0 -1 0 1 \n1 0 1 1 1 \n1 1 0 1 1 \n"
+  }
+]

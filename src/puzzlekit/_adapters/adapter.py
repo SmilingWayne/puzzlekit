@@ -1,7 +1,16 @@
 """Connect a puzzle's registered identity to its shared adapter."""
 from dataclasses import dataclass
 
-from . import shading, extended, regions, yajilin
+from . import diagonal, extended, hashi, nonogram, packed, partition, regions, shading, tapa, yajilin
+
+_DIRECT_FAMILIES = {
+    'diagonal': diagonal,
+    'hashi': hashi,
+    'nonogram': nonogram,
+    'packed': packed,
+    'partition': partition,
+    'tapa': tapa,
+}
 
 
 @dataclass(frozen=True)
@@ -25,14 +34,21 @@ class Adapter:
             puzzle = regions.decode_regions(source)
             regions.check_backend_clues(puzzle)
             url = regions.encode_regions(puzzle)
+        elif self.family in _DIRECT_FAMILIES:
+            module = _DIRECT_FAMILIES[self.family]
+            puzzle = module.decode(source)
+            url = module.encode(puzzle)
         else:
             puzzle = yajilin.decode(source)
             yajilin.check_backend_rules(puzzle)
             url = yajilin.encode(puzzle)
-        backend_url = extended.backend_url(url) if self.family == 'extended' else url
+        backend_url = (extended.backend_url(url) if self.family == 'extended' else
+                       hashi.backend_url(url) if self.family == 'hashi' else url)
         return puzzle, url, backend_url
 
     def fileio(self, puzzle, board, status):
-        module = {'shading': shading, 'extended': extended,
-                  'regions': regions, 'yajilin': yajilin}[self.family]
+        module = {
+            'shading': shading, 'extended': extended, 'regions': regions,
+            'yajilin': yajilin, **_DIRECT_FAMILIES,
+        }[self.family]
         return module.fileio(puzzle, module.answer(puzzle, board, status))

@@ -4,8 +4,8 @@ from puzzlekit._adapters.codecs import BorderCodec
 from puzzlekit._adapters.grid import border_to_region_grid
 from puzzlekit._adapters.shading import decode_shading, encode_shading, puzzle_path
 
-TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni'})
-NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni'})
+TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni', 'stostone'})
+NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni', 'stostone'})
 
 
 def _parts(source):
@@ -86,6 +86,8 @@ def check_backend_clues(p):
         raise ValueError('cspuz room clues must be 0–4095 or ?')
     if p.puzzle_type == 'shimaguni' and 0 in values:
         raise ValueError('cspuz Shimaguni treats a zero clue as unknown')
+    if p.puzzle_type == 'stostone' and (p.rows % 2 or 0 in values):
+        raise ValueError('cspuz Stostone requires an even height and nonzero clues')
     if p.puzzle_type == 'chocona' and not any(isinstance(v, int) and v > 0 for v in values):
         raise ValueError('cspuz Chocona requires a positive clue to ensure shaded cells')
     if p.puzzle_type in {'heyawake', 'ayeheya'}:

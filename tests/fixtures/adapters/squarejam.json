@@ -1,0 +1,13 @@
+[
+  {
+    "path": "squarejam/4/4/h1s",
+    "status": "unique",
+    "record": "squarejam0003",
+    "fileio": "pzprv3\nsquarejam\n4\n4\n. . 1 . \n. . . . \n. . . . \n. . . . \n-1 1 1 \n-1 1 -1 \n-1 1 -1 \n-1 1 1 \n-1 -1 1 1 \n1 1 -1 -1 \n-1 -1 1 1 \n"
+  },
+  {
+    "path": "squarejam/2/2/.i",
+    "status": "unique",
+    "fileio": "pzprv3\nsquarejam\n2\n2\n- . \n. . \n-1 \n-1 \n-1 -1 \n"
+  }
+]

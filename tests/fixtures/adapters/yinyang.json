@@ -1,0 +1,13 @@
+[
+  {
+    "path": "yinyang/4/4/0jb1o9",
+    "status": "unique",
+    "record": "yinyang0010",
+    "fileio": "pzprv3\nyinyang\n4\n4\n. . . 2 \n. 1 1 . \n2 . . 1 \n2 2 . 1 \n2 2 2 . \n2 . . 1 \n. 1 2 . \n. . 2 . \n"
+  },
+  {
+    "path": "yinyang/2/2/00",
+    "status": "multiple",
+    "fileio": "pzprv3\nyinyang\n2\n2\n. . \n. . \n. . \n. . \n"
+  }
+]

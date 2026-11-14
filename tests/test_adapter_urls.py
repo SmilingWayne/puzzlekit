@@ -101,3 +101,24 @@ def test_minesweeper_impossible_clue_has_no_solution():
     assert result.status == 'no_solution'
     with pytest.raises(ValueError):
         result.to_state()
+
+
+@pytest.mark.parametrize('path', [
+    'shakashaka/2/2/j',  # cspuz admits a solution without a triangle.
+    'shakashaka/3/3/g1m/nosquare',
+    'simpleloop/2/2/u',  # All cells are blocked; the empty loop is invalid.
+    'stostone/2/3/00g',  # The backend handles only even heights.
+    'stostone/2/2/000',
+    'hashi/2/2/0g1g',  # A zero island may be disconnected in the backend.
+    'fillomino/t/4/4/g21o21h',
+    'fillomino/2/2/.i',
+    'sudoku/4/4/0u',
+    'sudoku/3/3/i',
+    'yinyang/2/2/01',  # Nonzero packed padding.
+    'nonogram/1/1/00',
+    'nonogram/2/2/111',
+    'tapa/2/2/0i',
+])
+def test_new_puzzle_limits_and_unsupported_variants(path):
+    with pytest.raises(ValueError):
+        puzzlekit.solve(path)

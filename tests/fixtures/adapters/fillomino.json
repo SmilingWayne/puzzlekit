@@ -1,0 +1,13 @@
+[
+  {
+    "path": "fillomino/3/3/12k24",
+    "status": "unique",
+    "record": "fillomino0248",
+    "fileio": "pzprv3\nfillomino\n3\n3\n1 2 . \n. . . \n. 2 4 \n. . 2 \n4 4 4 \n2 . . \n1 -1 \n-1 -1 \n-1 1 \n1 1 1 \n1 1 -1 \n"
+  },
+  {
+    "path": "fillomino/2/2/j",
+    "status": "multiple",
+    "fileio": "pzprv3\nfillomino\n2\n2\n. . \n. . \n. . \n. . \n0 \n0 \n0 0 \n"
+  }
+]
