@@ -4,14 +4,17 @@ from puzzlekit._adapters.codecs import BorderCodec
 from puzzlekit._adapters.grid import border_to_region_grid
 from puzzlekit._adapters.shading import decode_shading, encode_shading, puzzle_path
 
-TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni', 'stostone'})
-NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni', 'stostone'})
+TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni', 'stostone', 'akichi', 'invlitso', 'cocktail'})
+NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni', 'stostone', 'akichi', 'cocktail'})
 
 
 def _parts(source):
     parts = puzzle_path(source).split('/')
     if len(parts) == 5 and parts[-1] == '' and parts[-2].endswith('.'):
         parts.pop()
+    flag = len(parts) == 5 and parts[0] == 'akichi' and parts[1] == 'x'
+    if flag:
+        parts.pop(1)
     if len(parts) != 4 or parts[0] not in TYPES:
         raise ValueError('unsupported room puzzle path or variant')
     if not parts[1].isdigit() or not parts[2].isdigit():
@@ -20,7 +23,7 @@ def _parts(source):
     # cspuz room backends index horizontal[0], so single-row boards panic.
     if w < 2 or h < 2:
         raise ValueError('cspuz room puzzles require at least two rows and columns')
-    return parts[0], w, h, parts[3]
+    return parts[0], w, h, parts[3], flag
 
 
 def _anchors(grid):
@@ -34,7 +37,7 @@ def _anchors(grid):
 
 
 def decode_regions(source):
-    pid, w, h, body = _parts(source)
+    pid, w, h, body, flag = _parts(source)
     count = (h * (w - 1) + 4) // 5 + ((h - 1) * w + 4) // 5
     if len(body) < count or any(ch not in '0123456789abcdefghijklmnopqrstuv' for ch in body[:count]):
         raise ValueError('invalid room borders')
@@ -49,7 +52,7 @@ def decode_regions(source):
             clues[anchors[i]] = cell
     elif rest:
         raise ValueError('unexpected room puzzle data')
-    return Puzzle(puzzle_type=pid, rows=h, cols=w, cells=clues, borders=border)
+    return Puzzle(puzzle_type=pid, rows=h, cols=w, cells=clues, borders=border, rule_flag='x' if flag else '')
 
 
 def room_data(p):
@@ -84,6 +87,14 @@ def check_backend_clues(p):
     _, grid, values = room_data(p)
     if any(isinstance(v, int) and v >= 4096 for v in values):
         raise ValueError('cspuz room clues must be 0–4095 or ?')
+    if p.puzzle_type == 'invlitso' and all(sum(v == room for line in grid for v in line) <= 4 for room in set(v for line in grid for v in line)):
+        raise ValueError('Inverse LITSO requires a room with more than four cells to exclude empty shading')
+    if p.puzzle_type == 'akichi':
+        if any(v == '?' for v in values):
+            raise ValueError('cspuz Akichiwake does not support unknown room clues')
+        lines = grid + [list(column) for column in zip(*grid)]
+        if not any(v == 0 for v in values) and not any(sum(a != b for a, b in zip(line, line[1:])) >= 2 for line in lines):
+            raise ValueError('cspuz may count an empty shading in Akichiwake')
     if p.puzzle_type == 'shimaguni' and 0 in values:
         raise ValueError('cspuz Shimaguni treats a zero clue as unknown')
     if p.puzzle_type == 'stostone' and (p.rows % 2 or 0 in values):
@@ -119,7 +130,8 @@ def encode_regions(p):
         tmp = Puzzle(puzzle_type='nurikabe', rows=1, cols=len(values), cells=cells)
         body += encode_shading(tmp).split('?', 1)[1].split('/', 3)[3]
     end = '/' if body.endswith('.') else ''
-    return f'https://puzz.link/p?{p.puzzle_type}/{p.cols}/{p.rows}/{body}{end}'
+    flag = 'x/' if p.puzzle_type == 'akichi' and p.rule_flag == 'x' else ''
+    return f'https://puzz.link/p?{p.puzzle_type}/{flag}{p.cols}/{p.rows}/{body}{end}'
 
 
 def clues(p):
@@ -147,6 +159,8 @@ def fileio(p, answer_grid):
     h, w = p.rows, p.cols
     n = h * (w - 1)
     out = [f'pzprv3.1\n{p.puzzle_type}\n{h}\n{w}\n']
+    if p.puzzle_type == 'akichi' and p.rule_flag == 'x':
+        out.append('x\n')
     out.extend(row([int(r * (w - 1) + c in border) for c in range(w - 1)]) for r in range(h))
     out.extend(row([int(n + r * w + c in border) for c in range(w)]) for r in range(h - 1))
     if p.puzzle_type in NUMBERED:

@@ -1,0 +1,13 @@
+[
+  {
+    "path": "yajikazu/4/4/a31b21a31b41c41b",
+    "status": "unique",
+    "fileio": "pzprv3\nyajikazu\n4\n4\n. 3,1 . . \n2,1 . 3,1 . \n. 4,1 . . \n. 4,1 . . \n# + + + \n+ + # + \n+ # + + \n# + + # \n",
+    "record": "yajikazu0031"
+  },
+  {
+    "path": "yajikazu/3/2/21k",
+    "status": "multiple",
+    "fileio": "pzprv3\nyajikazu\n2\n3\n2,1 . . \n. . . \n. + . \n. + . \n"
+  }
+]

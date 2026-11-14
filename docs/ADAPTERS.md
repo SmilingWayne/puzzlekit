@@ -6,8 +6,10 @@ state export.
 | Puzzle | Accepted path tokens | Answer marks |
 | --- | --- | --- |
 | Akari | `lightup`, `akari` | Bulbs and empty cells |
-| Aquapelago | `aquapelago` | Cell shading |
+| Akichiwake | `akichi` | Cell shading |
 | Aqre | `aqre` | Cell shading |
+| Aquapelago | `aquapelago` | Cell shading |
+| Aquarium | `aquarium` | Cell shading |
 | Araf | `araf` | Region boundaries |
 | Ayeheya | `ayeheya` | Cell shading |
 | Canal View | `canal` | Cell shading |
@@ -16,54 +18,114 @@ state export.
 | Choco Banana | `cbanana` | Cell shading |
 | Chocona | `chocona` | Cell shading |
 | Circles and Squares | `circlesquare` | Cell shading |
+| Cocktail Lamp | `cocktail` | Cell shading |
 | Context | `context` | Cell shading |
+| Coral | `coral` | Cell shading |
 | Country Road | `country` | Cell loop |
+| Creek | `creek` | Cell shading |
+| Cross the Streams | `cts` | Cell shading |
+| Detour | `detour` | Cell loop |
 | Dominion | `dominion` | Cell shading |
+| Doppelblock | `doppelblock` | Cell numbers and blocks |
 | Double Back | `doubleback` | Cell loop |
 | Double Choco | `dbchoco` | Region boundaries |
+| Easy as ABC | `easyasabc` | Letters and empty marks |
+| Energy Walk | `energywalk` | Cell loop |
 | Fillmat | `fillmat` | Region boundaries |
 | Fillomino | `fillomino` | Cell numbers and region boundaries |
 | FiveCells | `fivecells` | Region boundaries |
+| Forest Walk | `forestwalk` | Cell loop |
 | FourCells | `fourcells` | Region boundaries |
 | Geradeweg | `geradeweg` | Cell loop |
+| Guide Arrow | `guidearrow` | Cell shading |
 | Hashiwokakero | `hashikake`, `hashi`, `bridges` | Single and double bridges |
 | Heteromino | `heteromino` | Region boundaries |
 | Heyawake | `heyawake` | Cell shading |
 | Hitori | `hitori` | Cell shading |
+| Hotaru Beam | `firefly` | Cell paths |
+| Ice Walk | `icewalk` | Cell loop |
+| Inverse LITSO | `invlitso` | Cell shading |
+| Kakuro | `kakuro` | Cell numbers |
+| Kropki | `kropki` | Cell numbers |
 | Kuromasu | `kurodoko` | Cell shading |
 | Kurotto | `kurotto` | Cell shading |
+| Light and Shadow | `lightshadow` | Black and white shading |
 | LITS | `lits` | Cell shading |
+| Lohkous | `lohkous` | Region boundaries |
 | Masyu | `mashu`, `masyu`, `pearl` | Cell loop |
 | Minesweeper | `mines` | Mines and empty cells |
 | Moon or Sun | `moonsun` | Cell loop |
+| Morning Walk | `morningwalk` | Cell loop |
 | Nagenawa | `nagenawa` | Rectangular loops |
 | Nanro | `nanro` | Cell numbers and empty marks |
 | NIKOJI | `nikoji` | Region boundaries |
+| No Three | `nothree` | Cell shading |
 | Nonogram | `nonogram` | Cell shading |
 | Norinori | `norinori` | Cell shading |
+| Norinuri | `norinuri` | Cell shading |
 | Nurikabe | `nurikabe` | Cell shading |
 | Nurimisaki | `nurimisaki` | Cell shading |
 | Paintarea | `paintarea` | Cell shading |
 | Putteria | `putteria` | Cell numbers and empty marks |
+| Reflect Link | `reflect` | Cell loop |
 | Ring-ring | `ringring` | Rectangular loops |
 | Ripple Effect | `ripple` | Cell numbers |
+| Roma | `roma` | Cell arrows |
 | Sashigane | `sashigane` | Region boundaries |
 | Shakashaka | `shakashaka` | Triangles and empty cells |
 | Shikaku | `shikaku` | Region boundaries |
 | Shimaguni | `shimaguni` | Cell shading |
+| Simple Gako | `simplegako` | Cell numbers |
 | Simple Loop | `simpleloop` | Cell loop |
+| Skyscrapers | `skyscrapers` | Cell numbers |
 | Slant | `gokigen` | Slashes |
 | Slitherlink | `slither`, `slitherlink` | Vertex loop |
 | Square Jam | `squarejam` | Region boundaries |
+| Star Battle | `starbattle` | Stars and empty marks |
 | Stostone | `stostone` | Cell shading |
 | Sudoku | `sudoku` | Cell numbers |
 | Sukoro | `sukoro` | Cell numbers and empty marks |
 | Tapa | `tapa` | Cell shading |
 | Tasquare | `tasquare` | Cell shading |
+| Water Walk | `waterwalk` | Cell loop |
 | Yajilin | `yajilin`, `yajirin` | Cell shading and cell loop |
+| Yajisan-Kazusan | `yajikazu` | Cell shading |
 | Yin-Yang | `yinyang` | Black and white circles |
 
 ## Inputs and limits
+
+- Akichiwake supports the `x` variant and room clues 0–4095; unknown
+  clues are unsupported. It requires a zero clue or a row or column crossing
+  at least two room boundaries to exclude cspuz's empty shading. Inverse
+  LITSO requires a room larger than four cells for the same reason.
+- Aquarium supports the `r` variant, outside clues 0–255, and requires at
+  least one positive outside clue. Coral accepts outside clues 1–255 or
+  empty slots. Cross the Streams accepts clues 1–255, `?`, `*`, and empty slots.
+- Creek accepts vertex clues 0–4 or `?` and requires a positive clue. No
+  Three accepts ordinary dots and requires at least one dot. Both conditions
+  exclude cspuz's empty shading. Norinuri accepts clues 1–4095 or `?`.
+- Yajisan-Kazusan accepts arrow numbers 0–255 or `?`; at least one positive
+  arrow must point into the grid, and positive arrows cannot point outside.
+  Guide Arrow accepts directions 1–4 or `?` and requires an in-grid goal
+  without an arrow. Cocktail Lamp accepts room clues 0–4095 or `?`.
+- Detour accepts room clues 0–4095 or `?`. Reflect Link accepts a cross or
+  triangle, with triangle numbers 1–15 or an unnumbered triangle. Hotaru
+  Beam requires at least one directional clue, numbered 0–255 or `?`.
+- Ice, Forest, Water, Morning and Energy Walk support the `f` variant and
+  clues 1–4095 or `?`; a colored cell cannot also contain a clue. These
+  new shading, loop and partition adapters require at least two rows and
+  columns, except Kakuro, which accepts positive dimensions.
+- Roma accepts arrow clues 1–4 and requires a goal. Star Battle requires a
+  square board and a positive star count. Kropki requires a square board and
+  complete packed circle data. Simple Gako accepts positive clues 1–4095;
+  unknown given numbers are unsupported.
+- Skyscrapers and Doppelblock require square boards. Easy as ABC accepts a
+  letter count from 1 to the smaller board dimension, up to 26. Outside and
+  cell clues must be within their respective puzzle ranges; Doppelblock's
+  outside sums can be 0–255. Kakuro accepts sums 0–45 or empty clues, and
+  treats a zero sum as unspecified to match pzpr while retaining it in FileIO.
+- Light and Shadow accepts encoded clues below 4096 and requires at least one
+  clue. Lohkous requires at least one segment clue with digits 1–9 or `?`.
 
 The adapters accept puzz.link, pzplus and pzpr-trace URLs, along with
 `?p=type/width/height/data`, `?type/width/height/data` and bare puzzle paths.

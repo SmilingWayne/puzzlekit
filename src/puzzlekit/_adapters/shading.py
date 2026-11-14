@@ -8,7 +8,7 @@ from urllib.parse import unquote, urlsplit
 from puzzlekit._adapters.model import Puzzle
 
 TYPES = frozenset({"nurikabe", "hitori", "kurodoko", "cave", "nurimisaki", "kurotto", "shikaku",
-                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal", "dominion"})
+                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal", "dominion", "norinuri"})
 ALIASES = {"bag": "cave"}
 _DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 
@@ -178,7 +178,7 @@ def encode_shading(instance):
 
 
 def check_backend_clues(instance):
-    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal', 'dominion'}
+    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal', 'dominion', 'norinuri'}
     if instance.puzzle_type in two_dimensional and (instance.rows < 2 or instance.cols < 2):
         raise ValueError('cspuz requires at least two rows and columns for this puzzle')
     for value in instance.cells.values():

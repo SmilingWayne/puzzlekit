@@ -1,0 +1,18 @@
+[
+  {
+    "path": "forestwalk/6/5/58gg1i2h3r4s",
+    "status": "unique",
+    "fileio": "pzprv3\nforestwalk\n5\n6\n2 . # 3 # . \n# . . . # . \n. . . # 4 . \n. . . . . . \n# # . . # . \n0 1 1 1 -1 -1 0 \n0 1 -1 1 -1 -1 0 \n0 -1 1 1 1 1 0 \n0 1 1 -1 1 -1 0 \n0 -1 -1 1 1 1 0 \n0 0 0 0 0 0 \n1 -1 1 1 -1 -1 \n1 1 -1 -1 -1 -1 \n1 -1 -1 1 -1 1 \n-1 -1 1 -1 1 1 \n0 0 0 0 0 0 \n"
+  },
+  {
+    "path": "forestwalk/5/5/0a2e0r1gam4g4",
+    "status": "unique",
+    "fileio": "pzprv3\nforestwalk\n5\n5\n. . . . . \n. # . # . \n. . 1 # 10 \n. # # # . \n. . 4 . 4 \n0 1 1 1 1 0 \n0 -1 -1 -1 -1 0 \n0 1 -1 1 1 0 \n0 1 -1 1 1 0 \n0 1 -1 1 1 0 \n0 0 0 0 0 \n1 -1 -1 -1 1 \n1 -1 -1 -1 1 \n-1 1 1 1 -1 \n1 1 1 -1 1 \n0 0 0 0 0 \n",
+    "record": "forestwalk0001"
+  },
+  {
+    "path": "forestwalk/f/4/4/0000v",
+    "status": "multiple",
+    "fileio": "pzprv3\nforestwalk\n4\n4\nf\n. . . . \n. . . . \n. . . . \n. . . . \n0 1 0 1 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 1 0 1 0 \n0 0 0 0 \n1 0 0 1 \n0 0 0 0 \n1 0 0 1 \n0 0 0 0 \n"
+  }
+]

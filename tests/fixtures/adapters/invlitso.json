@@ -1,0 +1,12 @@
+[
+  {
+    "path": "invlitso/7/7/4bkj33apgir8sjhs8g",
+    "status": "unique",
+    "fileio": "pzprv3.1\ninvlitso\n7\n7\n0 0 1 0 0 0 \n1 0 1 1 1 0 \n1 0 0 1 0 0 \n1 1 0 0 0 1 \n1 0 0 0 1 1 \n0 1 0 1 0 1 \n1 0 0 1 1 0 \n1 0 0 1 0 1 1 \n0 1 1 0 1 0 0 \n0 1 1 1 0 0 1 \n0 0 1 1 1 0 0 \n0 1 1 1 1 0 0 \n0 1 0 0 0 1 0 \n# + + + + + + \n# + + + # + + \n# + + + # + + \n# # # # # # # \n+ + + + + # + \n+ + + + # # + \n+ + + # # + + \n"
+  },
+  {
+    "path": "invlitso/3/2/00",
+    "status": "multiple",
+    "fileio": "pzprv3.1\ninvlitso\n2\n3\n0 0 \n0 0 \n0 0 0 \n. . . \n. . . \n"
+  }
+]

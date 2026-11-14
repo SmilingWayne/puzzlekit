@@ -51,11 +51,198 @@ puzzles, aliases and input limits. Other URLs can return a cspuz board when
 the pinned backend supports them. The list returned by
 `puzzlekit.supported_puzzles()` describes that upstream coverage.
 
+### pzprjs and cspuz adapter targets
+
+The current target set contains **145 puzzle types** registered in the custom
+pzprjs checkout and dispatched by the pinned cspuz backend: **86 verified
+adapters** and **59 candidates**. This is a static inventory, not a guarantee
+that rules, variants, clues, URL formats or answer marks are compatible. Each
+candidate still requires verification against pzprjs before FileIO and state
+support can be claimed. Separate pzpr PIDs are counted separately; Numberlink's
+standalone enumeration entry is outside this solve-dispatch inventory.
+
+Snapshot: pzprjs `6a180ef71c29`, cspuz `d6424dc3da9f`. Update these lists
+when adapters or the pinned backend change. The PID is the pzpr identifier;
+it does not list every accepted URL alias.
+
+<details>
+<summary>Verified adapters (86)</summary>
+
+| Puzzle | pzpr PID |
+| --- | --- |
+| Akari | `lightup` |
+| Akichiwake | `akichi` |
+| Aqre | `aqre` |
+| Aquapelago | `aquapelago` |
+| Aquarium | `aquarium` |
+| Araf | `araf` |
+| Ayeheya | `ayeheya` |
+| Canal View | `canal` |
+| Cave | `cave` |
+| Chained Block | `chainedb` |
+| Choco Banana | `cbanana` |
+| Chocona | `chocona` |
+| Circles and Squares | `circlesquare` |
+| Cocktail Lamp | `cocktail` |
+| Context | `context` |
+| Coral | `coral` |
+| Country Road | `country` |
+| Creek | `creek` |
+| Cross the Streams | `cts` |
+| Detour | `detour` |
+| Dominion | `dominion` |
+| Doppelblock | `doppelblock` |
+| Double Back | `doubleback` |
+| Double Choco | `dbchoco` |
+| Easy as ABC | `easyasabc` |
+| Energy Walk | `energywalk` |
+| Fillmat | `fillmat` |
+| Fillomino | `fillomino` |
+| FiveCells | `fivecells` |
+| Forest Walk | `forestwalk` |
+| FourCells | `fourcells` |
+| Geradeweg | `geradeweg` |
+| Guide Arrow | `guidearrow` |
+| Hashiwokakero | `hashikake` |
+| Heteromino | `heteromino` |
+| Heyawake | `heyawake` |
+| Hitori | `hitori` |
+| Hotaru Beam | `firefly` |
+| Ice Walk | `icewalk` |
+| Inverse LITSO | `invlitso` |
+| Kakuro | `kakuro` |
+| Kropki | `kropki` |
+| Kurodoko | `kurodoko` |
+| Kurotto | `kurotto` |
+| Light and Shadow | `lightshadow` |
+| LITS | `lits` |
+| Lohkous | `lohkous` |
+| Masyu | `mashu` |
+| Minesweeper | `mines` |
+| Moon or Sun | `moonsun` |
+| Morning Walk | `morningwalk` |
+| Nagenawa | `nagenawa` |
+| Nanro | `nanro` |
+| NIKOJI | `nikoji` |
+| No Three | `nothree` |
+| Nonogram | `nonogram` |
+| Norinori | `norinori` |
+| Norinuri | `norinuri` |
+| Nurikabe | `nurikabe` |
+| Nurimisaki | `nurimisaki` |
+| Paintarea | `paintarea` |
+| Putteria | `putteria` |
+| Reflect Link | `reflect` |
+| Ring-ring | `ringring` |
+| Ripple Effect | `ripple` |
+| Roma | `roma` |
+| Sashigane | `sashigane` |
+| Shakashaka | `shakashaka` |
+| Shikaku | `shikaku` |
+| Shimaguni | `shimaguni` |
+| Simple Gako | `simplegako` |
+| Simple Loop | `simpleloop` |
+| Skyscrapers | `skyscrapers` |
+| Slant | `gokigen` |
+| Slitherlink | `slither` |
+| Square Jam | `squarejam` |
+| Star Battle | `starbattle` |
+| Stostone | `stostone` |
+| Sudoku | `sudoku` |
+| Sukoro | `sukoro` |
+| Tapa | `tapa` |
+| Tasquare | `tasquare` |
+| Water Walk | `waterwalk` |
+| Yajilin | `yajilin` |
+| Yajisan-Kazusan | `yajikazu` |
+| Yin-Yang | `yinyang` |
+
+</details>
+
+<details>
+<summary>Adapter candidates (59)</summary>
+
+The data columns are a 2026-11-14 snapshot of the local sibling
+`puzzlekit-dataset` checkout (`f4b71bc9170c`): raw rows in
+`puzzlink_crawlers/logs/merged_puzzles.csv` matched by PID, and dataset-text
+cases matched by puzzle type, respectively. Zero or `—` means none were
+matched in that inventory, not that no examples exist.
+Dataset text is not accepted directly by `solve()`; it needs puzzle-specific
+conversion and validation. CSV entries may overlap dataset cases and are not
+a count of verified solvable puzzles. The pinned cspuz backend tests also
+contain sample URLs and expected boards for these candidates; those samples
+have not all been checked through PuzzleKit and pzprjs.
+
+| Puzzle | pzpr PID | CSV URLs | Dataset cases |
+| --- | --- | ---: | ---: |
+| All or Nothing | `nothing` | 1 | — |
+| Archipelago | `archipelago` | 0 | — |
+| Army Ants | `armyants` | 19 | — |
+| Balloon Box | `balloon` | 2 | — |
+| Barns | `barns` | 178 | — |
+| Battleship | `battleship` | 1 | 859 |
+| Bosanowa | `bosanowa` | 7 | 36 |
+| Bramble | `bramble` | 0 | — |
+| Building Walk | `bdwalk` | 3 | — |
+| Castle Wall | `castle` | 281 | 110 |
+| City Space | `cityspace` | 0 | — |
+| Coffee Milk | `coffeemilk` | 2 | — |
+| Compass | `compass` | 71 | — |
+| Curve Data | `curvedata` | 209 | — |
+| Disconnection | `disco` | 0 | — |
+| Evolmino | `evolmino` | 10 | — |
+| Fire Walk | `firewalk` | 3 | — |
+| Hebi-Ichigo | `hebi` | 348 | — |
+| Herugolf | `herugolf` | 333 | — |
+| Isowatari | `isowatari` | 0 | — |
+| Japanese Sums | `japanesesums` | 0 | — |
+| Key West | `keywest` | 2 | — |
+| Koburin | `koburin` | 39 | 150 |
+| Kouchoku | `kouchoku` | 19 | — |
+| Kurarin | `kurarin` | 2 | — |
+| La Paz | `lapaz` | 26 | — |
+| Litherslink | `lither` | 8 | — |
+| Loop Special | `loopsp` | 14 | — |
+| Mintonette | `mintonette` | 2 | — |
+| Nanameguri | `nanameguri` | 7 | — |
+| Narrowfence | `narrow` | 0 | — |
+| Number City | `numcity` | 0 | — |
+| Nuri-Maze | `nurimaze` | 592 | — |
+| Nurikabe Loop | `nuriloop` | 0 | — |
+| Nuritwin | `nuritwin` | 0 | — |
+| Pencils | `pencils` | 176 | — |
+| Pentominous | `pentominous` | 28 | — |
+| Rail Pool | `railpool` | 42 | — |
+| Regional Yajilin | `yajilin-regions` | 167 | 70 |
+| Sansa Road | `sansaroad` | 0 | — |
+| School Trip | `shugaku` | 351 | 126 |
+| Seiza | `seiza` | 0 | — |
+| Sendai-Miyagi | `sendai` | 0 | — |
+| Slalom | `slalom` | 561 | — |
+| Slash Pack | `slashpack` | 3 | — |
+| Smullyanic Dynasty | `smullyan` | 0 | — |
+| Snake | `snake` | 81 | 230 |
+| Soul Mates | `soulmates` | 0 | — |
+| Statue Park | `statuepark` | 50 | — |
+| Tents | `tents` | 49 | 699 |
+| Tetro Chain-CTB | `tetroctb` | 0 | — |
+| Tetro Chain-K | `tetrochaink` | 0 | — |
+| Tetro Chain-Y | `tetrochain` | 5 | — |
+| Tetrominous | `tetrominous` | 0 | — |
+| The Longest | `longest` | 0 | — |
+| Tile City | `tilecity` | 2 | — |
+| Time Bomb | `timebomb` | 0 | — |
+| Tontonbeya | `tontonbeya` | 8 | — |
+| Yajisan-Sokoban | `yajisoko` | 9 | — |
+
+</details>
+
 ## Development and licensing
 
 Install with `python -m pip install -e '.[dev]'` and run
 `python -m pytest -q`. See the [contributor guide](docs/CONTRIBUTING.md)
-for adapter development and the [roadmap](docs/ROADMAP.md) for candidates.
+for the adapter development workflow. The target lists above reflect the
+current registry; the [roadmap](docs/ROADMAP.md) is an older planning snapshot.
 
 PuzzleKit is MIT licensed. The bundled cspuz components have their own terms
 in [LICENSE-cspuz](LICENSE-cspuz).

@@ -1,0 +1,14 @@
+[
+  {
+    "record": "cspuz-test",
+    "path": "creek/6/7/q2cgcj18cdm3c88cl",
+    "status": "unique",
+    "fileio": "pzprv3\ncreek\n7\n6\n. . . . . . . \n. . . . 2 2 . \n. . 2 . . . . \n. . 1 3 . 2 . \n. 3 . . . . . \n. . . . 3 2 . \n. 3 . 3 . 2 . \n. . . . . . . \n+ + + # # # \n+ # + + + + \n+ + # # # + \n# + + # # + \n# # + + # + \n# + + # # + \n# # # # # + \n"
+  },
+  {
+    "record": "partial",
+    "path": "creek/2/2/1n",
+    "status": "multiple",
+    "fileio": "pzprv3\ncreek\n2\n2\n1 . . \n. . . \n. . . \n# . \n. . \n"
+  }
+]

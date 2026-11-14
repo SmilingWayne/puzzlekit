@@ -1,0 +1,18 @@
+[
+  {
+    "path": "kakuro/6/5/Dclh4t9fl3-p-gl-alJeC3BgG",
+    "status": "unique",
+    "fileio": "pzprv3\nkakuro\n5\n6\n0 -1 29 14 -1 22 3 \n-1 12,23 . . 4,17 . . \n21 . . . . . . \n16 . . 15,9 . . -1,3 \n26 . . . . . . \n-1 16,-1 . . 10,-1 . . \n. 3 9 . 3 1 \n6 4 5 3 1 2 \n9 7 . 9 6 . \n8 6 2 5 4 1 \n. 9 7 . 8 2 \n"
+  },
+  {
+    "path": "kakuro/2/2/nac8e",
+    "status": "unique",
+    "fileio": "pzprv3\nkakuro\n2\n2\n0 10 12 \n8 . . \n14 . . \n1 7 \n9 5 \n",
+    "record": "kakuro0056"
+  },
+  {
+    "path": "kakuro/2/2/n0000",
+    "status": "multiple",
+    "fileio": "pzprv3\nkakuro\n2\n2\n0 0 0 \n0 . . \n0 . . \n. . \n. . \n"
+  }
+]

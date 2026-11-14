@@ -1,0 +1,18 @@
+[
+  {
+    "path": "skyscrapers/4/4/1h23i1h34ih2h1j1h2h",
+    "status": "unique",
+    "fileio": "pzprv3\nskyscrapers\n4\n4\n. 1 . . 2 . \n1 4 3 q2 1 4 \n. 2 q1 3 4 . \n. 3 4 q1 2 . \n3 1 q2 4 3 . \n. 3 . . . . \n"
+  },
+  {
+    "path": "skyscrapers/5/5/i4k3i3335i",
+    "status": "unique",
+    "fileio": "pzprv3\nskyscrapers\n5\n5\n. . . . 4 . . \n. 3 5 4 1 2 3 \n. 5 4 3 2 1 5 \n. 4 1 2 3 5 . \n3 2 3 1 5 4 . \n3 1 2 5 4 3 . \n. . . . . 3 . \n",
+    "record": "skyscrapers0002"
+  },
+  {
+    "path": "skyscrapers/4/4/v",
+    "status": "multiple",
+    "fileio": "pzprv3\nskyscrapers\n4\n4\n. . . . . . \n. . . . . . \n. . . . . . \n. . . . . . \n. . . . . . \n. . . . . . \n"
+  }
+]

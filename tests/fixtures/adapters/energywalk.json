@@ -1,0 +1,17 @@
+[
+  {
+    "path": "energywalk/6/5/545g2p3h1o2v",
+    "status": "unique",
+    "fileio": "pzprv3\nenergywalk\n5\n6\n3 . # 1 # . \n. # . . . . \n# 2 # # . . \n. . . . . # \n. # # . . # \n0 1 1 1 1 1 0 \n0 -1 -1 1 1 -1 0 \n0 1 -1 -1 -1 -1 0 \n0 -1 -1 1 1 1 0 \n0 1 1 1 1 1 0 \n0 0 0 0 0 0 \n1 -1 1 -1 1 1 \n1 -1 -1 -1 -1 1 \n1 1 -1 -1 -1 1 \n1 1 1 -1 -1 1 \n0 0 0 0 0 0 \n"
+  },
+  {
+    "path": "energywalk/3/3/00o",
+    "status": "multiple",
+    "fileio": "pzprv3\nenergywalk\n3\n3\n. . . \n. . . \n. . . \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 \n"
+  },
+  {
+    "path": "energywalk/f/4/4/0000v",
+    "status": "multiple",
+    "fileio": "pzprv3\nenergywalk\n4\n4\nf\n. . . . \n. . . . \n. . . . \n. . . . \n0 1 0 1 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 1 0 1 0 \n0 0 0 0 \n1 0 0 1 \n0 0 0 0 \n1 0 0 1 \n0 0 0 0 \n"
+  }
+]

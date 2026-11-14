@@ -1,9 +1,16 @@
 """Connect a puzzle's registered identity to its shared adapter."""
 from dataclasses import dataclass
 
-from . import circlesquare, cluepartitions, dbchoco, diagonal, doubleback, extended, geradeweg, hashi, moonsun, ncells, nonogram, packed, paintarea, partition, regions, ripple, ringring, roomloops, roomnumbers, sashigane, shading, sukoro, tapa, yajilin
+from . import cts, guidearrow, coral, aquarium, yajikazu, creek, simplegako, circlesquare, cluepartitions, dbchoco, diagonal, doubleback, extended, geradeweg, hashi, moonsun, ncells, nonogram, packed, paintarea, partition, regions, ripple, ringring, roomloops, roomnumbers, sashigane, shading, sukoro, tapa, yajilin
 
 _DIRECT_FAMILIES = {
+    'cts': cts,
+    'guidearrow': guidearrow,
+    'coral': coral,
+    'aquarium': aquarium,
+    'yajikazu': yajikazu,
+    'creek': creek,
+    'simplegako': simplegako,
     'circlesquare': circlesquare,
     'cluepartitions': cluepartitions,
     'dbchoco': dbchoco,
