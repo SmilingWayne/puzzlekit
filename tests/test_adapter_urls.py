@@ -77,3 +77,27 @@ def test_trace_url_carries_fileio_and_normalized_path():
     compressed = base64.urlsafe_b64decode(state + '=' * (-len(state) % 4))
     assert zlib.decompress(compressed, -15).decode() == result.to_pzpr()
     assert result.to_trace_url() == f'https://pzpr-trace.net/p?state={state}&cave/5/5/j39k3g4k25j'
+
+
+@pytest.mark.parametrize('path', [
+    'ayeheya/2/2/88h',  # An L-shaped room is not rotationally symmetric.
+    'ayeheya/2/2/00g',  # An empty shading is counted by cspuz, but not pzpr.
+    'heyawake/2/2/00g',
+    'shimaguni/2/2/000',  # The backend treats zero as an unknown clue.
+    'chocona/2/2/000',  # No positive clue forces a shaded cell.
+    'context/2/2/0i',
+    'tasquare/2/2/j',
+    'canal/2/2/0i',
+    'aquapelago/1/2/1g',
+    'cbanana/2/2/0i',
+])
+def test_new_adapters_reject_unsupported_or_degenerate_inputs(path):
+    with pytest.raises(ValueError, match='cspuz'):
+        puzzlekit.solve(path)
+
+
+def test_minesweeper_impossible_clue_has_no_solution():
+    result = puzzlekit.solve('mines/2/2/4i')
+    assert result.status == 'no_solution'
+    with pytest.raises(ValueError):
+        result.to_state()

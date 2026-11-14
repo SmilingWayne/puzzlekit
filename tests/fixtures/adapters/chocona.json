@@ -1,0 +1,18 @@
+[
+  {
+    "path": "chocona/5/5/8mtj1u0g431222",
+    "status": "unique",
+    "record": "chocona0120",
+    "fileio": "pzprv3.1\nchocona\n5\n5\n0 1 0 0 \n0 1 0 1 \n1 0 1 1 \n1 0 1 1 \n0 0 1 1 \n0 0 0 0 1 \n1 1 1 1 0 \n0 0 0 0 0 \n1 0 0 0 0 \n4 . 3 . . \n. . . . 1 \n2 . . 2 . \n. . . . . \n2 . . . . \n# # + # # \n# # + # # \n# # + + + \n# # + # + \n+ + + # + \n"
+  },
+  {
+    "path": "chocona/2/2/001",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nchocona\n2\n2\n0 \n0 \n0 0 \n1 . \n. . \n. . \n. . \n"
+  },
+  {
+    "path": "chocona/2/2/o001",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nchocona\n2\n2\n1 \n1 \n0 0 \n0 1 \n. . \n+ . \n+ . \n"
+  }
+]

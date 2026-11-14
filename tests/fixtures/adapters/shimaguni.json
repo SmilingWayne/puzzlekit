@@ -1,0 +1,13 @@
+[
+  {
+    "path": "shimaguni/4/4/bn0aig3211",
+    "status": "unique",
+    "record": "shimaguni0141",
+    "fileio": "pzprv3.1\nshimaguni\n4\n4\n0 1 0 \n1 1 1 \n0 1 1 \n1 0 0 \n0 1 0 1 \n0 1 0 0 \n1 0 1 0 \n3 . 2 . \n. 1 . . \n. . . . \n1 . . . \n+ + # # \n+ # + + \n+ + + # \n# + # # \n"
+  },
+  {
+    "path": "shimaguni/2/2/001",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nshimaguni\n2\n2\n0 \n0 \n0 0 \n1 . \n. . \n. . \n. . \n"
+  }
+]

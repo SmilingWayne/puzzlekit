@@ -7,7 +7,8 @@ from urllib.parse import unquote, urlsplit
 
 from puzzlekit._adapters.model import Puzzle
 
-TYPES = frozenset({"nurikabe", "hitori", "kurodoko", "cave", "nurimisaki", "kurotto", "shikaku"})
+TYPES = frozenset({"nurikabe", "hitori", "kurodoko", "cave", "nurimisaki", "kurotto", "shikaku",
+                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal"})
 ALIASES = {"bag": "cave"}
 _DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 
@@ -177,12 +178,23 @@ def encode_shading(instance):
 
 
 def check_backend_clues(instance):
+    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal'}
+    if instance.puzzle_type in two_dimensional and (instance.rows < 2 or instance.cols < 2):
+        raise ValueError('cspuz requires at least two rows and columns for this puzzle')
     for value in instance.cells.values():
         if instance.puzzle_type == "hitori":
             if value == "?" or value == 0 or value >= 36:
                 raise ValueError("cspuz Hitori supports clues 1–35 and empty cells")
-        elif value != "?" and (value >= 4096 or (value == 0 and instance.puzzle_type != "kurotto")):
+        elif value != "?" and (
+            value >= 4096 or (value == 0 and instance.puzzle_type not in {'kurotto', 'mines', 'context', 'canal'})
+        ):
             raise ValueError("cspuz cannot faithfully represent this number16 clue")
+    if instance.puzzle_type in {'canal', 'context'} and not any(
+        isinstance(v, int) and v > 0 for v in instance.cells.values()
+    ):
+        raise ValueError('cspuz Canal View and Context require a positive clue to ensure shaded cells')
+    if instance.puzzle_type == 'tasquare' and not instance.cells:
+        raise ValueError('cspuz Tasquare requires a clue to ensure shaded cells')
 
 
 def fileio(instance, answers):
@@ -205,7 +217,8 @@ def fileio(instance, answers):
         answer_rows.append(row(marks))
         combined_rows.append(row(combined))
     header = f"pzprv3\n{pid}\n{height}\n{width}\n"
-    return header + "".join(combined_rows if pid == "nurikabe" else clue_rows + answer_rows)
+    combined = {'nurikabe', 'aquapelago', 'chainedb', 'tasquare'}
+    return header + "".join(combined_rows if pid in combined else clue_rows + answer_rows)
 
 
 def compress_state(file_text):
@@ -219,10 +232,11 @@ def answer(p, board, status):
     answers = [[None for _ in range(p.cols)] for _ in range(p.rows)]
     if status == 'no_solution':
         return answers
-    if p.puzzle_type != 'hitori':
+    if p.puzzle_type not in {'hitori', 'aquapelago', 'chainedb', 'cbanana', 'context'}:
         for r, c in p.cells:
             answers[r][c] = 'white'
-    black_item = 'fill' if p.puzzle_type in ('hitori', 'kurodoko', 'nurimisaki', 'kurotto') else 'block'
+    black_item = ('filledCircle' if p.puzzle_type == 'mines' else
+                  'fill' if p.puzzle_type in ('hitori', 'kurodoko', 'nurimisaki', 'kurotto') else 'block')
     for item in board['data']:
         if item['color'] != 'green':
             continue

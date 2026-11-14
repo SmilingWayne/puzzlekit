@@ -1,7 +1,9 @@
 """Explicit registry of PuzzleKit's verified puzzle adapters."""
 from puzzlekit.puzzles import (
     akari, aqre, cave, heyawake, hitori, kuromasu, kurotto, lits, masyu,
-    norinori, nurikabe, nurimisaki, shikaku, slitherlink, yajilin
+    norinori, nurikabe, nurimisaki, shikaku, slitherlink, yajilin,
+    ayeheya, chocona, shimaguni, mines, aquapelago, chainedb, cbanana,
+    context, tasquare, canal
 )
 
 ADAPTERS = (
@@ -20,5 +22,15 @@ ADAPTERS = (
     lits.ADAPTER,
     norinori.ADAPTER,
     yajilin.ADAPTER,
+    ayeheya.ADAPTER,
+    chocona.ADAPTER,
+    shimaguni.ADAPTER,
+    mines.ADAPTER,
+    aquapelago.ADAPTER,
+    chainedb.ADAPTER,
+    cbanana.ADAPTER,
+    context.ADAPTER,
+    tasquare.ADAPTER,
+    canal.ADAPTER,
 )
 BY_TOKEN = {token: adapter for adapter in ADAPTERS for token in adapter.aliases}

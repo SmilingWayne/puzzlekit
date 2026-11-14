@@ -4,8 +4,8 @@ from puzzlekit._adapters.codecs import BorderCodec
 from puzzlekit._adapters.grid import border_to_region_grid
 from puzzlekit._adapters.shading import decode_shading, encode_shading, puzzle_path
 
-TYPES = frozenset({'heyawake', 'aqre', 'lits', 'norinori'})
-NUMBERED = frozenset({'heyawake', 'aqre'})
+TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni'})
+NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni'})
 
 
 def _parts(source):
@@ -81,9 +81,32 @@ def room_data(p):
 
 
 def check_backend_clues(p):
-    _, _, values = room_data(p)
+    _, grid, values = room_data(p)
     if any(isinstance(v, int) and v >= 4096 for v in values):
         raise ValueError('cspuz room clues must be 0–4095 or ?')
+    if p.puzzle_type == 'shimaguni' and 0 in values:
+        raise ValueError('cspuz Shimaguni treats a zero clue as unknown')
+    if p.puzzle_type == 'chocona' and not any(isinstance(v, int) and v > 0 for v in values):
+        raise ValueError('cspuz Chocona requires a positive clue to ensure shaded cells')
+    if p.puzzle_type in {'heyawake', 'ayeheya'}:
+        lines = grid + [list(column) for column in zip(*grid)]
+        crosses_two_borders = any(
+            sum(a != b for a, b in zip(line, line[1:])) >= 2 for line in lines
+        )
+        if not crosses_two_borders and not any(isinstance(v, int) and v > 0 for v in values):
+            raise ValueError('cspuz may count an empty shading in Heyawake or Ayeheya')
+    if p.puzzle_type == 'ayeheya':
+        rooms = {}
+        for r, line in enumerate(grid):
+            for c, room in enumerate(line):
+                rooms.setdefault(room, set()).add((r, c))
+        for cells in rooms.values():
+            top = min(r for r, _ in cells)
+            bottom = max(r for r, _ in cells)
+            left = min(c for _, c in cells)
+            right = max(c for _, c in cells)
+            if any((top + bottom - r, left + right - c) not in cells for r, c in cells):
+                raise ValueError('cspuz Ayeheya requires rotationally symmetric rooms')
 
 
 def encode_regions(p):
