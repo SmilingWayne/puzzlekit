@@ -1,0 +1,23 @@
+[
+  {
+    "path": "lits/4/3/64cg",
+    "status": "unique",
+    "fileio": "pzprv3.1\nlits\n3\n4\n0 0 1 \n1 0 0 \n0 1 0 \n0 1 1 0 \n0 1 0 0 \n# + + # \n# + # # \n# # # + \n",
+    "record": "lits0927"
+  },
+  {
+    "path": "lits/5/4/89104r4",
+    "status": "unique",
+    "fileio": "pzprv3.1\nlits\n4\n5\n0 1 0 0 \n0 0 1 0 \n0 1 0 0 \n0 0 1 0 \n0 0 1 0 0 \n1 1 0 1 1 \n0 0 1 0 0 \n+ + # # # \n+ # # + # \n# + # # + \n# # # + + \n",
+    "record": "lits0192"
+  },
+  {
+    "path": "lits/4/3/0000",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nlits\n3\n4\n0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 0 \n0 0 0 0 \n. . . . \n. . . . \n. . . . \n"
+  },
+  {
+    "path": "lits/2/2/00",
+    "status": "no_solution"
+  }
+]

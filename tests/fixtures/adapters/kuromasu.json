@@ -1,0 +1,23 @@
+[
+  {
+    "path": "kurodoko/3/3/g3g3j3",
+    "status": "unique",
+    "fileio": "pzprv3\nkurodoko\n3\n3\n. 3 . \n3 . . \n. . 3 \n# + # \n+ + + \n# + + \n",
+    "record": "kurodoko0097"
+  },
+  {
+    "path": "kurodoko/4/4/g3k64k5g",
+    "status": "unique",
+    "fileio": "pzprv3\nkurodoko\n4\n4\n. 3 . . \n. . . 6 \n4 . . . \n. . 5 . \n+ + # + \n+ + + + \n+ # + + \n+ + + # \n",
+    "record": "kurodoko0159"
+  },
+  {
+    "path": "kurodoko/2/2/j",
+    "status": "multiple",
+    "fileio": "pzprv3\nkurodoko\n2\n2\n. . \n. . \n. . \n. . \n"
+  },
+  {
+    "path": "kurodoko/2/2/4i",
+    "status": "no_solution"
+  }
+]

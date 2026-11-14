@@ -1,0 +1,23 @@
+[
+  {
+    "path": "cave/5/3/6l2l3",
+    "status": "unique",
+    "fileio": "pzprv3\ncave\n3\n5\n6 . . . . \n. . 2 . . \n. . . . 3 \n+ + + + + \n+ # + # + \n# # # # + \n",
+    "record": "cave0110"
+  },
+  {
+    "path": "bag/5/5/j39k3g4k25j",
+    "status": "unique",
+    "fileio": "pzprv3\ncave\n5\n5\n. . . . 3 \n9 . . . . \n. 3 . 4 . \n. . . . 2 \n5 . . . . \n+ # # + + \n+ + + + + \n+ + # + # \n+ # # + + \n+ # # # # \n",
+    "record": "cave0175"
+  },
+  {
+    "path": "cave/2/2/j",
+    "status": "multiple",
+    "fileio": "pzprv3\ncave\n2\n2\n. . \n. . \n. . \n. . \n"
+  },
+  {
+    "path": "cave/2/2/4i",
+    "status": "no_solution"
+  }
+]

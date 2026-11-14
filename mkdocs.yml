@@ -5,8 +5,9 @@ exclude_docs: |
   puzzles/
 nav:
   - Introduction: index.md
+  - Adapter compatibility: ADAPTERS.md
   - cspuz integration: CSPUZ_INTEGRATION.md
-  - Shading adapters: V040_SHADING_ADAPTERS.md
-  - Extended adapters: V040_EXTENDED_ADAPTERS.md
+  - Contributing adapters: CONTRIBUTING.md
+  - Roadmap: ROADMAP.md
 theme:
   name: material

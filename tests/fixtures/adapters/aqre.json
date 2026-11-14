@@ -1,0 +1,29 @@
+[
+  {
+    "path": "aqre/5/2/70jg011",
+    "status": "unique",
+    "fileio": "pzprv3.1\naqre\n2\n5\n0 0 1 1 \n1 0 0 0 \n1 0 0 1 1 \n. . . 0 1 \n1 . . . . \n# # # + # \n# + # # # \n",
+    "record": "aqre0115"
+  },
+  {
+    "path": "aqre/3/5/i9r6o1g001",
+    "status": "unique",
+    "fileio": "pzprv3.1\naqre\n5\n3\n1 0 \n0 1 \n0 0 \n1 0 \n0 1 \n1 1 0 \n1 1 0 \n0 1 1 \n0 1 1 \n1 . . \n0 . . \n. . . \n. 0 . \n. . 1 \n# # # \n+ + # \n# # # \n# + + \n# # # \n",
+    "record": "aqre0075"
+  },
+  {
+    "path": "aqre/5/5/v5kmlael1g010070",
+    "status": "unique",
+    "fileio": "pzprv3.1\naqre\n5\n5\n1 1 1 1 \n1 0 0 1 \n0 1 1 0 \n1 0 0 1 \n0 1 1 0 \n1 0 1 0 1 \n0 1 0 1 0 \n0 1 1 1 0 \n1 0 1 0 1 \n1 . 0 . 1 \n0 . . . . \n. . . 0 . \n. . . . . \n7 . 0 . . \n# # + # # \n+ # # # + \n+ + # + + \n+ # # # + \n# # + # # \n",
+    "record": "aqre0076"
+  },
+  {
+    "path": "aqre/2/2/00g",
+    "status": "multiple",
+    "fileio": "pzprv3.1\naqre\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n. . \n. . \n"
+  },
+  {
+    "path": "aqre/2/2/005",
+    "status": "no_solution"
+  }
+]

@@ -7,7 +7,7 @@ graft src
 graft tests
 graft rust
 prune rust/target
-include docs/CSPUZ_INTEGRATION.md
+include docs/*.md
 global-exclude *.py[cod]
 global-exclude *.so *.dylib *.pyd .DS_Store
 global-exclude __pycache__/*

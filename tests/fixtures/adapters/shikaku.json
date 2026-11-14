@@ -1,0 +1,23 @@
+[
+  {
+    "path": "shikaku/4/2/11i24g",
+    "status": "unique",
+    "fileio": "pzprv3\nshikaku\n2\n4\n1 1 . . \n. 2 4 . \n1 1 -1 \n-1 1 -1 \n1 1 -1 -1 \n",
+    "record": "shikaku0489"
+  },
+  {
+    "path": "shikaku/4/4/1111111111111111",
+    "status": "unique",
+    "fileio": "pzprv3\nshikaku\n4\n4\n1 1 1 1 \n1 1 1 1 \n1 1 1 1 \n1 1 1 1 \n1 1 1 \n1 1 1 \n1 1 1 \n1 1 1 \n1 1 1 1 \n1 1 1 1 \n1 1 1 1 \n",
+    "record": "shikaku0144"
+  },
+  {
+    "path": "shikaku/2/2/2h2",
+    "status": "multiple",
+    "fileio": "pzprv3\nshikaku\n2\n2\n2 . \n. 2 \n0 \n0 \n0 0 \n"
+  },
+  {
+    "path": "shikaku/2/2/j",
+    "status": "no_solution"
+  }
+]

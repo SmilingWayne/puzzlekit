@@ -1,0 +1,23 @@
+[
+  {
+    "path": "akari/2/3/bhb",
+    "status": "unique",
+    "fileio": "pzprv3\nlightup\n3\n2\n1 # \n+ + \n# 1 \n",
+    "record": "akari0915"
+  },
+  {
+    "path": "akari/3/3/cl",
+    "status": "unique",
+    "fileio": "pzprv3\nlightup\n3\n3\n2 # + \n# + + \n+ + # \n",
+    "record": "akari1441"
+  },
+  {
+    "path": "lightup/2/2/j",
+    "status": "multiple",
+    "fileio": "pzprv3\nlightup\n2\n2\n. . \n. . \n"
+  },
+  {
+    "path": "lightup/2/2/4444",
+    "status": "no_solution"
+  }
+]

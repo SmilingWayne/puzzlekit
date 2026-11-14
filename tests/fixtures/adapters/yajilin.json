@@ -1,0 +1,23 @@
+[
+  {
+    "path": "yajilin/3/3/c40e",
+    "status": "unique",
+    "fileio": "pzprv3\nyajilin\n3\n3\n. . . \n4,0 . . \n. . . \n# + + \n. + + \n# + + \n-1 1 \n-1 -1 \n-1 1 \n-1 1 1 \n-1 1 1 \n",
+    "record": "yajilin12296"
+  },
+  {
+    "path": "yajilin/3/3/d20d",
+    "status": "unique",
+    "fileio": "pzprv3\nyajilin\n3\n3\n. . . \n. 2,0 . \n. . . \n+ + + \n+ . + \n+ + + \n1 1 \n-1 -1 \n1 1 \n1 -1 1 \n1 -1 1 \n",
+    "record": "yajilin12618"
+  },
+  {
+    "path": "yajilin/3/3/i",
+    "status": "multiple",
+    "fileio": "pzprv3\nyajilin\n3\n3\n. . . \n. . . \n. . . \n. + . \n+ . + \n. + . \n0 0 \n0 0 \n0 0 \n0 0 0 \n0 0 0 \n"
+  },
+  {
+    "path": "yajilin/3/3/14h",
+    "status": "no_solution"
+  }
+]

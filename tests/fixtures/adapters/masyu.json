@@ -1,0 +1,23 @@
+[
+  {
+    "path": "mashu/3/3/313",
+    "status": "unique",
+    "fileio": "pzprv3\nmashu\n3\n3\n. 1 . \n. . 1 \n. 1 . \n1 1 \n-1 -1 \n1 1 \n1 -1 1 \n1 -1 1 \n",
+    "record": "masyu0860"
+  },
+  {
+    "path": "mashu/3/3/k0k",
+    "status": "unique",
+    "fileio": "pzprv3\nmashu\n3\n3\n2 . 2 \n. . . \n2 . 2 \n1 1 \n-1 -1 \n1 1 \n1 -1 1 \n1 -1 1 \n",
+    "record": "masyu1033"
+  },
+  {
+    "path": "mashu/3/3/030",
+    "status": "multiple",
+    "fileio": "pzprv3\nmashu\n3\n3\n. . . \n. 1 . \n. . . \n0 0 \n0 0 \n0 0 \n0 0 0 \n0 0 0 \n"
+  },
+  {
+    "path": "mashu/3/3/900",
+    "status": "no_solution"
+  }
+]

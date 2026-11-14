@@ -1,32 +1,33 @@
-# cspuz integration notes
+# cspuz integration
 
-The Python extension in `rust/src/lib.rs` calls the pinned upstream
-`cspuz_solver_backend::decode_and_solve` directly. It dispatches recognized
-puzz.link, Kudamono and specially prefixed Penpa inputs according to upstream
-rules, then returns a `Board`. The extension maps its `Uniqueness` to a status
-and serializes the board using upstream `to_json`. Python parses that JSON into
-`PuzzleResult.board`; `board_json` serializes that board for transport.
-`supported_puzzles()` exposes upstream's solve list.
-This list is neither a list of tested PuzzleKit integrations nor a per-format
-compatibility guarantee. Unsupported or malformed inputs currently both raise
-`ValueError` with the upstream message.
+`solve_url()` is an alias for `solve()`. The Python extension in
+`rust/src/lib.rs` calls the pinned `cspuz_solver_backend::decode_and_solve`.
+Registered adapters normalize puzzle links before solving. Other inputs
+follow upstream dispatch, which includes puzz.link, Kudamono and specially
+prefixed Penpa inputs. `supported_puzzles()` reports the upstream solve list.
+Verified FileIO and state coverage is listed in [adapter compatibility](ADAPTERS.md).
 
-For Nurikabe, upstream's solver computes values common to all solutions.
-Its board includes clues and determined answers in a rendering schema with
-doubled coordinates; unknown answer cells are omitted. Uniqueness refers to
-the answer variables, not necessarily every internal model variable. On no
-solution the board can still contain clues. `unknown` reflects upstream
-`NotApplicable`: it should not be interpreted as either a proof of a solution
-or of uniqueness. Backend panics are mapped to `RuntimeError`.
+`PuzzleResult.board` retains cspuz's rendering data and `board_json` exposes
+it as JSON. The board's coordinates and item types follow the solver's
+rendering conventions. For example, cell centers use coordinates
+`(y=2*r+1, x=2*c+1)` on Nurikabe's doubled grid.
 
-Upstream also has puzzle-specific serializers and enumeration functions. The
-backend's URL enumeration dispatcher is private, and neither enumeration nor
-serialization is exposed by our extension. They should not be presented as
-current Python APIs. If introduced later, bounded enumeration and common facts
-should remain distinct, and unsupported formats and variants must be tested.
+| Status | Meaning |
+| --- | --- |
+| `unique` | The model has a unique assignment of its answer variables. |
+| `multiple` | The model has multiple assignments. Verified adapters export the facts common to all solutions and leave unknown marks blank. |
+| `no_solution` | The model is unsatisfiable. The board can still contain clues. |
+| `unknown` | The backend reports that uniqueness information is unavailable. |
 
-The fifteen pzprjs adapters map known shading, loop, partition and bulb facts
-to native player marks; their input limits, state semantics and verification are
-documented in [V040_EXTENDED_ADAPTERS.md](V040_EXTENDED_ADAPTERS.md). Other genres still need
-their own mappings and pzprjs checks. A cspuz JSON board is not itself a pzprjs
-state. Dataset text conversion remains separate from the URL solver.
+`has_solution` and `unique` are booleans when known and `None` when
+undetermined. `is_solved` is true for a unique result.
+
+Invalid or unsupported inputs raise `ValueError`. Backend panics surface as
+`RuntimeError`.
+
+For `unique` and `multiple` results with a verified adapter, `to_pzpr()`
+maps the board into native FileIO containing clues and player marks.
+`to_state()` encodes its UTF-8 bytes with raw DEFLATE and unpadded URL-safe
+Base64. `to_trace_url()` adds that state to the normalized puzzle path.
+These exports raise `ValueError` when the adapter or an exportable result
+is unavailable.

@@ -2,7 +2,7 @@
 """Read-only small-corpus audit using subprocess timeouts and real pzprjs.
 
 Requires the current puzzlekit installed, Node 24+, and the custom pzprjs
-checkout. No dataset files are modified. See docs/V040_EXTENDED_ADAPTERS.md.
+checkout. No dataset files are modified. See docs/CONTRIBUTING.md.
 """
 import argparse
 import collections
@@ -75,8 +75,8 @@ def main():
                 cases.append(item)
         report[kind] = {'counts': dict(counts), 'failures': failures}
     print(json.dumps(report, ensure_ascii=False, indent=2), flush=True)
-    check = PROJECT / 'tests/integration/pzpr_extended_check.js'
-    result = subprocess.run([node, str(check), str(args.pzprjs)], input=json.dumps(cases),
+    check = PROJECT / 'tests/integration/pzpr_state_check.js'
+    result = subprocess.run([node, str(check), str(args.pzprjs.resolve())], input=json.dumps(cases),
                             text=True, capture_output=True, timeout=max(60, len(cases)))
     print(result.stdout, end='')
     if result.returncode:
