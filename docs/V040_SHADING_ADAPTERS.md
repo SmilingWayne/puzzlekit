@@ -61,7 +61,7 @@ to use another custom fork. When either dependency is unavailable, only that
 integration test is skipped.
 
 ```sh
-python -m pytest -c tests/native-pytest.ini tests/test_nurikabe.py tests/test_v040_shading.py tests/formats -q
+python -m pytest -q
 ```
 
 The following links are generated from real crawler records and are convenient

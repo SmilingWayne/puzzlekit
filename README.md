@@ -30,7 +30,7 @@ python -m venv .venv
 # Activate the environment, then use either pip or uv:
 python -m pip install -e '.[dev]'
 # uv pip install -e '.[dev]'
-python -m pytest -c tests/native-pytest.ini tests/test_nurikabe.py
+python -m pytest -q
 ```
 
 ## Solve a link
@@ -116,15 +116,21 @@ output support. Semantic, FileIO and state outputs on other types raise
 
 The old dataset-text `solve(..., puzzle_type=...)`, per-puzzle solver API,
 OR-Tools options and result shape are not supported by the new entry point.
-Legacy modules remain in the repository during migration and are not covered
-by the new installation or tests. Their old documentation and benchmark
-numbers describe previous releases, not the current backend.
 
 The cspuz board is an upstream rendering representation, not a pzprjs state;
 the adapters explicitly map its answer items to native player marks.
 See [the integration notes](docs/CSPUZ_INTEGRATION.md).
 
 ## Development and licensing
+
+The Python entry point is in `src/puzzlekit/__init__.py`, the result and state
+exports are in `src/puzzlekit/core/result.py`, and the URL and puzzle-specific
+adapters are in `src/puzzlekit/formats/` (`shading.py`, `extended.py`,
+`regions.py`, and `yajilin.py`). The native bridge is `rust/src/lib.rs`;
+the actual puzzle solvers come from the pinned upstream cspuz dependency.
+The `tests/test_v040_*.py` suites cover the verified adapters, and
+`scripts/audit_v040_adapters.py` audits them against local dataset and pzprjs
+checkouts. See the integration notes for the backend and adapter boundaries.
 
 The Rust dependency is pinned in [rust/Cargo.toml](rust/Cargo.toml) and
 [rust/Cargo.lock](rust/Cargo.lock). CI builds and tests wheels separately from

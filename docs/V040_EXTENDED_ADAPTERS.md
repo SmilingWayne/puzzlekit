@@ -76,7 +76,7 @@ command on a state mismatch; inspect the reported solve rejections separately.
 The automated regression suite is:
 
 ```sh
-python -m pytest -c tests/native-pytest.ini tests/test_nurikabe.py tests/test_v040_shading.py tests/test_v040_extended.py tests/formats -q
+python -m pytest -q
 ```
 
 Generated links for visual inspection:

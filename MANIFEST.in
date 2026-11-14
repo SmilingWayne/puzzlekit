@@ -9,7 +9,9 @@ graft rust
 prune rust/target
 include docs/CSPUZ_INTEGRATION.md
 global-exclude *.py[cod]
+global-exclude *.so *.dylib *.pyd .DS_Store
 global-exclude __pycache__/*
+prune tests/.pytest_cache
 prune crawlers
 prune scripts
 prune assets
