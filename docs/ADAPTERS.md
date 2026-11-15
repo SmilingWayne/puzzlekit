@@ -46,6 +46,7 @@ state export.
 | Fillmat | `fillmat` | Region boundaries |
 | Fillomino | `fillomino` | Cell numbers and region boundaries |
 | FiveCells | `fivecells` | Region boundaries |
+| Fire Walk | `firewalk` | Cell loop and fire-cell arcs |
 | Forest Walk | `forestwalk` | Cell loop |
 | FourCells | `fourcells` | Region boundaries |
 | Geradeweg | `geradeweg` | Cell loop |
@@ -64,9 +65,11 @@ state export.
 | Kakuro | `kakuro` | Cell numbers |
 | Key West | `keywest` | Cell numbers and connecting lines |
 | Koburin | `koburin` | Cell shading and cell loop |
+| Kouchoku | `kouchoku` | Free line segments |
 | Kropki | `kropki` | Cell numbers |
 | Kuromasu | `kurodoko` | Cell shading |
 | Kurotto | `kurotto` | Cell shading |
+| Kurarin | `kurarin` | Cell shading and cell loop |
 | La Paz | `lapaz` | Cell shading and region boundaries |
 | Light and Shadow | `lightshadow` | Black and white shading |
 | Litherslink | `lither` | Vertex lines |
@@ -84,6 +87,7 @@ state export.
 | Narrowfence | `narrow` | Region boundaries |
 | NIKOJI | `nikoji` | Region boundaries |
 | No Three | `nothree` | Cell shading |
+| Number City | `numcity` | Cell numbers |
 | Nonogram | `nonogram` | Cell shading |
 | Norinori | `norinori` | Cell shading |
 | Norinuri | `norinuri` | Cell shading |
@@ -93,6 +97,7 @@ state export.
 | Nurimisaki | `nurimisaki` | Cell shading |
 | Nuritwin | `nuritwin` | Cell shading |
 | Paintarea | `paintarea` | Cell shading |
+| Pencils | `pencils` | Pencil tips, boundaries and lines |
 | Pentominous | `pentominous` | Region boundaries and piece letters |
 | Putteria | `putteria` | Cell numbers and empty marks |
 | Reflect Link | `reflect` | Cell loop |
@@ -129,6 +134,7 @@ state export.
 | Tetro Chain-K | `tetrochaink` | Cell shading |
 | Tetro Chain-Y | `tetrochain` | Cell shading |
 | Tetrominous | `tetrominous` | Region boundaries and piece letters |
+| The Longest | `longest` | Region boundaries |
 | Tile City | `tilecity` | Cell shading |
 | Tontonbeya | `tontonbeya` | Cell symbols |
 | Water Walk | `waterwalk` | Cell loop |
@@ -139,6 +145,16 @@ state export.
 
 ## Inputs and limits
 
+- Number City accepts positive clues below 4096 and does not support the
+  `t` variant or unknown numbers. The Longest accepts packed border clues.
+- Fire Walk supports the `f` variant, positive clues below 4096 or `?`, and
+  fire cells without number clues. Importing its crossing arcs requires the
+  corresponding Fire Walk state-import fix in the custom pzprjs checkout.
+- Kouchoku accepts vertex letters and black dots. Kurarin requires a gray or
+  white dot to exclude an empty loop and cannot preserve a bottom-right dot.
+  Pencils accepts directional tips and clues from 1 to 255 or `?`.
+  These adapters require at least two rows and columns except Kouchoku, which
+  accepts positive dimensions.
 - Balloon Box supports both the default and `a` rule variants; region cells
   cannot also carry number clues. Building Walk supports the `m` rule variant
   and single-hex-digit start and goal coordinates.

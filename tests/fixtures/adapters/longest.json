@@ -1,0 +1,11 @@
+[
+  {
+    "path": "longest/5/4/0h00007ecs",
+    "status": "unique",
+    "fileio": "pzprv3\nlongest\n4\n5\n1 2 -1 -1 2 1 \n1 -1 1 2 -1 1 \n2 2 1 -1 2 1 \n2 -1 -1 2 -1 2 \n2 1 1 1 2 \n-1 2 -1 2 -1 \n2 -1 -1 2 -1 \n-1 2 2 -1 2 \n1 1 1 2 2 \n"
+  },
+  {
+    "path": "longest/2/2/0",
+    "status": "no_solution"
+  }
+]

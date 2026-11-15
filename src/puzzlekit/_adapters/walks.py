@@ -43,11 +43,24 @@ class WalkAdapter(Adapter):
 
     def fileio(self, p, board, status):
         def row(values): return ' '.join(str(v) for v in values) + ' \n'
+        fire_marks = {}
+        if p.puzzle_type == 'firewalk':
+            kinds = {
+                'firewalkCellUl': 'A', 'firewalkCellDr': 'A', 'firewalkCellUlDr': 'A',
+                'firewalkCellUr': 'B', 'firewalkCellDl': 'B', 'firewalkCellUrDl': 'B',
+            }
+            for item in board['data']:
+                kind = item['item']
+                if item['color'] == 'green' and isinstance(kind, str) and kind in kinds:
+                    fire_marks[(item['y'] // 2, item['x'] // 2)] = kinds[kind]
+            board = {**board, 'data': [item for item in board['data']
+                     if not (item['color'] == 'green' and isinstance(item['item'], str)
+                             and item['item'].startswith('firewalkCell'))]}
         a = extended.answer(replace(p, puzzle_type='mashu'), board, status)
         out = [f'pzprv3\n{p.puzzle_type}\n{p.rows}\n{p.cols}\n']
         if p.rule_flag:
             out.append('f\n')
-        out.extend(row(['#' if (r,c) in p.holes else '-' if p.cells.get((r,c)) == '?' else p.cells.get((r,c), '.') for c in range(p.cols)]) for r in range(p.rows))
+        out.extend(row([fire_marks.get((r,c), '#') if (r,c) in p.holes else '-' if p.cells.get((r,c)) == '?' else p.cells.get((r,c), '.') for c in range(p.cols)]) for r in range(p.rows))
         def mark(v): return 1 if v is True else -1 if v is False else 0
         out.extend(row([0] + [mark(v) for v in line] + [0]) for line in a['vertical'])
         out.append(row([0] * p.cols))

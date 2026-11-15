@@ -54,8 +54,8 @@ the pinned backend supports them. The list returned by
 ### pzprjs and cspuz adapter targets
 
 The current target set contains **145 puzzle types** registered in the custom
-pzprjs checkout and dispatched by the pinned cspuz backend: **131 verified
-adapters** and **14 candidates**. This is a static inventory, not a guarantee
+pzprjs checkout and dispatched by the pinned cspuz backend: **137 verified
+adapters** and **8 candidates**. This is a static inventory, not a guarantee
 that rules, variants, clues, URL formats or answer marks are compatible. Each
 candidate still requires verification against pzprjs before FileIO and state
 support can be claimed. Separate pzpr PIDs are counted separately; Numberlink's
@@ -66,7 +66,7 @@ when adapters or the pinned backend change. The PID is the pzpr identifier;
 it does not list every accepted URL alias.
 
 <details>
-<summary>Verified adapters (131)</summary>
+<summary>Verified adapters (137)</summary>
 
 | Puzzle | pzpr PID |
 | --- | --- |
@@ -111,6 +111,7 @@ it does not list every accepted URL alias.
 | Fillmat | `fillmat` |
 | Fillomino | `fillomino` |
 | FiveCells | `fivecells` |
+| Fire Walk | `firewalk` |
 | Forest Walk | `forestwalk` |
 | FourCells | `fourcells` |
 | Geradeweg | `geradeweg` |
@@ -129,9 +130,11 @@ it does not list every accepted URL alias.
 | Kakuro | `kakuro` |
 | Key West | `keywest` |
 | Koburin | `koburin` |
+| Kouchoku | `kouchoku` |
 | Kropki | `kropki` |
 | Kurodoko | `kurodoko` |
 | Kurotto | `kurotto` |
+| Kurarin | `kurarin` |
 | La Paz | `lapaz` |
 | Light and Shadow | `lightshadow` |
 | Litherslink | `lither` |
@@ -149,6 +152,7 @@ it does not list every accepted URL alias.
 | Narrowfence | `narrow` |
 | NIKOJI | `nikoji` |
 | No Three | `nothree` |
+| Number City | `numcity` |
 | Nonogram | `nonogram` |
 | Norinori | `norinori` |
 | Norinuri | `norinuri` |
@@ -158,6 +162,7 @@ it does not list every accepted URL alias.
 | Nurimisaki | `nurimisaki` |
 | Nuritwin | `nuritwin` |
 | Paintarea | `paintarea` |
+| Pencils | `pencils` |
 | Pentominous | `pentominous` |
 | Putteria | `putteria` |
 | Reflect Link | `reflect` |
@@ -194,6 +199,7 @@ it does not list every accepted URL alias.
 | Tetro Chain-K | `tetrochaink` |
 | Tetro Chain-Y | `tetrochain` |
 | Tetrominous | `tetrominous` |
+| The Longest | `longest` |
 | Tile City | `tilecity` |
 | Tontonbeya | `tontonbeya` |
 | Water Walk | `waterwalk` |
@@ -204,7 +210,7 @@ it does not list every accepted URL alias.
 </details>
 
 <details>
-<summary>Adapter candidates (14)</summary>
+<summary>Adapter candidates (8)</summary>
 
 The data columns are a 2026-11-14 snapshot of the local sibling
 `puzzlekit-dataset` checkout (`f4b71bc9170c`): raw rows in
@@ -223,15 +229,9 @@ have not all been checked through PuzzleKit and pzprjs.
 | Battleship | `battleship` | 1 | 859 |
 | Curve Data | `curvedata` | 209 | — |
 | Evolmino | `evolmino` | 10 | — |
-| Fire Walk | `firewalk` | 3 | — |
-| Kouchoku | `kouchoku` | 19 | — |
-| Kurarin | `kurarin` | 2 | — |
-| Number City | `numcity` | 0 | — |
-| Pencils | `pencils` | 176 | — |
 | Rail Pool | `railpool` | 42 | — |
 | Seiza | `seiza` | 0 | — |
 | Slalom | `slalom` | 561 | — |
-| The Longest | `longest` | 0 | — |
 | Time Bomb | `timebomb` | 0 | — |
 
 </details>

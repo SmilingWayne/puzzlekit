@@ -2,8 +2,13 @@
 from dataclasses import dataclass
 
 from . import balloon, bdwalk, bosanowa, castle, compass, cts, guidearrow, coral, aquarium, yajikazu, creek, simplegako, circlesquare, cluepartitions, connection, dbchoco, diagonal, doubleback, extended, geradeweg, hashi, hebi, herugolf, isowatari, japanesesums, keywest, moonsun, nanameguri, narrow, ncells, nonogram, nurimaze, packed, paintarea, partition, regions, ripple, ringring, roomloops, roomnumbers, sashigane, sendai, shading, shugaku, slashpack, soulmates, statuepark, sukoro, tapa, tents, yajilin, yajisoko
+from . import kouchoku, longest, numcity, pencils
 
 _DIRECT_FAMILIES = {
+    'longest': longest,
+    'kouchoku': kouchoku,
+    'pencils': pencils,
+    'numcity': numcity,
     'nurimaze': nurimaze,
     'connection': connection,
     'slashpack': slashpack,

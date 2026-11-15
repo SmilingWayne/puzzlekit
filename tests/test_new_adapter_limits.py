@@ -13,6 +13,9 @@ import puzzlekit
     'lightshadow/2/2/j',     # No clue leaves the cspuz region model undefined.
     'lightshadow/2/2/+1000i',
     'lohkous/2/2/d',        # Every partition must contain a clue.
+    'numcity/2/2/.i00',    # Unknown given numbers differ in pzpr.
+    'kurarin/2/2/i',        # All-shaded boards need not contain a loop.
+    'kouchoku/2/2/8',      # An empty graph does not form a pzpr loop.
 ])
 def test_rejects_incompatible_or_degenerate_puzzles(path):
     with pytest.raises(ValueError):
