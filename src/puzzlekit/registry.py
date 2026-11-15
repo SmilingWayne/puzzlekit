@@ -1,5 +1,6 @@
 """Explicit registry of PuzzleKit's verified puzzle adapters."""
 from puzzlekit.puzzles import (
+    archipelago, nuritwin, disco, bramble, tetroctb, tetrochain, tetrochaink, sansaroad, nuriloop, snake, loopsp, lapaz, pentominous, tetrominous, yajilin_regions, koburin, lither, barns, cityspace, nothing,
     cts, firefly, kakuro, energywalk, coral, icewalk, forestwalk, waterwalk, morningwalk,
     aquarium, kropki, lohkous, skyscrapers, doppelblock, easyasabc,
     cocktail, nothree, akichi, invlitso, norinuri, yajikazu, reflect,
@@ -11,6 +12,26 @@ from puzzlekit.puzzles import (
 )
 
 ADAPTERS = (
+    archipelago.ADAPTER,
+    nuritwin.ADAPTER,
+    disco.ADAPTER,
+    bramble.ADAPTER,
+    tetroctb.ADAPTER,
+    tetrochain.ADAPTER,
+    nuriloop.ADAPTER,
+    snake.ADAPTER,
+    loopsp.ADAPTER,
+    tetrochaink.ADAPTER,
+    sansaroad.ADAPTER,
+    lapaz.ADAPTER,
+    pentominous.ADAPTER,
+    tetrominous.ADAPTER,
+    yajilin_regions.ADAPTER,
+    koburin.ADAPTER,
+    lither.ADAPTER,
+    barns.ADAPTER,
+    cityspace.ADAPTER,
+    nothing.ADAPTER,
     cts.ADAPTER,
     firefly.ADAPTER,
     kakuro.ADAPTER,

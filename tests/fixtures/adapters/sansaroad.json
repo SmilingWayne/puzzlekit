@@ -1,0 +1,13 @@
+[
+  {
+    "path": "sansaroad/6/6/h4w8n4m4h2z",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\nsansaroad\n6\n6\n....1......\n...........\n...........\n.......2...\n...........\n...1.......\n........1..\n....2......\n...........\n...........\n...........\n+ + . + + # \n+ # + # + + \n+ # + + # + \n+ # # + . + \n+ + + # + # \n# # + + + # \n"
+  },
+  {
+    "path": "sansaroad/6/6/hgw8n4m4h2z",
+    "status": "no_solution",
+    "record": "derived: remove triangle"
+  }
+]

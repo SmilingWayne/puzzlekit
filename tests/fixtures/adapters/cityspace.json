@@ -1,0 +1,14 @@
+[
+  {
+    "path": "cityspace/6/5/g3g2p3u",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\ncityspace\n5\n6\n. 3 . 2 . . \n. . . . . . \n. . 3 . . . \n. . . . . . \n. . . . . . \n# + # + # # \n# + # + + + \n+ + + # # + \n+ # # + + + \n+ + + + # # \n"
+  },
+  {
+    "path": "cityspace/6/5/i2p3u",
+    "status": "multiple",
+    "record": "derived: remove first clue",
+    "fileio": "pzprv3\ncityspace\n5\n6\n. . . 2 . . \n. . . . . . \n. . 3 . . . \n. . . . . . \n. . . . . . \n. . # + . # \n. + . . + . \n. . + # . . \n+ . . . + . \n. . . . . . \n"
+  }
+]

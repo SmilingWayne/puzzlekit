@@ -8,7 +8,7 @@ from urllib.parse import unquote, urlsplit
 from puzzlekit._adapters.model import Puzzle
 
 TYPES = frozenset({"nurikabe", "hitori", "kurodoko", "cave", "nurimisaki", "kurotto", "shikaku",
-                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal", "dominion", "norinuri"})
+                   "mines", "aquapelago", "chainedb", "cbanana", "context", "tasquare", "canal", "dominion", "norinuri", "archipelago", "cityspace"})
 ALIASES = {"bag": "cave"}
 _DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 
@@ -178,7 +178,7 @@ def encode_shading(instance):
 
 
 def check_backend_clues(instance):
-    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal', 'dominion', 'norinuri'}
+    two_dimensional = {'aquapelago', 'chainedb', 'cbanana', 'context', 'tasquare', 'canal', 'dominion', 'norinuri', 'cityspace'}
     if instance.puzzle_type in two_dimensional and (instance.rows < 2 or instance.cols < 2):
         raise ValueError('cspuz requires at least two rows and columns for this puzzle')
     for value in instance.cells.values():
@@ -197,6 +197,8 @@ def check_backend_clues(instance):
         raise ValueError('cspuz Canal View and Context require a positive clue to ensure shaded cells')
     if instance.puzzle_type == 'tasquare' and not instance.cells:
         raise ValueError('cspuz Tasquare requires a clue to ensure shaded cells')
+    if instance.puzzle_type == 'archipelago' and not instance.cells:
+        raise ValueError('Archipelago requires a clue to exclude empty shading')
 
 
 def fileio(instance, answers):
@@ -219,7 +221,7 @@ def fileio(instance, answers):
         answer_rows.append(row(marks))
         combined_rows.append(row(combined))
     header = f"pzprv3\n{pid}\n{height}\n{width}\n"
-    combined = {'nurikabe', 'aquapelago', 'chainedb', 'tasquare'}
+    combined = {'nurikabe', 'aquapelago', 'chainedb', 'tasquare', 'archipelago'}
     return header + "".join(combined_rows if pid in combined else clue_rows + answer_rows)
 
 
@@ -234,11 +236,11 @@ def answer(p, board, status):
     answers = [[None for _ in range(p.cols)] for _ in range(p.rows)]
     if status == 'no_solution':
         return answers
-    if p.puzzle_type not in {'hitori', 'aquapelago', 'chainedb', 'cbanana', 'context'}:
+    if p.puzzle_type not in {'hitori', 'aquapelago', 'chainedb', 'cbanana', 'context', 'archipelago'}:
         for r, c in p.cells:
             answers[r][c] = 'white'
     black_item = ('filledCircle' if p.puzzle_type == 'mines' else
-                  'fill' if p.puzzle_type in ('hitori', 'kurodoko', 'nurimisaki', 'kurotto') else 'block')
+                  'fill' if p.puzzle_type in ('hitori', 'kurodoko', 'nurimisaki', 'kurotto', 'cityspace') else 'block')
     for item in board['data']:
         if item['color'] != 'green':
             continue

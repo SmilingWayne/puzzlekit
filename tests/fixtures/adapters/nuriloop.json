@@ -1,0 +1,14 @@
+[
+  {
+    "path": "nuriloop/3/3/l1h",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\nnuriloop\n3\n3\n. . . \n. . . \n1 . . \n0 0 0 \n0 0 0 \n0 0 0 \n1 1 \n1 -1 \n-1 1 \n1 -1 1 \n-1 1 1 \n"
+  },
+  {
+    "path": "nuriloop/5/5/4m2m1n",
+    "status": "unique",
+    "record": "cspuz serializer test",
+    "fileio": "pzprv3\nnuriloop\n5\n5\n4 . . . . \n. . . 2 . \n. . . . . \n. 1 . . . \n. . . . . \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n-1 -1 1 1 \n-1 -1 -1 -1 \n1 1 -1 -1 \n-1 -1 1 -1 \n1 1 -1 1 \n-1 -1 1 -1 1 \n-1 -1 1 -1 1 \n1 -1 -1 -1 1 \n1 -1 1 1 1 \n"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "path": "pentominous/5/5/72zi",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\npentominous\n5\n5\n7 2 . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n. . 2 2 2 \n7 2 5 5 5 \n7 7 7 5 7 \n4 4 4 5 7 \n4 4 7 7 7 \n1 -1 -1 -1 \n1 1 -1 -1 \n-1 -1 1 1 \n-1 -1 1 1 \n-1 1 -1 -1 \n-1 -1 1 1 1 \n-1 1 1 -1 1 \n1 1 1 -1 -1 \n-1 -1 1 1 -1 \n"
+  },
+  {
+    "path": "pentominous/5/5/k686w",
+    "status": "unique",
+    "record": "pentominous0025",
+    "fileio": "pzprv3\npentominous\n5\n5\n. . . . . \n6 8 6 . . \n. . . . . \n. . . . . \n. . . . . \n6 6 6 4 4 \n. . . 4 4 \n4 8 8 4 7 \n4 4 8 8 7 \n4 4 7 7 7 \n-1 -1 1 -1 \n1 1 1 -1 \n1 -1 1 1 \n-1 1 -1 1 \n-1 1 -1 -1 \n-1 1 -1 -1 -1 \n1 -1 1 -1 1 \n-1 1 -1 1 -1 \n-1 -1 1 1 -1 \n"
+  },
+  {
+    "path": "pentominous/6/6/z569cr",
+    "status": "unique",
+    "record": "pentominous0019",
+    "fileio": "pzprv3\npentominous\n6\n6\n. . . . . . \n. . . . . . \n. . . . . . \n. . 5 6 9 * \n. . . . . . \n. . . . . . \n4 4 4 6 6 6 \n4 4 5 6 9 6 \n5 5 5 9 9 9 \n7 6 . . . . \n7 6 6 6 4 4 \n7 7 7 4 4 4 \n-1 -1 1 -1 -1 \n-1 1 1 1 1 \n-1 -1 1 -1 -1 \n1 1 1 1 0 \n1 -1 -1 1 -1 \n-1 -1 1 -1 -1 \n-1 -1 1 -1 1 -1 \n1 1 -1 1 -1 1 \n1 1 -1 1 -1 0 \n-1 -1 1 -1 1 0 \n-1 1 1 1 -1 -1 \n"
+  }
+]

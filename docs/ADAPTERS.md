@@ -7,17 +7,22 @@ state export.
 | --- | --- | --- |
 | Akari | `lightup`, `akari` | Bulbs and empty cells |
 | Akichiwake | `akichi` | Cell shading |
+| All or Nothing | `nothing` | Cell loop |
 | Aqre | `aqre` | Cell shading |
 | Aquapelago | `aquapelago` | Cell shading |
 | Aquarium | `aquarium` | Cell shading |
 | Araf | `araf` | Region boundaries |
+| Archipelago | `archipelago` | Cell shading |
 | Ayeheya | `ayeheya` | Cell shading |
+| Barns | `barns` | Cell loop |
+| Bramble | `bramble` | Cell shading |
 | Canal View | `canal` | Cell shading |
 | Cave | `cave`, `bag` | Cell shading |
 | Chained Block | `chainedb` | Cell shading |
 | Choco Banana | `cbanana` | Cell shading |
 | Chocona | `chocona` | Cell shading |
 | Circles and Squares | `circlesquare` | Cell shading |
+| City Space | `cityspace` | Cell shading |
 | Cocktail Lamp | `cocktail` | Cell shading |
 | Context | `context` | Cell shading |
 | Coral | `coral` | Cell shading |
@@ -25,6 +30,7 @@ state export.
 | Creek | `creek` | Cell shading |
 | Cross the Streams | `cts` | Cell shading |
 | Detour | `detour` | Cell loop |
+| Disconnection | `disco` | Cell shading |
 | Dominion | `dominion` | Cell shading |
 | Doppelblock | `doppelblock` | Cell numbers and blocks |
 | Double Back | `doubleback` | Cell loop |
@@ -46,12 +52,16 @@ state export.
 | Ice Walk | `icewalk` | Cell loop |
 | Inverse LITSO | `invlitso` | Cell shading |
 | Kakuro | `kakuro` | Cell numbers |
+| Koburin | `koburin` | Cell shading and cell loop |
 | Kropki | `kropki` | Cell numbers |
 | Kuromasu | `kurodoko` | Cell shading |
 | Kurotto | `kurotto` | Cell shading |
+| La Paz | `lapaz` | Cell shading and region boundaries |
 | Light and Shadow | `lightshadow` | Black and white shading |
+| Litherslink | `lither` | Vertex lines |
 | LITS | `lits` | Cell shading |
 | Lohkous | `lohkous` | Region boundaries |
+| Loop Special | `loopsp` | Cell loops |
 | Masyu | `mashu`, `masyu`, `pearl` | Cell loop |
 | Minesweeper | `mines` | Mines and empty cells |
 | Moon or Sun | `moonsun` | Cell loop |
@@ -64,13 +74,18 @@ state export.
 | Norinori | `norinori` | Cell shading |
 | Norinuri | `norinuri` | Cell shading |
 | Nurikabe | `nurikabe` | Cell shading |
+| Nurikabe Loop | `nuriloop` | Cell loop |
 | Nurimisaki | `nurimisaki` | Cell shading |
+| Nuritwin | `nuritwin` | Cell shading |
 | Paintarea | `paintarea` | Cell shading |
+| Pentominous | `pentominous` | Region boundaries and piece letters |
 | Putteria | `putteria` | Cell numbers and empty marks |
 | Reflect Link | `reflect` | Cell loop |
+| Regional Yajilin | `yajilin-regions`, `yajirin-regions` | Cell shading and cell loop |
 | Ring-ring | `ringring` | Rectangular loops |
 | Ripple Effect | `ripple` | Cell numbers |
 | Roma | `roma` | Cell arrows |
+| Sansa Road | `sansaroad` | Cell shading |
 | Sashigane | `sashigane` | Region boundaries |
 | Shakashaka | `shakashaka` | Triangles and empty cells |
 | Shikaku | `shikaku` | Region boundaries |
@@ -80,6 +95,7 @@ state export.
 | Skyscrapers | `skyscrapers` | Cell numbers |
 | Slant | `gokigen` | Slashes |
 | Slitherlink | `slither`, `slitherlink` | Vertex loop |
+| Snake | `snake` | Cell shading |
 | Square Jam | `squarejam` | Region boundaries |
 | Star Battle | `starbattle` | Stars and empty marks |
 | Stostone | `stostone` | Cell shading |
@@ -87,12 +103,36 @@ state export.
 | Sukoro | `sukoro` | Cell numbers and empty marks |
 | Tapa | `tapa` | Cell shading |
 | Tasquare | `tasquare` | Cell shading |
+| Tetro Chain-CTB | `tetroctb` | Cell shading |
+| Tetro Chain-K | `tetrochaink` | Cell shading |
+| Tetro Chain-Y | `tetrochain` | Cell shading |
+| Tetrominous | `tetrominous` | Region boundaries and piece letters |
 | Water Walk | `waterwalk` | Cell loop |
 | Yajilin | `yajilin`, `yajirin` | Cell shading and cell loop |
 | Yajisan-Kazusan | `yajikazu` | Cell shading |
 | Yin-Yang | `yinyang` | Black and white circles |
 
 ## Inputs and limits
+
+- Archipelago requires a clue to exclude empty shading. City Space requires at
+  least 2×2; both accept clues 1–4095 and `?`.
+- Bramble and Tetro Chain-CTB require a positive room clue to exclude empty
+  shading. Tetro Chain-CTB does not accept `?`; Nuritwin accepts 0–4095 or `?`.
+  Disconnection and All or Nothing require at least 2×2, and All or Nothing
+  requires a room boundary to exclude an empty loop.
+- Tetro Chain-Y accepts arrow clues 0–255 or `?` and requires a positive arrow
+  pointing into the grid. Tetro Chain-K requires a black or gray dot; Sansa Road
+  accepts only triangle clues in cells. Neither accepts a bottom-right dot,
+  which the pinned backend cannot preserve.
+- Nurikabe Loop accepts positive clues below 4096 whose sum is smaller than the
+  grid area; this excludes the empty loop and differing zero/unknown semantics.
+  Regional Yajilin supports the `o` rule flag. Koburin supports `o`, `m` and `b`
+  flags and requires adjacent non-clue cells to exclude an empty loop.
+- Pentominous and Tetrominous support holes, unknown clues and given borders.
+  Piece letters are inferred only for fully determined regions. La Paz supports
+  the standard variant without holes; Snake accepts outside numbers up to the
+  corresponding row or column length, capped at 255.
+  Barns, Litherslink and Loop Special require at least two rows and columns.
 
 - Akichiwake supports the `x` variant and room clues 0–4095; unknown
   clues are unsupported. It requires a zero clue or a row or column crossing

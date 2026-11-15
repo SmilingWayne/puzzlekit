@@ -1,0 +1,14 @@
+[
+  {
+    "path": "tetroctb/7/5/3at208ekqoe04130g11",
+    "status": "unique",
+    "record": "cspuz serializer test",
+    "fileio": "pzprv3.1\ntetroctb\n5\n7\n0 0 0 1 1 0 \n1 0 1 0 1 1 \n1 0 1 0 0 0 \n1 0 0 0 0 0 \n0 0 1 0 0 0 \n0 1 1 1 0 1 0 \n1 0 0 1 1 0 1 \n0 1 1 0 0 0 0 \n1 1 1 0 0 0 0 \n4 . . . . 3 . \n. 0 . 1 . . . \n1 . . . . . . \n. . . . . . . \n1 . . . . . . \n# # + # + # # \n# + + # + # # \n# + + # # + + \n+ # # + + + + \n+ + # # + + + \n"
+  },
+  {
+    "path": "tetroctb/7/5/3at208ekqoe0g130g11",
+    "status": "multiple",
+    "record": "derived: remove first clue",
+    "fileio": "pzprv3.1\ntetroctb\n5\n7\n0 0 0 1 1 0 \n1 0 1 0 1 1 \n1 0 1 0 0 0 \n1 0 0 0 0 0 \n0 0 1 0 0 0 \n0 1 1 1 0 1 0 \n1 0 0 1 1 0 1 \n0 1 1 0 0 0 0 \n1 1 1 0 0 0 0 \n. . . . . 3 . \n. 0 . 1 . . . \n1 . . . . . . \n. . . . . . . \n1 . . . . . . \n. . + . + # # \n. + + . . . # \n. + + # # + . \n. # # + . + + \n. . . . + + + \n"
+  }
+]

@@ -4,8 +4,8 @@ from puzzlekit._adapters.codecs import BorderCodec
 from puzzlekit._adapters.grid import border_to_region_grid
 from puzzlekit._adapters.shading import decode_shading, encode_shading, puzzle_path
 
-TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni', 'stostone', 'akichi', 'invlitso', 'cocktail'})
-NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni', 'stostone', 'akichi', 'cocktail'})
+TYPES = frozenset({'heyawake', 'ayeheya', 'aqre', 'lits', 'norinori', 'chocona', 'shimaguni', 'stostone', 'akichi', 'invlitso', 'cocktail', 'nuritwin', 'bramble', 'tetroctb', 'disco'})
+NUMBERED = frozenset({'heyawake', 'ayeheya', 'aqre', 'chocona', 'shimaguni', 'stostone', 'akichi', 'cocktail', 'nuritwin', 'bramble', 'tetroctb'})
 
 
 def _parts(source):
@@ -87,6 +87,10 @@ def check_backend_clues(p):
     _, grid, values = room_data(p)
     if any(isinstance(v, int) and v >= 4096 for v in values):
         raise ValueError('cspuz room clues must be 0–4095 or ?')
+    if p.puzzle_type == 'tetroctb' and any(v == '?' for v in values):
+        raise ValueError('cspuz Tetro Chain-CTB does not support unknown clues')
+    if p.puzzle_type in {'bramble', 'tetroctb'} and not any(isinstance(v, int) and v > 0 for v in values):
+        raise ValueError('a positive clue is required to exclude empty shading')
     if p.puzzle_type == 'invlitso' and all(sum(v == room for line in grid for v in line) <= 4 for room in set(v for line in grid for v in line)):
         raise ValueError('Inverse LITSO requires a room with more than four cells to exclude empty shading')
     if p.puzzle_type == 'akichi':
@@ -158,7 +162,8 @@ def fileio(p, answer_grid):
     border, _, _ = room_data(p)
     h, w = p.rows, p.cols
     n = h * (w - 1)
-    out = [f'pzprv3.1\n{p.puzzle_type}\n{h}\n{w}\n']
+    version = '' if p.puzzle_type == 'disco' else '.1'
+    out = [f'pzprv3{version}\n{p.puzzle_type}\n{h}\n{w}\n']
     if p.puzzle_type == 'akichi' and p.rule_flag == 'x':
         out.append('x\n')
     out.extend(row([int(r * (w - 1) + c in border) for c in range(w - 1)]) for r in range(h))

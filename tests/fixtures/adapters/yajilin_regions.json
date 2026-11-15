@@ -1,0 +1,14 @@
+[
+  {
+    "path": "yajilin-regions/6/6/ii02q2070d0gg221",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\nyajilin-regions\n6\n6\n4\n0 1 1 1 0 0 \n0 1 1 1 0 0 \n0 0 0 0 0 0 \n0 0 0 0 2 2 \n0 3 0 0 2 2 \n0 0 0 0 2 2 \n. 2 . . . . \n. . . . . . \n. . . . . . \n. . . . 2 . \n. 1 . . . . \n. . . . . . \n+ + + # + + \n+ # + + + + \n+ + # + + + \n+ + + + # + \n+ # + + + + \n+ + + + + # \n1 1 -1 -1 1 \n-1 -1 1 -1 -1 \n1 -1 -1 1 -1 \n1 -1 1 -1 -1 \n-1 -1 -1 -1 1 \n1 1 -1 1 -1 \n1 -1 1 -1 1 1 \n1 -1 -1 1 1 1 \n-1 1 -1 -1 -1 1 \n1 -1 1 1 -1 1 \n1 -1 1 1 1 -1 \n"
+  },
+  {
+    "path": "yajirin-regions/o/4/4/0000004",
+    "status": "unique",
+    "record": "cspuz example: outside flag and alias",
+    "fileio": "pzprv3\nyajilin-regions\n4\n4\no\n1\n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n4 . . . \n. . . . \n. . . . \n. . . . \n# + + # \n+ + + + \n+ + + + \n# + + # \n-1 1 -1 \n1 -1 1 \n1 -1 1 \n-1 1 -1 \n-1 1 1 -1 \n1 -1 -1 1 \n-1 1 1 -1 \n"
+  }
+]

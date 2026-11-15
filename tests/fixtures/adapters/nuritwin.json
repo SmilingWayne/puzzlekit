@@ -1,0 +1,14 @@
+[
+  {
+    "path": "nuritwin/6/5/9kcq4ba2iu13j",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3.1\nnuritwin\n5\n6\n0 1 0 0 1 \n1 0 1 0 0 \n0 1 1 0 0 \n1 1 0 1 0 \n0 0 1 0 0 \n0 1 0 1 1 0 \n1 0 1 0 0 0 \n0 1 0 1 0 0 \n1 0 1 1 1 1 \n1 . . . . . \n. . . . . . \n3 . . . . . \n. . . . . . \n. . . . . . \n+ # # # # + \n# + + # + + \n# # # # + + \n# + + # # # \n# + # # + # \n"
+  },
+  {
+    "path": "nuritwin/6/5/9kcq4ba2iug3j",
+    "status": "unique",
+    "record": "derived: remove first clue",
+    "fileio": "pzprv3.1\nnuritwin\n5\n6\n0 1 0 0 1 \n1 0 1 0 0 \n0 1 1 0 0 \n1 1 0 1 0 \n0 0 1 0 0 \n0 1 0 1 1 0 \n1 0 1 0 0 0 \n0 1 0 1 0 0 \n1 0 1 1 1 1 \n. . . . . . \n. . . . . . \n3 . . . . . \n. . . . . . \n. . . . . . \n+ # # # # + \n# + + # + + \n# # # # + + \n# + + # # # \n# + # # + # \n"
+  }
+]

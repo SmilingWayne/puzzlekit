@@ -1,0 +1,14 @@
+[
+  {
+    "path": "snake/2/2/3i1g2g",
+    "status": "unique",
+    "record": "cspuz test: snake/2/2/3i1g2g",
+    "fileio": "pzprv3\nsnake\n2\n2\n. 1 . \n2 4 5 \n. 8 6 \n"
+  },
+  {
+    "path": "snake/4/4/060300g1h4i",
+    "status": "unique",
+    "record": "cspuz test: snake/4/4/060300g1h4i",
+    "fileio": "pzprv3\nsnake\n4\n4\n. . 1 . . \n4 4 4 4 4 \n. 6 8 8 4 \n. 8 8 5 4 \n. 8 8 4 8 \n"
+  }
+]
