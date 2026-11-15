@@ -1,0 +1,12 @@
+[
+  {
+    "path": "soulmates/4/4/a1p3i",
+    "status": "unique",
+    "fileio": "pzprv3\nsoulmates\n4\n4\n10 1 . . \n. . . . \n. . . . \n3 . . . \n. . 10 - \n- 1 - - \n- - 3 - \n. - - - \n"
+  },
+  {
+    "path": "soulmates/2/2/1i",
+    "status": "multiple",
+    "fileio": "pzprv3\nsoulmates\n2\n2\n1 . \n. . \n. . \n. - \n"
+  }
+]

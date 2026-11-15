@@ -1,9 +1,30 @@
 """Connect a puzzle's registered identity to its shared adapter."""
 from dataclasses import dataclass
 
-from . import cts, guidearrow, coral, aquarium, yajikazu, creek, simplegako, circlesquare, cluepartitions, dbchoco, diagonal, doubleback, extended, geradeweg, hashi, moonsun, ncells, nonogram, packed, paintarea, partition, regions, ripple, ringring, roomloops, roomnumbers, sashigane, shading, sukoro, tapa, yajilin
+from . import balloon, bdwalk, bosanowa, castle, compass, cts, guidearrow, coral, aquarium, yajikazu, creek, simplegako, circlesquare, cluepartitions, connection, dbchoco, diagonal, doubleback, extended, geradeweg, hashi, hebi, herugolf, isowatari, japanesesums, keywest, moonsun, nanameguri, narrow, ncells, nonogram, nurimaze, packed, paintarea, partition, regions, ripple, ringring, roomloops, roomnumbers, sashigane, sendai, shading, shugaku, slashpack, soulmates, statuepark, sukoro, tapa, tents, yajilin, yajisoko
 
 _DIRECT_FAMILIES = {
+    'nurimaze': nurimaze,
+    'connection': connection,
+    'slashpack': slashpack,
+    'soulmates': soulmates,
+    'herugolf': herugolf,
+    'castle': castle,
+    'narrow': narrow,
+    'sendai': sendai,
+    'hebi': hebi,
+    'bdwalk': bdwalk,
+    'bosanowa': bosanowa,
+    'isowatari': isowatari,
+    'statuepark': statuepark,
+    'nanameguri': nanameguri,
+    'japanesesums': japanesesums,
+    'keywest': keywest,
+    'compass': compass,
+    'tents': tents,
+    'shugaku': shugaku,
+    'yajisoko': yajisoko,
+    'balloon': balloon,
     'cts': cts,
     'guidearrow': guidearrow,
     'coral': coral,

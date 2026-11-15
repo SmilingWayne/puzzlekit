@@ -14,9 +14,13 @@ state export.
 | Araf | `araf` | Region boundaries |
 | Archipelago | `archipelago` | Cell shading |
 | Ayeheya | `ayeheya` | Cell shading |
+| Balloon Box | `balloon` | Region boundaries and paths |
 | Barns | `barns` | Cell loop |
+| Bosanowa | `bosanowa` | Cell numbers |
 | Bramble | `bramble` | Cell shading |
+| Building Walk | `bdwalk` | Path |
 | Canal View | `canal` | Cell shading |
+| Castle Wall | `castle` | Cell loop |
 | Cave | `cave`, `bag` | Cell shading |
 | Chained Block | `chainedb` | Cell shading |
 | Choco Banana | `cbanana` | Cell shading |
@@ -24,6 +28,8 @@ state export.
 | Circles and Squares | `circlesquare` | Cell shading |
 | City Space | `cityspace` | Cell shading |
 | Cocktail Lamp | `cocktail` | Cell shading |
+| Coffee Milk | `coffeemilk` | Connecting lines |
+| Compass | `compass` | Region boundaries |
 | Context | `context` | Cell shading |
 | Coral | `coral` | Cell shading |
 | Country Road | `country` | Cell loop |
@@ -45,13 +51,18 @@ state export.
 | Geradeweg | `geradeweg` | Cell loop |
 | Guide Arrow | `guidearrow` | Cell shading |
 | Hashiwokakero | `hashikake`, `hashi`, `bridges` | Single and double bridges |
+| Hebi-Ichigo | `hebi` | Snake numbers and empty marks |
+| Herugolf | `herugolf` | Ball paths |
 | Heteromino | `heteromino` | Region boundaries |
 | Heyawake | `heyawake` | Cell shading |
 | Hitori | `hitori` | Cell shading |
 | Hotaru Beam | `firefly` | Cell paths |
 | Ice Walk | `icewalk` | Cell loop |
 | Inverse LITSO | `invlitso` | Cell shading |
+| Isowatari | `isowatari` | Cell shading |
+| Japanese Sums | `japanesesums` | Cell numbers and blocks |
 | Kakuro | `kakuro` | Cell numbers |
+| Key West | `keywest` | Cell numbers and connecting lines |
 | Koburin | `koburin` | Cell shading and cell loop |
 | Kropki | `kropki` | Cell numbers |
 | Kuromasu | `kurodoko` | Cell shading |
@@ -64,15 +75,19 @@ state export.
 | Loop Special | `loopsp` | Cell loops |
 | Masyu | `mashu`, `masyu`, `pearl` | Cell loop |
 | Minesweeper | `mines` | Mines and empty cells |
+| Mintonette | `mintonette` | Connecting lines |
 | Moon or Sun | `moonsun` | Cell loop |
 | Morning Walk | `morningwalk` | Cell loop |
 | Nagenawa | `nagenawa` | Rectangular loops |
+| Nanameguri | `nanameguri` | Cell loop |
 | Nanro | `nanro` | Cell numbers and empty marks |
+| Narrowfence | `narrow` | Region boundaries |
 | NIKOJI | `nikoji` | Region boundaries |
 | No Three | `nothree` | Cell shading |
 | Nonogram | `nonogram` | Cell shading |
 | Norinori | `norinori` | Cell shading |
 | Norinuri | `norinuri` | Cell shading |
+| Nuri-Maze | `nurimaze` | Cell shading |
 | Nurikabe | `nurikabe` | Cell shading |
 | Nurikabe Loop | `nuriloop` | Cell loop |
 | Nurimisaki | `nurimisaki` | Cell shading |
@@ -87,6 +102,8 @@ state export.
 | Roma | `roma` | Cell arrows |
 | Sansa Road | `sansaroad` | Cell shading |
 | Sashigane | `sashigane` | Region boundaries |
+| School Trip | `shugaku` | Futons and cell shading |
+| Sendai-Miyagi | `sendai` | Region boundaries |
 | Shakashaka | `shakashaka` | Triangles and empty cells |
 | Shikaku | `shikaku` | Region boundaries |
 | Shimaguni | `shimaguni` | Cell shading |
@@ -94,25 +111,65 @@ state export.
 | Simple Loop | `simpleloop` | Cell loop |
 | Skyscrapers | `skyscrapers` | Cell numbers |
 | Slant | `gokigen` | Slashes |
+| Slash Pack | `slashpack` | Diagonals and empty marks |
 | Slitherlink | `slither`, `slitherlink` | Vertex loop |
+| Smullyanic Dynasty | `smullyan` | Cell shading |
 | Snake | `snake` | Cell shading |
+| Soul Mates | `soulmates` | Cell numbers and empty marks |
 | Square Jam | `squarejam` | Region boundaries |
 | Star Battle | `starbattle` | Stars and empty marks |
+| Statue Park | `statuepark` | Cell shading and piece bank |
 | Stostone | `stostone` | Cell shading |
 | Sudoku | `sudoku` | Cell numbers |
 | Sukoro | `sukoro` | Cell numbers and empty marks |
 | Tapa | `tapa` | Cell shading |
 | Tasquare | `tasquare` | Cell shading |
+| Tents | `tents` | Tents, empty marks and confirmed pairings |
 | Tetro Chain-CTB | `tetroctb` | Cell shading |
 | Tetro Chain-K | `tetrochaink` | Cell shading |
 | Tetro Chain-Y | `tetrochain` | Cell shading |
 | Tetrominous | `tetrominous` | Region boundaries and piece letters |
+| Tile City | `tilecity` | Cell shading |
+| Tontonbeya | `tontonbeya` | Cell symbols |
 | Water Walk | `waterwalk` | Cell loop |
 | Yajilin | `yajilin`, `yajirin` | Cell shading and cell loop |
 | Yajisan-Kazusan | `yajikazu` | Cell shading |
+| Yajisan-Sokoban | `yajisoko` | Box movement lines |
 | Yin-Yang | `yinyang` | Black and white circles |
 
 ## Inputs and limits
+
+- Balloon Box supports both the default and `a` rule variants; region cells
+  cannot also carry number clues. Building Walk supports the `m` rule variant
+  and single-hex-digit start and goal coordinates.
+- Bosanowa requires positive given numbers below 4096, on playable cells.
+  Coffee Milk requires a black or white clue; Mintonette accepts number16
+  endpoint clues below 4096 or `?` and requires at least one endpoint.
+- Castle Wall accepts arrow numbers 0–255 or `?`, and requires an inside
+  clue or a positive arrow. Compass accepts four directional numbers below
+  4096 or omitted directions, with at least one compass.
+- Hebi-Ichigo accepts arrow numbers 0–255 or `?` and requires a positive
+  directional clue. Herugolf accepts positive ball numbers up to 255 and
+  holes; pond cells cannot also carry a ball or hole.
+- Isowatari accepts a positive cluster size, circle clues and optional holes;
+  circles cannot overlap holes. Japanese Sums accepts an indicator from 1 to
+  9, positive outside sums up to 255 or `?`, and numbers in the indicator range.
+- Key West accepts numbered clues 0–4. Nanameguri requires a diagonal clue
+  to exclude an empty loop. Narrowfence currently accepts positive clues below
+  4096 and boards without holes.
+- Nuri-Maze requires exactly one start and one goal. School Trip accepts
+  clues 0–4 or `?`; only confirmed futon pieces are exported for partial
+  answers. Sendai-Miyagi accepts room clues 0–4095 or `?`.
+- Slash Pack accepts positive clues below 4096 or `?` and requires a positive
+  clue. Smullyanic Dynasty accepts number16 clues below 4096 or `?` and
+  requires a positive clue to exclude empty shading. Soul Mates accepts
+  positive clues below 4096; blocked cells and unknown clues are unsupported.
+- Statue Park supports the standard `t`, `d` and `p` piece banks. Tents
+  accepts outside clues 0–255 and exports only confirmed tree–tent pairings.
+  Tile City accepts cell clues 1–9 or `?`; Tontonbeya accepts symbols 1–3.
+  Yajisan-Sokoban supports blocks and numbered arrows below 4096.
+- These adapters require at least two rows and columns. Input and state support
+  is limited to the verified formats and variants listed above.
 
 - Archipelago requires a clue to exclude empty shading. City Space requires at
   least 2×2; both accept clues 1–4095 and `?`.

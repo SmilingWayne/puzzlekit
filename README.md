@@ -54,8 +54,8 @@ the pinned backend supports them. The list returned by
 ### pzprjs and cspuz adapter targets
 
 The current target set contains **145 puzzle types** registered in the custom
-pzprjs checkout and dispatched by the pinned cspuz backend: **106 verified
-adapters** and **39 candidates**. This is a static inventory, not a guarantee
+pzprjs checkout and dispatched by the pinned cspuz backend: **131 verified
+adapters** and **14 candidates**. This is a static inventory, not a guarantee
 that rules, variants, clues, URL formats or answer marks are compatible. Each
 candidate still requires verification against pzprjs before FileIO and state
 support can be claimed. Separate pzpr PIDs are counted separately; Numberlink's
@@ -66,7 +66,7 @@ when adapters or the pinned backend change. The PID is the pzpr identifier;
 it does not list every accepted URL alias.
 
 <details>
-<summary>Verified adapters (106)</summary>
+<summary>Verified adapters (131)</summary>
 
 | Puzzle | pzpr PID |
 | --- | --- |
@@ -79,9 +79,13 @@ it does not list every accepted URL alias.
 | Araf | `araf` |
 | Archipelago | `archipelago` |
 | Ayeheya | `ayeheya` |
+| Balloon Box | `balloon` |
 | Barns | `barns` |
+| Bosanowa | `bosanowa` |
 | Bramble | `bramble` |
+| Building Walk | `bdwalk` |
 | Canal View | `canal` |
+| Castle Wall | `castle` |
 | Cave | `cave` |
 | Chained Block | `chainedb` |
 | Choco Banana | `cbanana` |
@@ -89,6 +93,8 @@ it does not list every accepted URL alias.
 | Circles and Squares | `circlesquare` |
 | City Space | `cityspace` |
 | Cocktail Lamp | `cocktail` |
+| Coffee Milk | `coffeemilk` |
+| Compass | `compass` |
 | Context | `context` |
 | Coral | `coral` |
 | Country Road | `country` |
@@ -110,13 +116,18 @@ it does not list every accepted URL alias.
 | Geradeweg | `geradeweg` |
 | Guide Arrow | `guidearrow` |
 | Hashiwokakero | `hashikake` |
+| Hebi-Ichigo | `hebi` |
+| Herugolf | `herugolf` |
 | Heteromino | `heteromino` |
 | Heyawake | `heyawake` |
 | Hitori | `hitori` |
 | Hotaru Beam | `firefly` |
 | Ice Walk | `icewalk` |
 | Inverse LITSO | `invlitso` |
+| Isowatari | `isowatari` |
+| Japanese Sums | `japanesesums` |
 | Kakuro | `kakuro` |
+| Key West | `keywest` |
 | Koburin | `koburin` |
 | Kropki | `kropki` |
 | Kurodoko | `kurodoko` |
@@ -129,15 +140,19 @@ it does not list every accepted URL alias.
 | Loop Special | `loopsp` |
 | Masyu | `mashu` |
 | Minesweeper | `mines` |
+| Mintonette | `mintonette` |
 | Moon or Sun | `moonsun` |
 | Morning Walk | `morningwalk` |
 | Nagenawa | `nagenawa` |
+| Nanameguri | `nanameguri` |
 | Nanro | `nanro` |
+| Narrowfence | `narrow` |
 | NIKOJI | `nikoji` |
 | No Three | `nothree` |
 | Nonogram | `nonogram` |
 | Norinori | `norinori` |
 | Norinuri | `norinuri` |
+| Nuri-Maze | `nurimaze` |
 | Nurikabe | `nurikabe` |
 | Nurikabe Loop | `nuriloop` |
 | Nurimisaki | `nurimisaki` |
@@ -152,6 +167,8 @@ it does not list every accepted URL alias.
 | Roma | `roma` |
 | Sansa Road | `sansaroad` |
 | Sashigane | `sashigane` |
+| School Trip | `shugaku` |
+| Sendai-Miyagi | `sendai` |
 | Shakashaka | `shakashaka` |
 | Shikaku | `shikaku` |
 | Shimaguni | `shimaguni` |
@@ -159,28 +176,35 @@ it does not list every accepted URL alias.
 | Simple Loop | `simpleloop` |
 | Skyscrapers | `skyscrapers` |
 | Slant | `gokigen` |
+| Slash Pack | `slashpack` |
 | Slitherlink | `slither` |
+| Smullyanic Dynasty | `smullyan` |
 | Snake | `snake` |
+| Soul Mates | `soulmates` |
 | Square Jam | `squarejam` |
 | Star Battle | `starbattle` |
+| Statue Park | `statuepark` |
 | Stostone | `stostone` |
 | Sudoku | `sudoku` |
 | Sukoro | `sukoro` |
 | Tapa | `tapa` |
 | Tasquare | `tasquare` |
+| Tents | `tents` |
 | Tetro Chain-CTB | `tetroctb` |
 | Tetro Chain-K | `tetrochaink` |
 | Tetro Chain-Y | `tetrochain` |
 | Tetrominous | `tetrominous` |
+| Tile City | `tilecity` |
+| Tontonbeya | `tontonbeya` |
 | Water Walk | `waterwalk` |
 | Yajilin | `yajilin` |
 | Yajisan-Kazusan | `yajikazu` |
+| Yajisan-Sokoban | `yajisoko` |
 | Yin-Yang | `yinyang` |
-
 </details>
 
 <details>
-<summary>Adapter candidates (39)</summary>
+<summary>Adapter candidates (14)</summary>
 
 The data columns are a 2026-11-14 snapshot of the local sibling
 `puzzlekit-dataset` checkout (`f4b71bc9170c`): raw rows in
@@ -196,44 +220,19 @@ have not all been checked through PuzzleKit and pzprjs.
 | Puzzle | pzpr PID | CSV URLs | Dataset cases |
 | --- | --- | ---: | ---: |
 | Army Ants | `armyants` | 19 | — |
-| Balloon Box | `balloon` | 2 | — |
 | Battleship | `battleship` | 1 | 859 |
-| Bosanowa | `bosanowa` | 7 | 36 |
-| Building Walk | `bdwalk` | 3 | — |
-| Castle Wall | `castle` | 281 | 110 |
-| Coffee Milk | `coffeemilk` | 2 | — |
-| Compass | `compass` | 71 | — |
 | Curve Data | `curvedata` | 209 | — |
 | Evolmino | `evolmino` | 10 | — |
 | Fire Walk | `firewalk` | 3 | — |
-| Hebi-Ichigo | `hebi` | 348 | — |
-| Herugolf | `herugolf` | 333 | — |
-| Isowatari | `isowatari` | 0 | — |
-| Japanese Sums | `japanesesums` | 0 | — |
-| Key West | `keywest` | 2 | — |
 | Kouchoku | `kouchoku` | 19 | — |
 | Kurarin | `kurarin` | 2 | — |
-| Mintonette | `mintonette` | 2 | — |
-| Nanameguri | `nanameguri` | 7 | — |
-| Narrowfence | `narrow` | 0 | — |
 | Number City | `numcity` | 0 | — |
-| Nuri-Maze | `nurimaze` | 592 | — |
 | Pencils | `pencils` | 176 | — |
 | Rail Pool | `railpool` | 42 | — |
-| School Trip | `shugaku` | 351 | 126 |
 | Seiza | `seiza` | 0 | — |
-| Sendai-Miyagi | `sendai` | 0 | — |
 | Slalom | `slalom` | 561 | — |
-| Slash Pack | `slashpack` | 3 | — |
-| Smullyanic Dynasty | `smullyan` | 0 | — |
-| Soul Mates | `soulmates` | 0 | — |
-| Statue Park | `statuepark` | 50 | — |
-| Tents | `tents` | 49 | 699 |
 | The Longest | `longest` | 0 | — |
-| Tile City | `tilecity` | 2 | — |
 | Time Bomb | `timebomb` | 0 | — |
-| Tontonbeya | `tontonbeya` | 8 | — |
-| Yajisan-Sokoban | `yajisoko` | 9 | — |
 
 </details>
 

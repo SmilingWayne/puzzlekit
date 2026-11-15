@@ -1,0 +1,14 @@
+[
+  {
+    "path": "statuepark/6/7/k06000k0600000//t",
+    "status": "unique",
+    "fileio": "pzprv3\nstatuepark\n7\n6\nt\n2 . 2 . . . \n. 2 . . . . \n. . . . . . \n2 . 2 . . . \n. 2 . . . . \n. . . . . . \n. . . . . . \n# # # + # # \n+ # + + # # \n+ + + + + + \n# + # # + # \n# # + # + # \n+ # + # + # \n+ + + + + # \n0 0 0 0 0 \n",
+    "record": "statuepark0012"
+  },
+  {
+    "path": "statuepark/7/7/20000qg005n900060//t",
+    "status": "unique",
+    "fileio": "pzprv3\nstatuepark\n7\n7\nt\n. . 2 . . . . \n. . . . . . . \n. 2 2 2 1 2 1 \n. . . . . . . \n1 2 2 1 2 1 . \n. . . . . . . \n. . . . 2 . . \n# # # # + + # \n+ + + + + # # \n+ # # # + # + \n+ + + # + + + \n+ # # + # + + \n+ # # + # # + \n+ + + + # + + \n0 0 0 0 0 \n",
+    "record": "statuepark0014"
+  }
+]

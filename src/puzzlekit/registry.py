@@ -1,5 +1,6 @@
 """Explicit registry of PuzzleKit's verified puzzle adapters."""
 from puzzlekit.puzzles import (
+    tilecity, tontonbeya, nurimaze, coffeemilk, mintonette, smullyan, slashpack, soulmates, herugolf, castle, narrow, sendai, hebi, bdwalk, bosanowa, isowatari, statuepark, nanameguri, japanesesums, keywest, compass, tents, shugaku, yajisoko, balloon,
     archipelago, nuritwin, disco, bramble, tetroctb, tetrochain, tetrochaink, sansaroad, nuriloop, snake, loopsp, lapaz, pentominous, tetrominous, yajilin_regions, koburin, lither, barns, cityspace, nothing,
     cts, firefly, kakuro, energywalk, coral, icewalk, forestwalk, waterwalk, morningwalk,
     aquarium, kropki, lohkous, skyscrapers, doppelblock, easyasabc,
@@ -12,6 +13,31 @@ from puzzlekit.puzzles import (
 )
 
 ADAPTERS = (
+    tilecity.ADAPTER,
+    tontonbeya.ADAPTER,
+    nurimaze.ADAPTER,
+    coffeemilk.ADAPTER,
+    mintonette.ADAPTER,
+    smullyan.ADAPTER,
+    slashpack.ADAPTER,
+    soulmates.ADAPTER,
+    herugolf.ADAPTER,
+    castle.ADAPTER,
+    narrow.ADAPTER,
+    sendai.ADAPTER,
+    hebi.ADAPTER,
+    bdwalk.ADAPTER,
+    bosanowa.ADAPTER,
+    isowatari.ADAPTER,
+    statuepark.ADAPTER,
+    nanameguri.ADAPTER,
+    japanesesums.ADAPTER,
+    keywest.ADAPTER,
+    compass.ADAPTER,
+    tents.ADAPTER,
+    shugaku.ADAPTER,
+    yajisoko.ADAPTER,
+    balloon.ADAPTER,
     archipelago.ADAPTER,
     nuritwin.ADAPTER,
     disco.ADAPTER,
