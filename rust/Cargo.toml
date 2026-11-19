@@ -9,5 +9,5 @@ name = "_cspuz"
 crate-type = ["cdylib"]
 
 [dependencies]
-pyo3 = { version = "0.27", features = ["extension-module"] }
+pyo3 = { version = "0.27", features = ["extension-module", "abi3-py310"] }
 cspuz_solver_backend = { git = "https://github.com/semiexp/cspuz_core.git", rev = "d6424dc3da9f8128682c9b02669e77cdedb13c72" }

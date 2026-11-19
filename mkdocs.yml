@@ -5,9 +5,11 @@ exclude_docs: |
   puzzles/
 nav:
   - Introduction: index.md
+  - Puzzle coverage: PUZZLES.md
   - Adapter compatibility: ADAPTERS.md
   - cspuz integration: CSPUZ_INTEGRATION.md
   - Contributing adapters: CONTRIBUTING.md
   - Roadmap: ROADMAP.md
+  - Releasing: RELEASING.md
 theme:
   name: material

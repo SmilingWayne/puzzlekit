@@ -33,6 +33,11 @@ jobs:
       - name: Build source distribution and wheel from it
         if: ${{ inputs.build_package }}
         run: python -m build
+      - name: Check package metadata and README rendering
+        if: ${{ inputs.build_package }}
+        run: |
+          python -m pip install twine
+          python -m twine check --strict dist/*
       - name: Store distribution artifacts
         if: ${{ inputs.upload_artifact }}
         uses: actions/upload-artifact@v4

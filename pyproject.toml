@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 authors = [{name = "SmilingWayne", email = "xiaoxiaowayne@gmail.com"}]
 license = "MIT AND LicenseRef-cspuz-bundled"
 license-files = ["LICENSE", "LICENSE-cspuz"]
-keywords = ["puzzle", "solver", "logic", "cspuz", "puzzlink"]
+keywords = ["puzzle", "solver", "logic", "cspuz", "puzzlink", "pzpr", "pzpr-trace"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -43,14 +43,22 @@ include = ["puzzlekit*"]
 target = "puzzlekit._cspuz"
 path = "rust/Cargo.toml"
 binding = "PyO3"
+py-limited-api = true
+
+[tool.distutils.bdist_wheel]
+py-limited-api = "cp310"
 
 [tool.cibuildwheel]
-build = "cp310-* cp311-* cp312-* cp313-* cp314-*"
+archs = ["auto64"]
+# One abi3 wheel per platform: built on the oldest supported Python and
+# tested on the others by the "Test wheels" job in publish.yml.
+build = "cp310-*"
 skip = "*-musllinux_*"
 test-requires = ["pytest"]
 test-command = "python -m pytest -c {project}/tests/native-pytest.ini --import-mode=importlib {project}/tests -q"
 
 [project.urls]
 Homepage = "https://github.com/SmilingWayne/puzzlekit"
+Documentation = "https://smilingwayne.github.io/puzzlekit/"
 Repository = "https://github.com/SmilingWayne/puzzlekit"
 Issues = "https://github.com/SmilingWayne/puzzlekit/issues"

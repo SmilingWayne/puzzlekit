@@ -1,247 +1,179 @@
 # PuzzleKit
 
-PuzzleKit solves logic puzzles from links. Give it a puzz.link URL and get the cspuz solver's result, a pzpr FileIO solution, or a link you can open in
-[pzpr-trace](https://pzpr-trace.net/).
+[![PyPI](https://img.shields.io/pypi/v/puzzlekit)](https://pypi.org/project/puzzlekit/)
+[![Python](https://img.shields.io/pypi/pyversions/puzzlekit)](https://pypi.org/project/puzzlekit/)
+[![License](https://img.shields.io/pypi/l/puzzlekit)](https://github.com/SmilingWayne/puzzlekit/blob/main/LICENSE)
+[![CI](https://github.com/SmilingWayne/puzzlekit/actions/workflows/ci_pr.yml/badge.svg)](https://github.com/SmilingWayne/puzzlekit/actions/workflows/ci_pr.yml)
 
-The current development version uses the Rust
-[cspuz_core](https://github.com/semiexp/cspuz_core) solver. It is being prepared
-for the v0.4.0 release and its API differs from earlier versions.
+**Solve logic puzzles from a [puzz.link](https://puzz.link/) URL, and open the answer in [pzpr-trace](https://pzpr-trace.net/).**
+
+PuzzleKit is a thin Python layer over the Rust [cspuz_core](https://github.com/semiexp/cspuz_core)
+constraint solver. Give it a puzzle link and it returns the solution status,
+the solver's board, the answer in [pzpr](https://github.com/robx/pzprjs)
+FileIO format, and a pzpr-trace link that restores the puzzle with the answer
+filled in.
+
+- **Link in, answer out.** Works with the puzzle links you already have, in the
+  pzpr format used by puzz.link and pzpr-trace.
+- **Native pzpr output.** The exported answer is the same text pzpr saves, so
+  any pzpr-based tool can load it.
+- **Tells you about uniqueness.** Results are `unique`, `multiple`,
+  `no_solution` or `unknown`; for multiple solutions you get the marks that
+  hold in all of them.
+- **Install and go.** Prebuilt wheels for Linux, macOS and Windows. No Rust
+  toolchain and no other Python dependencies.
 
 ## Installation
 
-Once v0.4.0 is released, install it with:
-
 ```sh
 pip install puzzlekit
+# or
+uv add puzzlekit          # in a uv project
+uv pip install puzzlekit  # in any virtual environment
 ```
 
-Until then, `pip install puzzlekit` installs the latest published version,
-which may have a different API. To try this development version, clone this
-repository and run `python -m pip install .` from its root. Building from
-source requires Rust, a C/C++ compiler, Git, and network access for the pinned
-dependencies. Published wheels will not require Rust at runtime.
+Requires Python 3.10 or newer. Wheels are published for Linux (x86-64 and
+ARM64, glibc), macOS (Apple silicon and Intel) and Windows (x86-64). One wheel
+per platform serves every supported Python version. On other
+platforms pip builds from source, which needs Rust, a C/C++ compiler, Git and
+network access for the pinned dependencies.
 
-## Solve a puzzle
+## Quick start
 
 ```python
 import puzzlekit
 
-result = puzzlekit.solve("https://puzz.link/p?nurikabe/2/2/1i")
+result = puzzlekit.solve("https://puzz.link/p?slither/3/2/h17d")
 
 print(result.status)          # unique
 print(result.to_pzpr())       # puzzle and answer in pzpr FileIO format
 print(result.to_trace_url())  # open the answer in pzpr-trace
 ```
 
-`result.board` contains the original cspuz board as a Python dictionary;
-`result.board_json` provides the same board as a JSON string. The board uses
-cspuz's rendering format. `result.to_state()` returns the compressed state
-used in the trace URL.
+```text
+pzprv3.1
+slither
+2
+3
+. . 1 
+2 . 3 
+0 0 0 
+0 0 0 
+1 1 -1 -1 
+1 -1 -1 1 
+1 -1 -1 
+-1 1 1 
+1 1 1 
+```
 
-The result status is `unique`, `multiple`, `no_solution`, or `unknown`. For
-the verified adapters below, a multiple-solution result contains only facts
-that the solver establishes across solutions, leaving the other marks empty. FileIO and state export are
-available for `unique` and `multiple` results; they raise `ValueError` for
-`no_solution` or `unknown`.
+```text
+https://pzpr-trace.net/p?state=K6gqKCoz1jPkKs7JLMlILeIy4jLm0lPQUzBU4DICUsYKXAYKIAijDIEyumDEBWMgMbnAXEOIMiAFAA&slither/3/2/h12g3
+```
 
-## Puzzle support
+The trace link opens the puzzle in [pzpr-trace](https://pzpr-trace.net/) with
+the solution already drawn.
 
-See the [adapter compatibility guide](docs/ADAPTERS.md) for supported
-puzzles, aliases and input limits. Other URLs can return a cspuz board when
-the pinned backend supports them. The list returned by
-`puzzlekit.supported_puzzles()` describes that upstream coverage.
+### Input
 
-### pzprjs and cspuz adapter targets
+`solve()` takes a single string. All of these are equivalent:
 
-The current target set contains **145 puzzle types** registered in the custom
-pzprjs checkout and dispatched by the pinned cspuz backend: **137 verified
-adapters** and **8 candidates**. This is a static inventory, not a guarantee
-that rules, variants, clues, URL formats or answer marks are compatible. Each
-candidate still requires verification against pzprjs before FileIO and state
-support can be claimed. Separate pzpr PIDs are counted separately; Numberlink's
-standalone enumeration entry is outside this solve-dispatch inventory.
+```python
+puzzlekit.solve("https://puzz.link/p?slither/3/2/h17d")   # puzz.link URL
+puzzlekit.solve("?slither/3/2/h17d")                      # query only
+puzzlekit.solve("slither/3/2/h17d")                       # bare path
+puzzlekit.solve("https://pzpr-trace.net/p?slither/3/2/h17d")  # trace link
+```
 
-Snapshot: pzprjs `6a180ef71c29`, cspuz `d6424dc3da9f`. Update these lists
-when adapters or the pinned backend change. The PID is the pzpr identifier;
-it does not list every accepted URL alias.
+The host is ignored; only the puzzle path (`type/columns/rows/data`) matters.
+A `state=` parameter in a trace link is skipped. The path starts with the
+puzzle's URL token, such as `slither`, `nurikabe` or `yajilin`. The tokens
+and aliases for each puzzle are in the [adapter guide](https://github.com/SmilingWayne/puzzlekit/blob/main/docs/ADAPTERS.md).
 
-<details>
-<summary>Verified adapters (137)</summary>
+Dataset text, a puzzle type argument and legacy solver options (as in
+PuzzleKit 0.3) are not accepted; `solve()` raises `ValueError` for them.
 
-| Puzzle | pzpr PID |
+### Output
+
+`solve()` returns a `PuzzleResult`:
+
+| Member | Description |
 | --- | --- |
-| Akari | `lightup` |
-| Akichiwake | `akichi` |
-| All or Nothing | `nothing` |
-| Aqre | `aqre` |
-| Aquapelago | `aquapelago` |
-| Aquarium | `aquarium` |
-| Araf | `araf` |
-| Archipelago | `archipelago` |
-| Ayeheya | `ayeheya` |
-| Balloon Box | `balloon` |
-| Barns | `barns` |
-| Bosanowa | `bosanowa` |
-| Bramble | `bramble` |
-| Building Walk | `bdwalk` |
-| Canal View | `canal` |
-| Castle Wall | `castle` |
-| Cave | `cave` |
-| Chained Block | `chainedb` |
-| Choco Banana | `cbanana` |
-| Chocona | `chocona` |
-| Circles and Squares | `circlesquare` |
-| City Space | `cityspace` |
-| Cocktail Lamp | `cocktail` |
-| Coffee Milk | `coffeemilk` |
-| Compass | `compass` |
-| Context | `context` |
-| Coral | `coral` |
-| Country Road | `country` |
-| Creek | `creek` |
-| Cross the Streams | `cts` |
-| Detour | `detour` |
-| Disconnection | `disco` |
-| Dominion | `dominion` |
-| Doppelblock | `doppelblock` |
-| Double Back | `doubleback` |
-| Double Choco | `dbchoco` |
-| Easy as ABC | `easyasabc` |
-| Energy Walk | `energywalk` |
-| Fillmat | `fillmat` |
-| Fillomino | `fillomino` |
-| FiveCells | `fivecells` |
-| Fire Walk | `firewalk` |
-| Forest Walk | `forestwalk` |
-| FourCells | `fourcells` |
-| Geradeweg | `geradeweg` |
-| Guide Arrow | `guidearrow` |
-| Hashiwokakero | `hashikake` |
-| Hebi-Ichigo | `hebi` |
-| Herugolf | `herugolf` |
-| Heteromino | `heteromino` |
-| Heyawake | `heyawake` |
-| Hitori | `hitori` |
-| Hotaru Beam | `firefly` |
-| Ice Walk | `icewalk` |
-| Inverse LITSO | `invlitso` |
-| Isowatari | `isowatari` |
-| Japanese Sums | `japanesesums` |
-| Kakuro | `kakuro` |
-| Key West | `keywest` |
-| Koburin | `koburin` |
-| Kouchoku | `kouchoku` |
-| Kropki | `kropki` |
-| Kurodoko | `kurodoko` |
-| Kurotto | `kurotto` |
-| Kurarin | `kurarin` |
-| La Paz | `lapaz` |
-| Light and Shadow | `lightshadow` |
-| Litherslink | `lither` |
-| LITS | `lits` |
-| Lohkous | `lohkous` |
-| Loop Special | `loopsp` |
-| Masyu | `mashu` |
-| Minesweeper | `mines` |
-| Mintonette | `mintonette` |
-| Moon or Sun | `moonsun` |
-| Morning Walk | `morningwalk` |
-| Nagenawa | `nagenawa` |
-| Nanameguri | `nanameguri` |
-| Nanro | `nanro` |
-| Narrowfence | `narrow` |
-| NIKOJI | `nikoji` |
-| No Three | `nothree` |
-| Number City | `numcity` |
-| Nonogram | `nonogram` |
-| Norinori | `norinori` |
-| Norinuri | `norinuri` |
-| Nuri-Maze | `nurimaze` |
-| Nurikabe | `nurikabe` |
-| Nurikabe Loop | `nuriloop` |
-| Nurimisaki | `nurimisaki` |
-| Nuritwin | `nuritwin` |
-| Paintarea | `paintarea` |
-| Pencils | `pencils` |
-| Pentominous | `pentominous` |
-| Putteria | `putteria` |
-| Reflect Link | `reflect` |
-| Regional Yajilin | `yajilin-regions` |
-| Ring-ring | `ringring` |
-| Ripple Effect | `ripple` |
-| Roma | `roma` |
-| Sansa Road | `sansaroad` |
-| Sashigane | `sashigane` |
-| School Trip | `shugaku` |
-| Sendai-Miyagi | `sendai` |
-| Shakashaka | `shakashaka` |
-| Shikaku | `shikaku` |
-| Shimaguni | `shimaguni` |
-| Simple Gako | `simplegako` |
-| Simple Loop | `simpleloop` |
-| Skyscrapers | `skyscrapers` |
-| Slant | `gokigen` |
-| Slash Pack | `slashpack` |
-| Slitherlink | `slither` |
-| Smullyanic Dynasty | `smullyan` |
-| Snake | `snake` |
-| Soul Mates | `soulmates` |
-| Square Jam | `squarejam` |
-| Star Battle | `starbattle` |
-| Statue Park | `statuepark` |
-| Stostone | `stostone` |
-| Sudoku | `sudoku` |
-| Sukoro | `sukoro` |
-| Tapa | `tapa` |
-| Tasquare | `tasquare` |
-| Tents | `tents` |
-| Tetro Chain-CTB | `tetroctb` |
-| Tetro Chain-K | `tetrochaink` |
-| Tetro Chain-Y | `tetrochain` |
-| Tetrominous | `tetrominous` |
-| The Longest | `longest` |
-| Tile City | `tilecity` |
-| Tontonbeya | `tontonbeya` |
-| Water Walk | `waterwalk` |
-| Yajilin | `yajilin` |
-| Yajisan-Kazusan | `yajikazu` |
-| Yajisan-Sokoban | `yajisoko` |
-| Yin-Yang | `yinyang` |
-</details>
+| `status` | `unique`, `multiple`, `no_solution` or `unknown` (see below). |
+| `has_solution` | `True`, `False`, or `None` when undetermined. |
+| `unique` | `True` for one solution, `False` for several, `None` if unknown. |
+| `is_solved` | `True` when the status is `unique`. |
+| `board` | The cspuz board as a Python `dict` (cspuz's rendering format). |
+| `board_json` | The same board as a JSON string. |
+| `normalized_url` | The puzzle link after PuzzleKit's normalization. |
+| `to_pzpr()` | Puzzle and answer in pzpr FileIO text. |
+| `to_state()` | The compressed state used by pzpr-trace. |
+| `to_trace_url()` | A pzpr-trace link that restores puzzle and answer. |
 
-<details>
-<summary>Adapter candidates (8)</summary>
+| Status | Meaning |
+| --- | --- |
+| `unique` | Exactly one solution. |
+| `multiple` | Several solutions. Exports contain only the marks shared by all of them; the rest stay empty. |
+| `no_solution` | The puzzle has no solution. |
+| `unknown` | The solver could not determine uniqueness. |
 
-The data columns are a 2026-11-14 snapshot of the local sibling
-`puzzlekit-dataset` checkout (`f4b71bc9170c`): raw rows in
-`puzzlink_crawlers/logs/merged_puzzles.csv` matched by PID, and dataset-text
-cases matched by puzzle type, respectively. Zero or `—` means none were
-matched in that inventory, not that no examples exist.
-Dataset text is not accepted directly by `solve()`; it needs puzzle-specific
-conversion and validation. CSV entries may overlap dataset cases and are not
-a count of verified solvable puzzles. The pinned cspuz backend tests also
-contain sample URLs and expected boards for these candidates; those samples
-have not all been checked through PuzzleKit and pzprjs.
+`to_pzpr()`, `to_state()` and `to_trace_url()` work for `unique` and
+`multiple` results of the supported puzzles below. For `no_solution` and
+`unknown` they raise `ValueError`, as they do for puzzles without a verified
+adapter. Unreadable or unsupported input raises `ValueError`; an internal
+solver failure raises `RuntimeError`.
 
-| Puzzle | pzpr PID | CSV URLs | Dataset cases |
-| --- | --- | ---: | ---: |
-| Army Ants | `armyants` | 19 | — |
-| Battleship | `battleship` | 1 | 859 |
-| Curve Data | `curvedata` | 209 | — |
-| Evolmino | `evolmino` | 10 | — |
-| Rail Pool | `railpool` | 42 | — |
-| Seiza | `seiza` | 0 | — |
-| Slalom | `slalom` | 561 | — |
-| Time Bomb | `timebomb` | 0 | — |
+`board` is available for every puzzle the pinned backend can solve, even when
+there is no pzpr export. `puzzlekit.supported_puzzles()` lists the backend's
+coverage; this is wider than the verified list below.
 
-</details>
+## Supported puzzles
 
-## Development and licensing
+<!-- puzzle-summary:start -->
+PuzzleKit currently supports **137** of the **346** puzzle types registered in pzpr. [puzzlekit-dataset](https://github.com/SmilingWayne/puzzlekit-dataset) holds 39,405 problems (33,692 with answers) for 77 of them.
+<!-- puzzle-summary:end -->
 
-Install with `python -m pip install -e '.[dev]'` and run
-`python -m pytest -q`. See the [contributor guide](docs/CONTRIBUTING.md)
-for the adapter development workflow. The target lists above reflect the
-current registry; the [roadmap](docs/ROADMAP.md) is an older planning snapshot.
+The [puzzle table](https://github.com/SmilingWayne/puzzlekit/blob/main/docs/PUZZLES.md) lists every pzpr puzzle with its support
+status, dataset size and largest board. The names are pzpr IDs, so they can be
+pasted straight into pzpr-trace.
+The [adapter guide](https://github.com/SmilingWayne/puzzlekit/blob/main/docs/ADAPTERS.md) gives each puzzle's URL tokens, answer
+marks and known limits.
 
-PuzzleKit is MIT licensed. The bundled cspuz components have their own terms
-in [LICENSE-cspuz](LICENSE-cspuz).
+"Supported" means a verified adapter: URL solving, native pzpr FileIO and
+pzpr-trace state, checked against real puzzles and the custom
+[pzprjs](https://github.com/SmilingWayne/pzprjs-trace) used by pzpr-trace.
+
+## Upgrading from 0.3
+
+0.4 is a rewrite. The OR-Tools solvers and the dataset-text interface were
+removed in favor of the cspuz backend and puzzle URLs. `solve()` now takes a
+URL and returns a `PuzzleResult`. Pin `puzzlekit<0.4` if you depend on the
+old API.
+
+## Related projects
+
+- [puzz.link](https://puzz.link/) and [pzprjs](https://github.com/robx/pzprjs) — the puzzle player and the
+  pzpr format PuzzleKit reads and writes.
+- [pzpr-trace](https://pzpr-trace.net/) — view and replay puzzle states; the target of `to_trace_url()`.
+- [cspuz_core](https://github.com/semiexp/cspuz_core) — the Rust constraint solver and puzzle models PuzzleKit
+  builds on, and [cspuz-solver2](https://github.com/semiexp/cspuz-solver2), a web solver built on it.
+- [Penpa+](https://github.com/swaroopg92/penpa-edit) — a general puzzle editor and solver-checker.
+- [puzzlekit-dataset](https://github.com/SmilingWayne/puzzlekit-dataset) — about 40,000 puzzle instances used to test PuzzleKit.
+- [puzzlekit-web](https://github.com/SmilingWayne/puzzlekit-web) — a step-by-step, explainable solver in the browser.
+
+## Development
+
+```sh
+git clone https://github.com/SmilingWayne/puzzlekit
+cd puzzlekit
+python -m pip install -e '.[dev]'
+python -m pytest -q
+```
+
+Building needs Rust, a C/C++ compiler and Git. The [contributor guide](https://github.com/SmilingWayne/puzzlekit/blob/main/docs/CONTRIBUTING.md)
+covers adding a puzzle, and [cspuz integration](https://github.com/SmilingWayne/puzzlekit/blob/main/docs/CSPUZ_INTEGRATION.md)
+describes the backend bridge. [Releasing](https://github.com/SmilingWayne/puzzlekit/blob/main/docs/RELEASING.md) lists the release checklist.
+
+## License
+
+PuzzleKit is released under the [MIT license](https://github.com/SmilingWayne/puzzlekit/blob/main/LICENSE). The bundled cspuz
+components have their own terms in [LICENSE-cspuz](https://github.com/SmilingWayne/puzzlekit/blob/main/LICENSE-cspuz).

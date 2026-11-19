@@ -1,0 +1,2666 @@
+{
+ "version": 1,
+ "sources": {
+  "pzprjs": "d40aeab0b12e",
+  "puzzlekit-dataset": "f4b71bc9170c"
+ },
+ "puzzles": [
+  {
+   "pid": "aho",
+   "name": "Aho-ni-Narikire",
+   "urlid": "aho",
+   "aliases": []
+  },
+  {
+   "pid": "akichi",
+   "name": "Akichiwake",
+   "urlid": "akichi",
+   "aliases": []
+  },
+  {
+   "pid": "alter",
+   "name": "Alternation",
+   "urlid": "alter",
+   "aliases": []
+  },
+  {
+   "pid": "amibo",
+   "name": "Amibo",
+   "urlid": "amibo",
+   "aliases": []
+  },
+  {
+   "pid": "angleloop",
+   "name": "Angle Loop",
+   "urlid": "angleloop",
+   "aliases": []
+  },
+  {
+   "pid": "anglers",
+   "name": "Anglers",
+   "urlid": "anglers",
+   "aliases": []
+  },
+  {
+   "pid": "antmill",
+   "name": "Ant Mill",
+   "urlid": "antmill",
+   "aliases": []
+  },
+  {
+   "pid": "anymino",
+   "name": "Anymino",
+   "urlid": "anymino",
+   "aliases": []
+  },
+  {
+   "pid": "aqre",
+   "name": "Aqre",
+   "urlid": "aqre",
+   "aliases": [],
+   "dataset_dir": "Aqre",
+   "problems": 90,
+   "solutions": 90,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "aquapelago",
+   "name": "Aquapelago",
+   "urlid": "aquapelago",
+   "aliases": []
+  },
+  {
+   "pid": "aquarium",
+   "name": "Aquarium",
+   "urlid": "aquarium",
+   "aliases": []
+  },
+  {
+   "pid": "araf",
+   "name": "Araf",
+   "urlid": "araf",
+   "aliases": [],
+   "dataset_dir": "Araf",
+   "problems": 120,
+   "solutions": 120,
+   "max_size": [
+    18,
+    10
+   ]
+  },
+  {
+   "pid": "archipelago",
+   "name": "Archipelago",
+   "urlid": "archipelago",
+   "aliases": []
+  },
+  {
+   "pid": "armyants",
+   "name": "Army Ants",
+   "urlid": "armyants",
+   "aliases": []
+  },
+  {
+   "pid": "arrowflow",
+   "name": "Arrow Flow",
+   "urlid": "arrowflow",
+   "aliases": []
+  },
+  {
+   "pid": "arukone",
+   "name": "Arukone",
+   "urlid": "arukone",
+   "aliases": []
+  },
+  {
+   "pid": "ayeheya",
+   "name": "Ayeheya",
+   "urlid": "ayeheya",
+   "aliases": []
+  },
+  {
+   "pid": "balance",
+   "name": "Balance Loop",
+   "urlid": "balance",
+   "aliases": [],
+   "dataset_dir": "BalanceLoop",
+   "problems": 70,
+   "solutions": 70,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "balancelink",
+   "name": "Balance Link",
+   "urlid": "balancelink",
+   "aliases": []
+  },
+  {
+   "pid": "balloon",
+   "name": "Balloon Box",
+   "urlid": "balloon",
+   "aliases": []
+  },
+  {
+   "pid": "barns",
+   "name": "Barns",
+   "urlid": "barns",
+   "aliases": []
+  },
+  {
+   "pid": "batten",
+   "name": "Battenberg Painting",
+   "urlid": "batten",
+   "aliases": []
+  },
+  {
+   "pid": "battleship",
+   "name": "Battleship",
+   "urlid": "battleship",
+   "aliases": [],
+   "dataset_dir": "Battleship",
+   "problems": 859,
+   "solutions": 858,
+   "max_size": [
+    30,
+    30
+   ]
+  },
+  {
+   "pid": "bdblock",
+   "name": "Border Block",
+   "urlid": "bdblock",
+   "aliases": []
+  },
+  {
+   "pid": "bdwalk",
+   "name": "Building Walk",
+   "urlid": "bdwalk",
+   "aliases": []
+  },
+  {
+   "pid": "bhaibahan",
+   "name": "Bhai Bahan",
+   "urlid": "bhaibahan",
+   "aliases": []
+  },
+  {
+   "pid": "blindrush",
+   "name": "Blind Rush",
+   "urlid": "blindrush",
+   "aliases": []
+  },
+  {
+   "pid": "bonsan",
+   "name": "Bonsan",
+   "urlid": "bonsan",
+   "aliases": []
+  },
+  {
+   "pid": "bosanowa",
+   "name": "Bosanowa",
+   "urlid": "bosanowa",
+   "aliases": [
+    "bossanova"
+   ],
+   "dataset_dir": "Bosanowa",
+   "problems": 36,
+   "solutions": 36,
+   "max_size": [
+    16,
+    11
+   ]
+  },
+  {
+   "pid": "bosnianroad",
+   "name": "Bosnian Road",
+   "urlid": "bosnianroad",
+   "aliases": []
+  },
+  {
+   "pid": "box",
+   "name": "Box",
+   "urlid": "box",
+   "aliases": []
+  },
+  {
+   "pid": "bramble",
+   "name": "Bramble",
+   "urlid": "bramble",
+   "aliases": []
+  },
+  {
+   "pid": "brownies",
+   "name": "Brownies",
+   "urlid": "brownies",
+   "aliases": []
+  },
+  {
+   "pid": "bunnyhop",
+   "name": "Bunnyhop",
+   "urlid": "bunnyhop",
+   "aliases": [
+    "bnuuyhop"
+   ]
+  },
+  {
+   "pid": "bwloop",
+   "name": "Kuroshiro Loop",
+   "urlid": "bwloop",
+   "aliases": []
+  },
+  {
+   "pid": "canal",
+   "name": "Canal View",
+   "urlid": "canal",
+   "aliases": [],
+   "dataset_dir": "CanalView",
+   "problems": 110,
+   "solutions": 110,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "castle",
+   "name": "Castle Wall",
+   "urlid": "castle",
+   "aliases": [],
+   "dataset_dir": "CastleWall",
+   "problems": 110,
+   "solutions": 110,
+   "max_size": [
+    50,
+    50
+   ]
+  },
+  {
+   "pid": "cave",
+   "name": "Cave",
+   "urlid": "cave",
+   "aliases": [
+    "bag"
+   ],
+   "dataset_dir": "Cave",
+   "problems": 416,
+   "solutions": 416,
+   "max_size": [
+    25,
+    25
+   ]
+  },
+  {
+   "pid": "cbanana",
+   "name": "Choco Banana",
+   "urlid": "cbanana",
+   "aliases": []
+  },
+  {
+   "pid": "cbblock",
+   "name": "Combi Block",
+   "urlid": "cbblock",
+   "aliases": []
+  },
+  {
+   "pid": "chainedb",
+   "name": "Chained Block",
+   "urlid": "chainedb",
+   "aliases": []
+  },
+  {
+   "pid": "chocona",
+   "name": "Chocona",
+   "urlid": "chocona",
+   "aliases": [],
+   "dataset_dir": "Chocona",
+   "problems": 248,
+   "solutions": 248,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "circlesquare",
+   "name": "Circles and Squares",
+   "urlid": "circlesquare",
+   "aliases": []
+  },
+  {
+   "pid": "circuitwalk",
+   "name": "Circuit Walk",
+   "urlid": "circuitwalk",
+   "aliases": []
+  },
+  {
+   "pid": "cityspace",
+   "name": "City Space",
+   "urlid": "cityspace",
+   "aliases": []
+  },
+  {
+   "pid": "cocktail",
+   "name": "Cocktail Lamp",
+   "urlid": "cocktail",
+   "aliases": [],
+   "dataset_dir": "CocktailLamp",
+   "problems": 50,
+   "solutions": 50,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "coffeemilk",
+   "name": "Coffee Milk",
+   "urlid": "coffeemilk",
+   "aliases": []
+  },
+  {
+   "pid": "cojun",
+   "name": "Cojun",
+   "urlid": "cojun",
+   "aliases": [],
+   "dataset_dir": "Cojun",
+   "problems": 120,
+   "solutions": 120,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "compass",
+   "name": "Compass",
+   "urlid": "compass",
+   "aliases": []
+  },
+  {
+   "pid": "context",
+   "name": "Context",
+   "urlid": "context",
+   "aliases": []
+  },
+  {
+   "pid": "coral",
+   "name": "Coral",
+   "urlid": "coral",
+   "aliases": []
+  },
+  {
+   "pid": "cornerch",
+   "name": "Corner Chain",
+   "urlid": "cornerch",
+   "aliases": []
+  },
+  {
+   "pid": "country",
+   "name": "Country Road",
+   "urlid": "country",
+   "aliases": [],
+   "dataset_dir": "CountryRoad",
+   "problems": 270,
+   "solutions": 270,
+   "max_size": [
+    15,
+    15
+   ]
+  },
+  {
+   "pid": "creek",
+   "name": "Creek",
+   "urlid": "creek",
+   "aliases": [],
+   "dataset_dir": "Creek",
+   "problems": 443,
+   "solutions": 440,
+   "max_size": [
+    50,
+    40
+   ]
+  },
+  {
+   "pid": "crossstitch",
+   "name": "Crossstitch",
+   "urlid": "crossstitch",
+   "aliases": []
+  },
+  {
+   "pid": "cts",
+   "name": "Cross the Streams",
+   "urlid": "cts",
+   "aliases": []
+  },
+  {
+   "pid": "curvedata",
+   "name": "Curve Data",
+   "urlid": "curvedata",
+   "aliases": []
+  },
+  {
+   "pid": "curvedata-aux",
+   "name": "Edit shape",
+   "urlid": "curvedata-aux",
+   "aliases": []
+  },
+  {
+   "pid": "curving",
+   "name": "Curving Road",
+   "urlid": "curving",
+   "aliases": [],
+   "dataset_dir": "CurvingRoad",
+   "problems": 190,
+   "solutions": 190,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "dbchoco",
+   "name": "Double Choco",
+   "urlid": "dbchoco",
+   "aliases": []
+  },
+  {
+   "pid": "detour",
+   "name": "Detour",
+   "urlid": "detour",
+   "aliases": [],
+   "dataset_dir": "Detour",
+   "problems": 76,
+   "solutions": 76,
+   "max_size": [
+    12,
+    13
+   ]
+  },
+  {
+   "pid": "diamond",
+   "name": "Diamond Chain",
+   "urlid": "diamond",
+   "aliases": []
+  },
+  {
+   "pid": "disco",
+   "name": "Disconnection",
+   "urlid": "disco",
+   "aliases": []
+  },
+  {
+   "pid": "disloop",
+   "name": "Disorderly Loop",
+   "urlid": "disloop",
+   "aliases": []
+  },
+  {
+   "pid": "distopia",
+   "name": "Distopia",
+   "urlid": "distopia",
+   "aliases": []
+  },
+  {
+   "pid": "dominion",
+   "name": "Dominion",
+   "urlid": "dominion",
+   "aliases": []
+  },
+  {
+   "pid": "doppelblock",
+   "name": "Doppelblock",
+   "urlid": "doppelblock",
+   "aliases": [],
+   "dataset_dir": "DoppelBlock",
+   "problems": 240,
+   "solutions": 240,
+   "max_size": [
+    8,
+    8
+   ]
+  },
+  {
+   "pid": "dosufuwa",
+   "name": "Dosun-Fuwari",
+   "urlid": "dosufuwa",
+   "aliases": []
+  },
+  {
+   "pid": "dotchi",
+   "name": "Dotchi-Loop",
+   "urlid": "dotchi",
+   "aliases": [],
+   "dataset_dir": "DotchiLoop",
+   "problems": 60,
+   "solutions": 60,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "dotchi2",
+   "name": "Dotchi Dotchi Loop",
+   "urlid": "dotchi2",
+   "aliases": []
+  },
+  {
+   "pid": "doubleback",
+   "name": "Double Back",
+   "urlid": "doubleback",
+   "aliases": [],
+   "dataset_dir": "DoubleBack",
+   "problems": 98,
+   "solutions": 98,
+   "max_size": [
+    26,
+    26
+   ]
+  },
+  {
+   "pid": "easyasabc",
+   "name": "Easy as ABC",
+   "urlid": "easyasabc",
+   "aliases": [],
+   "dataset_dir": "ABCEndView",
+   "problems": 606,
+   "solutions": 606,
+   "max_size": [
+    8,
+    8
+   ]
+  },
+  {
+   "pid": "edamame",
+   "name": "Edamame",
+   "urlid": "edamame",
+   "aliases": []
+  },
+  {
+   "pid": "elasticlink",
+   "name": "Elastic Link",
+   "urlid": "elasticlink",
+   "aliases": []
+  },
+  {
+   "pid": "energywalk",
+   "name": "Energy Walk",
+   "urlid": "energywalk",
+   "aliases": []
+  },
+  {
+   "pid": "evolmino",
+   "name": "Evolmino",
+   "urlid": "evolmino",
+   "aliases": []
+  },
+  {
+   "pid": "factors",
+   "name": "Rooms of Factors",
+   "urlid": "factors",
+   "aliases": [],
+   "dataset_dir": "Factors",
+   "problems": 150,
+   "solutions": 150,
+   "max_size": [
+    11,
+    11
+   ]
+  },
+  {
+   "pid": "fakearrow",
+   "name": "Fake Arrow",
+   "urlid": "fakearrow",
+   "aliases": []
+  },
+  {
+   "pid": "familyphoto",
+   "name": "Family Photo",
+   "urlid": "familyphoto",
+   "aliases": []
+  },
+  {
+   "pid": "fillmat",
+   "name": "Fillmat",
+   "urlid": "fillmat",
+   "aliases": []
+  },
+  {
+   "pid": "fillomino",
+   "name": "Fillomino",
+   "urlid": "fillomino",
+   "aliases": [
+    "fillomino01"
+   ],
+   "dataset_dir": "Fillomino",
+   "problems": 840,
+   "solutions": 840,
+   "max_size": [
+    64,
+    50
+   ]
+  },
+  {
+   "pid": "firefly",
+   "name": "Hotaru Beam",
+   "urlid": "firefly",
+   "aliases": []
+  },
+  {
+   "pid": "firewalk",
+   "name": "Fire Walk",
+   "urlid": "firewalk",
+   "aliases": []
+  },
+  {
+   "pid": "fivecells",
+   "name": "FiveCells",
+   "urlid": "fivecells",
+   "aliases": []
+  },
+  {
+   "pid": "forestwalk",
+   "name": "Forest Walk",
+   "urlid": "forestwalk",
+   "aliases": []
+  },
+  {
+   "pid": "fourcells",
+   "name": "FourCells",
+   "urlid": "fourcells",
+   "aliases": []
+  },
+  {
+   "pid": "fracdiv",
+   "name": "Fractional Division",
+   "urlid": "fracdiv",
+   "aliases": []
+  },
+  {
+   "pid": "geradeweg",
+   "name": "Geradeweg",
+   "urlid": "geradeweg",
+   "aliases": [],
+   "dataset_dir": "Geradeweg",
+   "problems": 97,
+   "solutions": 97,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "goishi",
+   "name": "Goishi",
+   "urlid": "goishi",
+   "aliases": []
+  },
+  {
+   "pid": "gokigen",
+   "name": "Slant",
+   "urlid": "gokigen",
+   "aliases": [],
+   "dataset_dir": "GokigenNaname",
+   "problems": 780,
+   "solutions": 780,
+   "max_size": [
+    36,
+    24
+   ]
+  },
+  {
+   "pid": "golemgrad",
+   "name": "Golem Grad",
+   "urlid": "golemgrad",
+   "aliases": []
+  },
+  {
+   "pid": "gravel",
+   "name": "Gravel",
+   "urlid": "gravel",
+   "aliases": []
+  },
+  {
+   "pid": "guidearrow",
+   "name": "Guide Arrow",
+   "urlid": "guidearrow",
+   "aliases": []
+  },
+  {
+   "pid": "haisu",
+   "name": "Haisu",
+   "urlid": "haisu",
+   "aliases": []
+  },
+  {
+   "pid": "hakoiri",
+   "name": "Hakoiri-masashi",
+   "urlid": "hakoiri",
+   "aliases": [],
+   "dataset_dir": "Hakoiri",
+   "problems": 140,
+   "solutions": 140,
+   "max_size": [
+    12,
+    12
+   ]
+  },
+  {
+   "pid": "hamlepaths",
+   "name": "Hamle Paths",
+   "urlid": "hamlepaths",
+   "aliases": []
+  },
+  {
+   "pid": "hanare",
+   "name": "Hanare-gumi",
+   "urlid": "hanare",
+   "aliases": [],
+   "dataset_dir": "Hanare",
+   "problems": 97,
+   "solutions": 97,
+   "max_size": [
+    16,
+    16
+   ]
+  },
+  {
+   "pid": "hashikake",
+   "name": "Hashiwokakero",
+   "urlid": "hashi",
+   "aliases": [
+    "bridges",
+    "hashi"
+   ],
+   "dataset_dir": "Hashi",
+   "problems": 2088,
+   "solutions": 909,
+   "max_size": [
+    60,
+    40
+   ]
+  },
+  {
+   "pid": "hasunomura",
+   "name": "Hasu no Mura",
+   "urlid": "hasunomura",
+   "aliases": []
+  },
+  {
+   "pid": "heavydots",
+   "name": "Heavy Dots",
+   "urlid": "heavydots",
+   "aliases": []
+  },
+  {
+   "pid": "hebi",
+   "name": "Hebi-Ichigo",
+   "urlid": "hebi",
+   "aliases": [
+    "snakes"
+   ]
+  },
+  {
+   "pid": "herugolf",
+   "name": "Herugolf",
+   "urlid": "herugolf",
+   "aliases": []
+  },
+  {
+   "pid": "heteromino",
+   "name": "Heteromino",
+   "urlid": "heteromino",
+   "aliases": []
+  },
+  {
+   "pid": "heyablock",
+   "name": "Heyablock",
+   "urlid": "heyablock",
+   "aliases": []
+  },
+  {
+   "pid": "heyabon",
+   "name": "Heya-Bon",
+   "urlid": "heyabon",
+   "aliases": []
+  },
+  {
+   "pid": "heyajirimisaki",
+   "name": "Heyajirimisaki",
+   "urlid": "heyajirimisaki",
+   "aliases": []
+  },
+  {
+   "pid": "heyapin",
+   "name": "Heyapin",
+   "urlid": "heyapin",
+   "aliases": []
+  },
+  {
+   "pid": "heyawake",
+   "name": "Heyawake",
+   "urlid": "heyawake",
+   "aliases": [
+    "heyawacky"
+   ],
+   "dataset_dir": "Heyawake",
+   "problems": 786,
+   "solutions": 786,
+   "max_size": [
+    45,
+    31
+   ]
+  },
+  {
+   "pid": "hinge",
+   "name": "Hinge",
+   "urlid": "hinge",
+   "aliases": []
+  },
+  {
+   "pid": "hitori",
+   "name": "Hitori",
+   "urlid": "hitori",
+   "aliases": [],
+   "dataset_dir": "Hitori",
+   "problems": 941,
+   "solutions": 941,
+   "max_size": [
+    25,
+    25
+   ]
+  },
+  {
+   "pid": "icebarn",
+   "name": "Icebarn",
+   "urlid": "icebarn",
+   "aliases": []
+  },
+  {
+   "pid": "icelom",
+   "name": "Icelom",
+   "urlid": "icelom",
+   "aliases": []
+  },
+  {
+   "pid": "icelom2",
+   "name": "Icelom 2",
+   "urlid": "icelom2",
+   "aliases": []
+  },
+  {
+   "pid": "icewalk",
+   "name": "Ice Walk",
+   "urlid": "icewalk",
+   "aliases": []
+  },
+  {
+   "pid": "ichimaga",
+   "name": "Ichimaga",
+   "urlid": "ichimaga",
+   "aliases": []
+  },
+  {
+   "pid": "ichimagam",
+   "name": "Magnetic Ichimaga",
+   "urlid": "ichimagam",
+   "aliases": []
+  },
+  {
+   "pid": "ichimagax",
+   "name": "Crossing Ichimaga",
+   "urlid": "ichimagax",
+   "aliases": []
+  },
+  {
+   "pid": "interbd",
+   "name": "International Borders",
+   "urlid": "interbd",
+   "aliases": []
+  },
+  {
+   "pid": "invlitso",
+   "name": "Inverse LITSO",
+   "urlid": "invlitso",
+   "aliases": []
+  },
+  {
+   "pid": "island",
+   "name": "Inaba's Island",
+   "urlid": "island",
+   "aliases": []
+  },
+  {
+   "pid": "isowatari",
+   "name": "Isowatari",
+   "urlid": "isowatari",
+   "aliases": []
+  },
+  {
+   "pid": "japanesesums",
+   "name": "Japanese Sums",
+   "urlid": "japanesesums",
+   "aliases": []
+  },
+  {
+   "pid": "jatahoku",
+   "name": "JaTaHoKu",
+   "urlid": "jatahoku",
+   "aliases": []
+  },
+  {
+   "pid": "juosan",
+   "name": "Juosan",
+   "urlid": "juosan",
+   "aliases": [],
+   "dataset_dir": "Juosan",
+   "problems": 79,
+   "solutions": 79,
+   "max_size": [
+    45,
+    30
+   ]
+  },
+  {
+   "pid": "kaero",
+   "name": "Return Home",
+   "urlid": "kaero",
+   "aliases": []
+  },
+  {
+   "pid": "kaidan",
+   "name": "Stairwell",
+   "urlid": "kaidan",
+   "aliases": []
+  },
+  {
+   "pid": "kaisu",
+   "name": "Kaisu",
+   "urlid": "kaisu",
+   "aliases": []
+  },
+  {
+   "pid": "kakuro",
+   "name": "Kakuro",
+   "urlid": "kakuro",
+   "aliases": [],
+   "dataset_dir": "Kakuro",
+   "problems": 995,
+   "solutions": 995,
+   "max_size": [
+    46,
+    31
+   ]
+  },
+  {
+   "pid": "kakuru",
+   "name": "Kakuru",
+   "urlid": "kakuru",
+   "aliases": []
+  },
+  {
+   "pid": "kazunori",
+   "name": "Kazunori Room",
+   "urlid": "kazunori",
+   "aliases": []
+  },
+  {
+   "pid": "keywest",
+   "name": "Key West",
+   "urlid": "keywest",
+   "aliases": []
+  },
+  {
+   "pid": "kinkonkan",
+   "name": "Kin-Kon-Kan",
+   "urlid": "kinkonkan",
+   "aliases": []
+  },
+  {
+   "pid": "kissing",
+   "name": "Kissing Polyominoes",
+   "urlid": "kissing",
+   "aliases": []
+  },
+  {
+   "pid": "koburin",
+   "name": "Koburin",
+   "urlid": "koburin",
+   "aliases": [],
+   "dataset_dir": "Koburin",
+   "problems": 150,
+   "solutions": 150,
+   "max_size": [
+    12,
+    12
+   ]
+  },
+  {
+   "pid": "korokoro",
+   "name": "Korokoro Ball Place",
+   "urlid": "korokoro",
+   "aliases": []
+  },
+  {
+   "pid": "kouchoku",
+   "name": "Kouchoku",
+   "urlid": "kouchoku",
+   "aliases": []
+  },
+  {
+   "pid": "kramma",
+   "name": "KaitoRamma",
+   "urlid": "kramma",
+   "aliases": []
+  },
+  {
+   "pid": "kramman",
+   "name": "New KaitoRamma",
+   "urlid": "kramman",
+   "aliases": []
+  },
+  {
+   "pid": "kropki",
+   "name": "Kropki",
+   "urlid": "kropki",
+   "aliases": []
+  },
+  {
+   "pid": "kurarin",
+   "name": "Kurarin",
+   "urlid": "kurarin",
+   "aliases": []
+  },
+  {
+   "pid": "kurochute",
+   "name": "Kurochute",
+   "urlid": "kurochute",
+   "aliases": [],
+   "dataset_dir": "Kuroshuto",
+   "problems": 210,
+   "solutions": 210,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "kuroclone",
+   "name": "Kuroclone",
+   "urlid": "kuroclone",
+   "aliases": []
+  },
+  {
+   "pid": "kurodoko",
+   "name": "Kurodoko",
+   "urlid": "kurodoko",
+   "aliases": [],
+   "dataset_dir": "Kuromasu",
+   "problems": 537,
+   "solutions": 537,
+   "max_size": [
+    45,
+    31
+   ]
+  },
+  {
+   "pid": "kuromenbun",
+   "name": "Kuromenbun",
+   "urlid": "kuromenbun",
+   "aliases": []
+  },
+  {
+   "pid": "kurotto",
+   "name": "Kurotto",
+   "urlid": "kurotto",
+   "aliases": [],
+   "dataset_dir": "Kurotto",
+   "problems": 229,
+   "solutions": 229,
+   "max_size": [
+    27,
+    19
+   ]
+  },
+  {
+   "pid": "kusabi",
+   "name": "Kusabi",
+   "urlid": "kusabi",
+   "aliases": []
+  },
+  {
+   "pid": "ladders",
+   "name": "Ladders",
+   "urlid": "ladders",
+   "aliases": []
+  },
+  {
+   "pid": "landmeasure",
+   "name": "Land Measurement",
+   "urlid": "landmeasure",
+   "aliases": []
+  },
+  {
+   "pid": "lapaz",
+   "name": "La Paz",
+   "urlid": "lapaz",
+   "aliases": []
+  },
+  {
+   "pid": "lightshadow",
+   "name": "Light and Shadow",
+   "urlid": "lightshadow",
+   "aliases": []
+  },
+  {
+   "pid": "lightup",
+   "name": "Akari",
+   "urlid": "akari",
+   "aliases": [
+    "akari",
+    "bijutsukan"
+   ],
+   "dataset_dir": "Akari",
+   "problems": 968,
+   "solutions": 968,
+   "max_size": [
+    100,
+    100
+   ]
+  },
+  {
+   "pid": "lineofsight",
+   "name": "Line of Sight",
+   "urlid": "lineofsight",
+   "aliases": []
+  },
+  {
+   "pid": "lither",
+   "name": "Litherslink",
+   "urlid": "lither",
+   "aliases": []
+  },
+  {
+   "pid": "lits",
+   "name": "LITS",
+   "urlid": "lits",
+   "aliases": [],
+   "dataset_dir": "LITS",
+   "problems": 1224,
+   "solutions": 410,
+   "max_size": [
+    50,
+    50
+   ]
+  },
+  {
+   "pid": "lixloop",
+   "name": "LIX Loop",
+   "urlid": "lixloop",
+   "aliases": []
+  },
+  {
+   "pid": "lohkous",
+   "name": "Lohkous",
+   "urlid": "lohkous",
+   "aliases": []
+  },
+  {
+   "pid": "lollipops",
+   "name": "Lollipops",
+   "urlid": "lollipops",
+   "aliases": []
+  },
+  {
+   "pid": "longest",
+   "name": "The Longest",
+   "urlid": "longest",
+   "aliases": []
+  },
+  {
+   "pid": "lookair",
+   "name": "Look-Air",
+   "urlid": "lookair",
+   "aliases": []
+  },
+  {
+   "pid": "loopsp",
+   "name": "Loop Special",
+   "urlid": "loopsp",
+   "aliases": []
+  },
+  {
+   "pid": "loute",
+   "name": "L-route",
+   "urlid": "loute",
+   "aliases": []
+  },
+  {
+   "pid": "lring",
+   "name": "L-Ring",
+   "urlid": "lring",
+   "aliases": []
+  },
+  {
+   "pid": "magnets",
+   "name": "Magnets",
+   "urlid": "magnets",
+   "aliases": []
+  },
+  {
+   "pid": "makaro",
+   "name": "Makaro",
+   "urlid": "makaro",
+   "aliases": [],
+   "dataset_dir": "Makaro",
+   "problems": 190,
+   "solutions": 190,
+   "max_size": [
+    15,
+    15
+   ]
+  },
+  {
+   "pid": "mannequin",
+   "name": "Mannequin Gate",
+   "urlid": "mannequin",
+   "aliases": []
+  },
+  {
+   "pid": "martini",
+   "name": "Martini",
+   "urlid": "martini",
+   "aliases": []
+  },
+  {
+   "pid": "marutaring",
+   "name": "Marutaring",
+   "urlid": "marutaring",
+   "aliases": []
+  },
+  {
+   "pid": "mashu",
+   "name": "Masyu",
+   "urlid": "mashu",
+   "aliases": [
+    "masyu",
+    "pearl"
+   ],
+   "dataset_dir": "Masyu",
+   "problems": 5277,
+   "solutions": 3175,
+   "max_size": [
+    100,
+    100
+   ]
+  },
+  {
+   "pid": "maxi",
+   "name": "Maxi Loop",
+   "urlid": "maxi",
+   "aliases": []
+  },
+  {
+   "pid": "meander",
+   "name": "Meandering Numbers",
+   "urlid": "meander",
+   "aliases": []
+  },
+  {
+   "pid": "meidjuluk",
+   "name": "Meidjuluk",
+   "urlid": "meidjuluk",
+   "aliases": []
+  },
+  {
+   "pid": "mejilink",
+   "name": "Mejilink",
+   "urlid": "mejilink",
+   "aliases": [],
+   "dataset_dir": "Mejilink",
+   "problems": 1,
+   "solutions": 0,
+   "max_size": [
+    8,
+    8
+   ]
+  },
+  {
+   "pid": "midloop",
+   "name": "Mid-loop",
+   "urlid": "midloop",
+   "aliases": [],
+   "dataset_dir": "MidLoop",
+   "problems": 2,
+   "solutions": 2,
+   "max_size": [
+    10,
+    10
+   ]
+  },
+  {
+   "pid": "minarism",
+   "name": "Minarism",
+   "urlid": "minarism",
+   "aliases": []
+  },
+  {
+   "pid": "mines",
+   "name": "Minesweeper",
+   "urlid": "mines",
+   "aliases": [],
+   "dataset_dir": "Minesweeper",
+   "problems": 360,
+   "solutions": 360,
+   "max_size": [
+    24,
+    14
+   ]
+  },
+  {
+   "pid": "mintonette",
+   "name": "Mintonette",
+   "urlid": "mintonette",
+   "aliases": []
+  },
+  {
+   "pid": "mirrorbk",
+   "name": "Mirror Block",
+   "urlid": "mirrorbk",
+   "aliases": []
+  },
+  {
+   "pid": "mochikoro",
+   "name": "Mochikoro",
+   "urlid": "mochikoro",
+   "aliases": []
+  },
+  {
+   "pid": "mochinyoro",
+   "name": "Mochinyoro",
+   "urlid": "mochinyoro",
+   "aliases": []
+  },
+  {
+   "pid": "moonsun",
+   "name": "Moon or Sun",
+   "urlid": "moonsun",
+   "aliases": [],
+   "dataset_dir": "MoonSun",
+   "problems": 199,
+   "solutions": 199,
+   "max_size": [
+    45,
+    30
+   ]
+  },
+  {
+   "pid": "morningwalk",
+   "name": "Morning Walk",
+   "urlid": "morningwalk",
+   "aliases": []
+  },
+  {
+   "pid": "mrokmrno",
+   "name": "Mr. OK and Mr. NO",
+   "urlid": "mrokmrno",
+   "aliases": []
+  },
+  {
+   "pid": "mrtile",
+   "name": "Mirroring Tile",
+   "urlid": "mrtile",
+   "aliases": []
+  },
+  {
+   "pid": "mukkonn",
+   "name": "Mukkonn Enn",
+   "urlid": "mukkonn",
+   "aliases": []
+  },
+  {
+   "pid": "myopia",
+   "name": "Myopia",
+   "urlid": "myopia",
+   "aliases": []
+  },
+  {
+   "pid": "nagare",
+   "name": "Nagareru-Loop",
+   "urlid": "nagare",
+   "aliases": []
+  },
+  {
+   "pid": "nagenawa",
+   "name": "Nagenawa",
+   "urlid": "nagenawa",
+   "aliases": []
+  },
+  {
+   "pid": "nanameguri",
+   "name": "Nanameguri",
+   "urlid": "nanameguri",
+   "aliases": []
+  },
+  {
+   "pid": "nanro",
+   "name": "Nanro",
+   "urlid": "nanro",
+   "aliases": [],
+   "dataset_dir": "Nanro",
+   "problems": 159,
+   "solutions": 159,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "narrow",
+   "name": "Narrowfence",
+   "urlid": "narrow",
+   "aliases": []
+  },
+  {
+   "pid": "nawabari",
+   "name": "Nawabari",
+   "urlid": "nawabari",
+   "aliases": [],
+   "dataset_dir": "Nawabari",
+   "problems": 160,
+   "solutions": 160,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "news",
+   "name": "NEWS",
+   "urlid": "news",
+   "aliases": []
+  },
+  {
+   "pid": "nibunnogo",
+   "name": "Nibun-nogo",
+   "urlid": "nibunnogo",
+   "aliases": []
+  },
+  {
+   "pid": "nikoji",
+   "name": "NIKOJI",
+   "urlid": "nikoji",
+   "aliases": []
+  },
+  {
+   "pid": "nondango",
+   "name": "Nondango",
+   "urlid": "nondango",
+   "aliases": [],
+   "dataset_dir": "Nondango",
+   "problems": 109,
+   "solutions": 109,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "nonogram",
+   "name": "Nonogram",
+   "urlid": "nonogram",
+   "aliases": [],
+   "dataset_dir": "Nonogram",
+   "problems": 2307,
+   "solutions": 2306,
+   "max_size": [
+    40,
+    30
+   ]
+  },
+  {
+   "pid": "norinori",
+   "name": "Norinori",
+   "urlid": "norinori",
+   "aliases": [],
+   "dataset_dir": "Norinori",
+   "problems": 289,
+   "solutions": 289,
+   "max_size": [
+    54,
+    36
+   ]
+  },
+  {
+   "pid": "norinuri",
+   "name": "Norinuri",
+   "urlid": "norinuri",
+   "aliases": []
+  },
+  {
+   "pid": "nothing",
+   "name": "All or Nothing",
+   "urlid": "nothing",
+   "aliases": []
+  },
+  {
+   "pid": "nothree",
+   "name": "No Three",
+   "urlid": "nothree",
+   "aliases": []
+  },
+  {
+   "pid": "numcity",
+   "name": "Number City",
+   "urlid": "numcity",
+   "aliases": []
+  },
+  {
+   "pid": "numlin",
+   "name": "Numberlink",
+   "urlid": "numlin",
+   "aliases": [
+    "numberlink"
+   ],
+   "dataset_dir": "NumberLink",
+   "problems": 549,
+   "solutions": 549,
+   "max_size": [
+    48,
+    35
+   ]
+  },
+  {
+   "pid": "numrope",
+   "name": "Number Rope",
+   "urlid": "numrope",
+   "aliases": []
+  },
+  {
+   "pid": "nuribou",
+   "name": "Nuribou",
+   "urlid": "nuribou",
+   "aliases": []
+  },
+  {
+   "pid": "nurikabe",
+   "name": "Nurikabe",
+   "urlid": "nurikabe",
+   "aliases": [],
+   "dataset_dir": "Nurikabe",
+   "problems": 1091,
+   "solutions": 1091,
+   "max_size": [
+    50,
+    50
+   ]
+  },
+  {
+   "pid": "nuriloop",
+   "name": "Nurikabe Loop",
+   "urlid": "nuriloop",
+   "aliases": []
+  },
+  {
+   "pid": "nurimaze",
+   "name": "Nuri-Maze",
+   "urlid": "nurimaze",
+   "aliases": []
+  },
+  {
+   "pid": "nurimisaki",
+   "name": "Nurimisaki",
+   "urlid": "nurimisaki",
+   "aliases": [],
+   "dataset_dir": "Nurimisaki",
+   "problems": 100,
+   "solutions": 100,
+   "max_size": [
+    10,
+    10
+   ]
+  },
+  {
+   "pid": "nuritwin",
+   "name": "Nuritwin",
+   "urlid": "nuritwin",
+   "aliases": []
+  },
+  {
+   "pid": "nuriuzu",
+   "name": "Nuri-uzu",
+   "urlid": "nuriuzu",
+   "aliases": []
+  },
+  {
+   "pid": "oasis",
+   "name": "Oasis",
+   "urlid": "oasis",
+   "aliases": []
+  },
+  {
+   "pid": "oneroom",
+   "name": "One Room One Door",
+   "urlid": "oneroom",
+   "aliases": []
+  },
+  {
+   "pid": "onsen",
+   "name": "Onsen-meguri",
+   "urlid": "onsen",
+   "aliases": []
+  },
+  {
+   "pid": "orbital",
+   "name": "Orbital",
+   "urlid": "orbital",
+   "aliases": []
+  },
+  {
+   "pid": "outofsight",
+   "name": "Out Of Sight",
+   "urlid": "outofsight",
+   "aliases": []
+  },
+  {
+   "pid": "ovotovata",
+   "name": "Ovotovata",
+   "urlid": "ovotovata",
+   "aliases": []
+  },
+  {
+   "pid": "oyakodori",
+   "name": "Oyakodori",
+   "urlid": "oyakodori",
+   "aliases": []
+  },
+  {
+   "pid": "paintarea",
+   "name": "Paintarea",
+   "urlid": "paintarea",
+   "aliases": [],
+   "dataset_dir": "PaintArea",
+   "problems": 226,
+   "solutions": 226,
+   "max_size": [
+    12,
+    12
+   ]
+  },
+  {
+   "pid": "parquet",
+   "name": "Parquet",
+   "urlid": "parquet",
+   "aliases": []
+  },
+  {
+   "pid": "patchwork",
+   "name": "Patchwork",
+   "urlid": "patchwork",
+   "aliases": [],
+   "dataset_dir": "Patchwork",
+   "problems": 209,
+   "solutions": 209,
+   "max_size": [
+    12,
+    12
+   ]
+  },
+  {
+   "pid": "pencils",
+   "name": "Pencils",
+   "urlid": "pencils",
+   "aliases": []
+  },
+  {
+   "pid": "pentatouch",
+   "name": "Penta Touch",
+   "urlid": "pentatouch",
+   "aliases": []
+  },
+  {
+   "pid": "pentominous",
+   "name": "Pentominous",
+   "urlid": "pentominous",
+   "aliases": []
+  },
+  {
+   "pid": "pentopia",
+   "name": "Pentopia",
+   "urlid": "pentopia",
+   "aliases": []
+  },
+  {
+   "pid": "pipelink",
+   "name": "Pipelink",
+   "urlid": "pipelink",
+   "aliases": [],
+   "dataset_dir": "Pipelink",
+   "problems": 187,
+   "solutions": 187,
+   "max_size": [
+    45,
+    30
+   ]
+  },
+  {
+   "pid": "pipelinkr",
+   "name": "Pipelink Returns",
+   "urlid": "pipelinkr",
+   "aliases": []
+  },
+  {
+   "pid": "pmemory",
+   "name": "Persistence of Memory",
+   "urlid": "pmemory",
+   "aliases": []
+  },
+  {
+   "pid": "portal",
+   "name": "Portal Loop",
+   "urlid": "portal",
+   "aliases": []
+  },
+  {
+   "pid": "putteria",
+   "name": "Putteria",
+   "urlid": "putteria",
+   "aliases": [],
+   "dataset_dir": "Putteria",
+   "problems": 54,
+   "solutions": 54,
+   "max_size": [
+    16,
+    16
+   ]
+  },
+  {
+   "pid": "ququ",
+   "name": "Ququ",
+   "urlid": "ququ",
+   "aliases": []
+  },
+  {
+   "pid": "railpool",
+   "name": "Rail Pool",
+   "urlid": "railpool",
+   "aliases": []
+  },
+  {
+   "pid": "rassi",
+   "name": "Rassi Silai",
+   "urlid": "rassi",
+   "aliases": []
+  },
+  {
+   "pid": "recoil",
+   "name": "Recoil",
+   "urlid": "recoil",
+   "aliases": []
+  },
+  {
+   "pid": "rectslider",
+   "name": "Rectangle-Slider",
+   "urlid": "rectslider",
+   "aliases": []
+  },
+  {
+   "pid": "reflect",
+   "name": "Reflect Link",
+   "urlid": "reflect",
+   "aliases": []
+  },
+  {
+   "pid": "regional-poly",
+   "name": "Regional Polyominoes",
+   "urlid": "regional-poly",
+   "aliases": []
+  },
+  {
+   "pid": "remlen",
+   "name": "Remembered Length",
+   "urlid": "remlen",
+   "aliases": []
+  },
+  {
+   "pid": "renban",
+   "name": "Renban-Madoguchi",
+   "urlid": "renban",
+   "aliases": [],
+   "dataset_dir": "Renban",
+   "problems": 150,
+   "solutions": 150,
+   "max_size": [
+    9,
+    9
+   ]
+  },
+  {
+   "pid": "retroships",
+   "name": "Retrograde Battleships",
+   "urlid": "retroships",
+   "aliases": []
+  },
+  {
+   "pid": "retsurin",
+   "name": "Retsurin",
+   "urlid": "retsurin",
+   "aliases": []
+  },
+  {
+   "pid": "ringring",
+   "name": "Ring-ring",
+   "urlid": "ringring",
+   "aliases": []
+  },
+  {
+   "pid": "ripple",
+   "name": "Ripple Effect",
+   "urlid": "ripple",
+   "aliases": [
+    "hakyukoka"
+   ]
+  },
+  {
+   "pid": "roboticwalk",
+   "name": "Robotic Walk",
+   "urlid": "roboticwalk",
+   "aliases": []
+  },
+  {
+   "pid": "roma",
+   "name": "Roma",
+   "urlid": "roma",
+   "aliases": [
+    "rome"
+   ]
+  },
+  {
+   "pid": "roundtrip",
+   "name": "Round Trip",
+   "urlid": "roundtrip",
+   "aliases": []
+  },
+  {
+   "pid": "ruleofthree",
+   "name": "Rule of Three",
+   "urlid": "ruleofthree",
+   "aliases": []
+  },
+  {
+   "pid": "sananko",
+   "name": "San-Anko",
+   "urlid": "sananko",
+   "aliases": []
+  },
+  {
+   "pid": "sansaroad",
+   "name": "Sansa Road",
+   "urlid": "sansaroad",
+   "aliases": []
+  },
+  {
+   "pid": "sashigane",
+   "name": "Sashigane",
+   "urlid": "sashigane",
+   "aliases": []
+  },
+  {
+   "pid": "sashikabe",
+   "name": "Sashikabe",
+   "urlid": "sashikabe",
+   "aliases": []
+  },
+  {
+   "pid": "sashikazune",
+   "name": "Sashikazune",
+   "urlid": "sashikazune",
+   "aliases": []
+  },
+  {
+   "pid": "satogaeri",
+   "name": "Satogaeri",
+   "urlid": "satogaeri",
+   "aliases": [
+    "sato",
+    "satogaeri"
+   ]
+  },
+  {
+   "pid": "scrabble",
+   "name": "Scrabble",
+   "urlid": "scrabble",
+   "aliases": []
+  },
+  {
+   "pid": "scrin",
+   "name": "Scrin",
+   "urlid": "scrin",
+   "aliases": []
+  },
+  {
+   "pid": "seiza",
+   "name": "Seiza",
+   "urlid": "seiza",
+   "aliases": []
+  },
+  {
+   "pid": "sendai",
+   "name": "Sendai-Miyagi",
+   "urlid": "sendai",
+   "aliases": []
+  },
+  {
+   "pid": "shakashaka",
+   "name": "Shakashaka",
+   "urlid": "shakashaka",
+   "aliases": [],
+   "dataset_dir": "Shakashaka",
+   "problems": 1152,
+   "solutions": 367,
+   "max_size": [
+    50,
+    50
+   ]
+  },
+  {
+   "pid": "shikaku",
+   "name": "Shikaku",
+   "urlid": "shikaku",
+   "aliases": [],
+   "dataset_dir": "Shikaku",
+   "problems": 496,
+   "solutions": 496,
+   "max_size": [
+    40,
+    50
+   ]
+  },
+  {
+   "pid": "shimaguni",
+   "name": "Shimaguni",
+   "urlid": "shimaguni",
+   "aliases": [],
+   "dataset_dir": "Shimaguni",
+   "problems": 265,
+   "solutions": 265,
+   "max_size": [
+    45,
+    30
+   ]
+  },
+  {
+   "pid": "shugaku",
+   "name": "School Trip",
+   "urlid": "shugaku",
+   "aliases": [],
+   "dataset_dir": "Shugaku",
+   "problems": 126,
+   "solutions": 126,
+   "max_size": [
+    45,
+    30
+   ]
+  },
+  {
+   "pid": "shwolf",
+   "name": "Goats and Wolves",
+   "urlid": "shwolf",
+   "aliases": []
+  },
+  {
+   "pid": "simplegako",
+   "name": "Simple Gako",
+   "urlid": "simplegako",
+   "aliases": []
+  },
+  {
+   "pid": "simpleloop",
+   "name": "Simple Loop",
+   "urlid": "simpleloop",
+   "aliases": [],
+   "dataset_dir": "SimpleLoop",
+   "problems": 67,
+   "solutions": 67,
+   "max_size": [
+    18,
+    17
+   ]
+  },
+  {
+   "pid": "skyscrapers",
+   "name": "Skyscrapers",
+   "urlid": "skyscrapers",
+   "aliases": [
+    "building",
+    "skyscraper"
+   ],
+   "dataset_dir": "Skyscraper",
+   "problems": 470,
+   "solutions": 470,
+   "max_size": [
+    8,
+    8
+   ]
+  },
+  {
+   "pid": "slalom",
+   "name": "Slalom",
+   "urlid": "slalom",
+   "aliases": [
+    "suraromu"
+   ]
+  },
+  {
+   "pid": "slashpack",
+   "name": "Slash Pack",
+   "urlid": "slashpack",
+   "aliases": []
+  },
+  {
+   "pid": "slither",
+   "name": "Slitherlink",
+   "urlid": "slither",
+   "aliases": [
+    "slitherlink"
+   ],
+   "dataset_dir": "Slitherlink",
+   "problems": 5987,
+   "solutions": 5968,
+   "max_size": [
+    100,
+    100
+   ]
+  },
+  {
+   "pid": "slovak",
+   "name": "Slovak Sums",
+   "urlid": "slovak",
+   "aliases": []
+  },
+  {
+   "pid": "smullyan",
+   "name": "Smullyanic Dynasty",
+   "urlid": "smullyan",
+   "aliases": []
+  },
+  {
+   "pid": "snake",
+   "name": "Snake",
+   "urlid": "snake",
+   "aliases": [],
+   "dataset_dir": "Snake",
+   "problems": 230,
+   "solutions": 230,
+   "max_size": [
+    12,
+    12
+   ]
+  },
+  {
+   "pid": "snakeegg",
+   "name": "Snake Egg",
+   "urlid": "snakeegg",
+   "aliases": []
+  },
+  {
+   "pid": "snakepit",
+   "name": "Snake Pit",
+   "urlid": "snakepit",
+   "aliases": []
+  },
+  {
+   "pid": "soulmates",
+   "name": "Soul Mates",
+   "urlid": "soulmates",
+   "aliases": []
+  },
+  {
+   "pid": "squarejam",
+   "name": "Square Jam",
+   "urlid": "squarejam",
+   "aliases": []
+  },
+  {
+   "pid": "starbattle",
+   "name": "Star Battle",
+   "urlid": "starbattle",
+   "aliases": [],
+   "dataset_dir": "Starbattle",
+   "problems": 309,
+   "solutions": 308,
+   "max_size": [
+    25,
+    25
+   ]
+  },
+  {
+   "pid": "statuepark",
+   "name": "Statue Park",
+   "urlid": "statuepark",
+   "aliases": []
+  },
+  {
+   "pid": "statuepark-aux",
+   "name": "Edit shape",
+   "urlid": "statuepark-aux",
+   "aliases": []
+  },
+  {
+   "pid": "stostone",
+   "name": "Stostone",
+   "urlid": "stostone",
+   "aliases": []
+  },
+  {
+   "pid": "subomino",
+   "name": "Subomino",
+   "urlid": "subomino",
+   "aliases": []
+  },
+  {
+   "pid": "sudoku",
+   "name": "Sudoku",
+   "urlid": "sudoku",
+   "aliases": [],
+   "dataset_dir": "Sudoku",
+   "problems": 125,
+   "solutions": 125,
+   "max_size": [
+    16,
+    16
+   ]
+  },
+  {
+   "pid": "suguru",
+   "name": "Suguru (Capsules)",
+   "urlid": "suguru",
+   "aliases": [],
+   "dataset_dir": "Suguru",
+   "problems": 200,
+   "solutions": 200,
+   "max_size": [
+    10,
+    10
+   ]
+  },
+  {
+   "pid": "sukoro",
+   "name": "Sukoro",
+   "urlid": "sukoro",
+   "aliases": [],
+   "dataset_dir": "Sukoro",
+   "problems": 140,
+   "solutions": 140,
+   "max_size": [
+    12,
+    12
+   ]
+  },
+  {
+   "pid": "sukororoom",
+   "name": "Sukoro-room",
+   "urlid": "sukororoom",
+   "aliases": []
+  },
+  {
+   "pid": "sumiwake",
+   "name": "Sumiwake",
+   "urlid": "sumiwake",
+   "aliases": []
+  },
+  {
+   "pid": "swslither",
+   "name": "Sheep Wolf Slitherlink",
+   "urlid": "swslither",
+   "aliases": []
+  },
+  {
+   "pid": "symmarea",
+   "name": "Symmetry Area",
+   "urlid": "symmarea",
+   "aliases": []
+  },
+  {
+   "pid": "tachibk",
+   "name": "Tachiawase Block",
+   "urlid": "tachibk",
+   "aliases": []
+  },
+  {
+   "pid": "tajmahal",
+   "name": "Taj Mahal",
+   "urlid": "tajmahal",
+   "aliases": []
+  },
+  {
+   "pid": "takoyaki",
+   "name": "Takoyaki",
+   "urlid": "takoyaki",
+   "aliases": []
+  },
+  {
+   "pid": "tapa",
+   "name": "Tapa",
+   "urlid": "tapa",
+   "aliases": [],
+   "dataset_dir": "Tapa",
+   "problems": 807,
+   "solutions": 0,
+   "max_size": [
+    35,
+    35
+   ]
+  },
+  {
+   "pid": "tapaloop",
+   "name": "Tapa-Like Loop",
+   "urlid": "tapaloop",
+   "aliases": []
+  },
+  {
+   "pid": "tasquare",
+   "name": "Tasquare",
+   "urlid": "tasquare",
+   "aliases": []
+  },
+  {
+   "pid": "tatamibari",
+   "name": "Tatamibari",
+   "urlid": "tatamibari",
+   "aliases": [],
+   "dataset_dir": "Tatamibari",
+   "problems": 150,
+   "solutions": 150,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "tateyoko",
+   "name": "Tatebo-Yokobo",
+   "urlid": "tateyoko",
+   "aliases": []
+  },
+  {
+   "pid": "tawa",
+   "name": "Tawamurenga",
+   "urlid": "tawa",
+   "aliases": []
+  },
+  {
+   "pid": "tentaisho",
+   "name": "Tentaisho",
+   "urlid": "tentaisho",
+   "aliases": [],
+   "dataset_dir": "Galaxies",
+   "problems": 577,
+   "solutions": 577,
+   "max_size": [
+    36,
+    20
+   ]
+  },
+  {
+   "pid": "tents",
+   "name": "Tents",
+   "urlid": "tents",
+   "aliases": [],
+   "dataset_dir": "Tent",
+   "problems": 699,
+   "solutions": 699,
+   "max_size": [
+    30,
+    30
+   ]
+  },
+  {
+   "pid": "teri",
+   "name": "Territory",
+   "urlid": "teri",
+   "aliases": []
+  },
+  {
+   "pid": "tetrochain",
+   "name": "Tetro Chain-Y",
+   "urlid": "tetrochain",
+   "aliases": []
+  },
+  {
+   "pid": "tetrochaink",
+   "name": "Tetro Chain-K",
+   "urlid": "tetrochaink",
+   "aliases": []
+  },
+  {
+   "pid": "tetroctb",
+   "name": "Tetro Chain-CTB",
+   "urlid": "tetroctb",
+   "aliases": []
+  },
+  {
+   "pid": "tetrominous",
+   "name": "Tetrominous",
+   "urlid": "tetrominous",
+   "aliases": []
+  },
+  {
+   "pid": "tilecity",
+   "name": "Tile City",
+   "urlid": "tilecity",
+   "aliases": []
+  },
+  {
+   "pid": "tilepaint",
+   "name": "Tilepaint",
+   "urlid": "tilepaint",
+   "aliases": [],
+   "dataset_dir": "TilePaint",
+   "problems": 377,
+   "solutions": 377,
+   "max_size": [
+    16,
+    16
+   ]
+  },
+  {
+   "pid": "timebomb",
+   "name": "Time Bomb",
+   "urlid": "timebomb",
+   "aliases": []
+  },
+  {
+   "pid": "tjunction",
+   "name": "T-Junction",
+   "urlid": "tjunction",
+   "aliases": []
+  },
+  {
+   "pid": "toichika",
+   "name": "Toichika",
+   "urlid": "toichika",
+   "aliases": []
+  },
+  {
+   "pid": "toichika2",
+   "name": "Toichika 2",
+   "urlid": "toichika2",
+   "aliases": []
+  },
+  {
+   "pid": "tontonbeya",
+   "name": "Tontonbeya",
+   "urlid": "tontonbeya",
+   "aliases": []
+  },
+  {
+   "pid": "tontti",
+   "name": "Tonttiraja",
+   "urlid": "tontti",
+   "aliases": []
+  },
+  {
+   "pid": "topo",
+   "name": "Topo",
+   "urlid": "topo",
+   "aliases": []
+  },
+  {
+   "pid": "trainstations",
+   "name": "Train Stations",
+   "urlid": "trainstations",
+   "aliases": []
+  },
+  {
+   "pid": "tren",
+   "name": "Tren",
+   "urlid": "tren",
+   "aliases": []
+  },
+  {
+   "pid": "triplace",
+   "name": "Tri-place",
+   "urlid": "triplace",
+   "aliases": []
+  },
+  {
+   "pid": "trizone",
+   "name": "Trizone",
+   "urlid": "trizone",
+   "aliases": []
+  },
+  {
+   "pid": "tslither",
+   "name": "Touch Slitherlink",
+   "urlid": "tslither",
+   "aliases": []
+  },
+  {
+   "pid": "turnaround",
+   "name": "Turnaround",
+   "urlid": "turnaround",
+   "aliases": []
+  },
+  {
+   "pid": "turnrun",
+   "name": "Turn and Run",
+   "urlid": "turnrun",
+   "aliases": []
+  },
+  {
+   "pid": "twinarea",
+   "name": "Twin Area",
+   "urlid": "twinarea",
+   "aliases": []
+  },
+  {
+   "pid": "ubahn",
+   "name": "U-Bahn",
+   "urlid": "ubahn",
+   "aliases": []
+  },
+  {
+   "pid": "urumi",
+   "name": "Urumi Spirals",
+   "urlid": "urumi",
+   "aliases": []
+  },
+  {
+   "pid": "usoone",
+   "name": "Uso-one",
+   "urlid": "usoone",
+   "aliases": [],
+   "dataset_dir": "Usoone",
+   "problems": 129,
+   "solutions": 129,
+   "max_size": [
+    45,
+    30
+   ]
+  },
+  {
+   "pid": "usotatami",
+   "name": "Uso-tatami",
+   "urlid": "usotatami",
+   "aliases": []
+  },
+  {
+   "pid": "uturns",
+   "name": "U-Turns",
+   "urlid": "uturns",
+   "aliases": []
+  },
+  {
+   "pid": "vertigo",
+   "name": "Vertigo",
+   "urlid": "vertigo",
+   "aliases": []
+  },
+  {
+   "pid": "view",
+   "name": "View",
+   "urlid": "view",
+   "aliases": []
+  },
+  {
+   "pid": "voxas",
+   "name": "Voxas",
+   "urlid": "voxas",
+   "aliases": []
+  },
+  {
+   "pid": "vslither",
+   "name": "Vertex Slitherlink",
+   "urlid": "vslither",
+   "aliases": []
+  },
+  {
+   "pid": "wafusuma",
+   "name": "Wafusuma",
+   "urlid": "wafusuma",
+   "aliases": []
+  },
+  {
+   "pid": "wagiri",
+   "name": "Wagiri",
+   "urlid": "wagiri",
+   "aliases": []
+  },
+  {
+   "pid": "walllogic",
+   "name": "Wall Logic",
+   "urlid": "walllogic",
+   "aliases": []
+  },
+  {
+   "pid": "wataridori",
+   "name": "Wataridori",
+   "urlid": "wataridori",
+   "aliases": []
+  },
+  {
+   "pid": "waterwalk",
+   "name": "Water Walk",
+   "urlid": "waterwalk",
+   "aliases": []
+  },
+  {
+   "pid": "wblink",
+   "name": "Shirokuro-link",
+   "urlid": "wblink",
+   "aliases": [],
+   "dataset_dir": "Shirokuro",
+   "problems": 110,
+   "solutions": 110,
+   "max_size": [
+    17,
+    17
+   ]
+  },
+  {
+   "pid": "wittgen",
+   "name": "Wittgenstein Briquet",
+   "urlid": "wittgen",
+   "aliases": []
+  },
+  {
+   "pid": "yajikazu",
+   "name": "Yajisan-Kazusan",
+   "urlid": "yajikazu",
+   "aliases": []
+  },
+  {
+   "pid": "yajilin",
+   "name": "Yajilin",
+   "urlid": "yajilin",
+   "aliases": [
+    "yajilin",
+    "yajirin"
+   ],
+   "dataset_dir": "Yajilin",
+   "problems": 607,
+   "solutions": 607,
+   "max_size": [
+    57,
+    39
+   ]
+  },
+  {
+   "pid": "yajilin-regions",
+   "name": "Regional Yajilin",
+   "urlid": "yajilin-regions",
+   "aliases": [
+    "yajirin-regions"
+   ],
+   "dataset_dir": "RegionalYajilin",
+   "problems": 70,
+   "solutions": 70,
+   "max_size": [
+    18,
+    10
+   ]
+  },
+  {
+   "pid": "yajirushi",
+   "name": "Yajirushi",
+   "urlid": "yajirushi",
+   "aliases": []
+  },
+  {
+   "pid": "yajirushi2",
+   "name": "Yajirushi 2",
+   "urlid": "yajirushi2",
+   "aliases": []
+  },
+  {
+   "pid": "yajisoko",
+   "name": "Yajisan-Sokoban",
+   "urlid": "yajisoko",
+   "aliases": []
+  },
+  {
+   "pid": "yajitatami",
+   "name": "Yajitatami",
+   "urlid": "yajitatami",
+   "aliases": []
+  },
+  {
+   "pid": "yinyang",
+   "name": "Yin-Yang",
+   "urlid": "yinyang",
+   "aliases": [],
+   "dataset_dir": "YinYang",
+   "problems": 170,
+   "solutions": 170,
+   "max_size": [
+    14,
+    14
+   ]
+  },
+  {
+   "pid": "yokeimoji",
+   "name": "Yokeimoji Cross",
+   "urlid": "yokeimoji",
+   "aliases": []
+  },
+  {
+   "pid": "yosenabe",
+   "name": "Yosenabe",
+   "urlid": "yosenabe",
+   "aliases": []
+  },
+  {
+   "pid": "zabajaba",
+   "name": "Zabajaba",
+   "urlid": "zabajaba",
+   "aliases": []
+  }
+ ]
+}

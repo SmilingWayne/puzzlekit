@@ -16,3 +16,6 @@ state.
   skipped checks.
 - Update the [compatibility guide](docs/ADAPTERS.md) when support changes.
   Follow the [contributor guide](docs/CONTRIBUTING.md) for the adapter workflow.
+- `docs/PUZZLES.md` and the README summary are generated: after changing adapters
+  run `python scripts/puzzle_table.py render --write` (CI checks it). Dataset
+  columns come from `docs/puzzle_table.json`, refreshed with `... collect`.
