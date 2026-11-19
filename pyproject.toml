@@ -57,6 +57,13 @@ skip = "*-musllinux_*"
 test-requires = ["pytest"]
 test-command = "python -m pytest -c {project}/tests/native-pytest.ini --import-mode=importlib {project}/tests -q"
 
+# cibuildwheel defaults Intel macOS to 10.9, but Rust's x86_64-apple-darwin
+# target needs at least 10.12 and delocate rejects the mismatch. Apple silicon
+# keeps the default (11.0, which is also Rust's minimum there).
+[[tool.cibuildwheel.overrides]]
+select = "*-macosx_x86_64"
+environment = { MACOSX_DEPLOYMENT_TARGET = "10.15" }
+
 [project.urls]
 Homepage = "https://github.com/SmilingWayne/puzzlekit"
 Documentation = "https://smilingwayne.github.io/puzzlekit/"
