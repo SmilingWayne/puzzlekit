@@ -1,8 +1,8 @@
 # PuzzleKit
 
 PuzzleKit is a Python interface to the pinned Rust cspuz URL solver.
-The v0.4 development version also exports native pzpr FileIO and
-pzpr-trace state for verified adapters.
+Version 0.4 also exports native pzpr FileIO and pzpr-trace state for
+verified adapters.
 
 - [Installation and Python quick start](https://github.com/SmilingWayne/puzzlekit#readme)
 - [Puzzle coverage](PUZZLES.md)

@@ -161,7 +161,7 @@ dependencies = [
 
 [[package]]
 name = "puzzlekit-cspuz"
-version = "0.4.0-dev"
+version = "0.4.0"
 dependencies = [
  "cspuz_solver_backend",
  "pyo3",
