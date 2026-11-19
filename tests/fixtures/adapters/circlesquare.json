@@ -1,0 +1,13 @@
+[
+  {
+    "path": "circlesquare/6/6/0900a3002103",
+    "status": "unique",
+    "record": "circlesquare0016",
+    "fileio": "pzprv3\ncirclesquare\n6\n6\n. . . 1 . . \n. . . . . . \n1 . 1 . 1 . \n. . . . . . \n. . 2 . . 1 \n. . . . 1 . \n# + # + # + \n# # # # # # \n+ # + # + # \n# # # + # # \n# + # # + + \n# # + # + + \n"
+  },
+  {
+    "path": "circlesquare/5/5/0799i8010",
+    "status": "unique",
+    "fileio": "pzprv3\ncirclesquare\n5\n5\n. . . . 2 \n1 1 . . 1 \n. . 2 . . \n. 2 2 . . \n. . . 1 . \n# # # # # \n+ + # + + \n+ + # + + \n# # # # # \n# + # + # \n"
+  }
+]

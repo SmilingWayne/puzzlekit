@@ -1,0 +1,13 @@
+[
+  {
+    "path": "paintarea/6/6/avfqvacvt7umzj",
+    "status": "unique",
+    "record": "paintarea0063",
+    "fileio": "pzprv3\npaintarea\n6\n6\n18\n0 0 1 1 2 2 \n0 3 4 1 2 5 \n6 6 7 8 9 10 \n11 6 8 8 9 9 \n12 13 14 15 16 17 \n12 12 14 14 17 17 \n. . . . . . \n. . . . . . \n. . . . . . \n. . . . . . \n. . . . . . \n. . . . . . \n# # + + # # \n# + # + # + \n# # # + # + \n+ # + + # # \n+ # # + + # \n+ + # # # # \n"
+  },
+  {
+    "path": "paintarea/3/3/40vgc2e",
+    "status": "unique",
+    "fileio": "pzprv3\npaintarea\n3\n3\n4\n0 0 0 \n1 2 2 \n3 3 3 \n. . . \n2 . . \n. . . \n# # # \n# + + \n# # # \n"
+  }
+]

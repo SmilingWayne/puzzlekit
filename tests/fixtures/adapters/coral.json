@@ -1,0 +1,12 @@
+[
+  {
+    "path": "coral/6/7/1i311g33p111j21g21g21g3k2h",
+    "status": "unique",
+    "fileio": "pzprv3\ncoral\n7\n6\n. . . . . . . . . \n. . . . 1 . . . 1 \n. . . . 1 3 . . 1 \n. . . 1 3 3 . . 1 \n. . . + # # # # + \n. 1 2 + + # + # # \n. 1 2 + # # + # + \n. 1 2 + # + + # # \n. . 3 # # # + + + \n. . . + + # # # # \n. . 2 + # # + + + \n"
+  },
+  {
+    "path": "coral/2/2/1i",
+    "status": "multiple",
+    "fileio": "pzprv3\ncoral\n2\n2\n. 1 . \n. . . \n. . . \n"
+  }
+]

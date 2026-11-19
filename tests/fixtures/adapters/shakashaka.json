@@ -1,0 +1,19 @@
+[
+  {
+    "path": "shakashaka/3/3/cl",
+    "status": "unique",
+    "record": "shakashaka2122",
+    "fileio": "pzprv3\nshakashaka\n3\n3\n2 . . \n. . . \n. . . \n. 5 4 \n5 + 3 \n2 3 + \n"
+  },
+  {
+    "path": "shakashaka/3/3/g1m",
+    "status": "multiple",
+    "fileio": "pzprv3\nshakashaka\n3\n3\n. 1 . \n. . . \n. . . \n+ . + \n. . . \n. . . \n"
+  },
+  {
+    "path": "shakashaka/4/4/g.g.r",
+    "status": "unique",
+    "record": "shakashaka1874",
+    "fileio": "pzprv3\nshakashaka\n4\n4\n. 5 . 5 \n. . . . \n. . . . \n. . . . \n+ . + . \n5 4 5 4 \n2 3 2 3 \n+ + + + \n"
+  }
+]

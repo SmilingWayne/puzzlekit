@@ -1,0 +1,14 @@
+[
+  {
+    "path": "araf/4/3/76j3i8g",
+    "status": "unique",
+    "record": "araf0014",
+    "fileio": "pzprv3\naraf\n3\n4\n7 6 . . \n. . 3 . \n. . 8 . \n1 -1 -1 \n-1 -1 1 \n1 -1 -1 \n-1 1 1 -1 \n-1 1 1 -1 \n"
+  },
+  {
+    "path": "araf/4/4/g2k35k-14g",
+    "status": "unique",
+    "record": "araf0005",
+    "fileio": "pzprv3\naraf\n4\n4\n. 2 . . \n. . . 3 \n5 . . . \n. . 20 . \n-1 1 -1 \n1 -1 -1 \n1 -1 -1 \n-1 -1 -1 \n-1 1 -1 -1 \n-1 -1 -1 -1 \n1 -1 -1 -1 \n"
+  }
+]

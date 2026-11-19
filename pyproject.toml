@@ -1,42 +1,71 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0", "setuptools-rust>=1.10"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "puzzlekit"
-version = "0.3.4"
-description = "100+ logic puzzle solvers on Google OR-Tools (e.g., yajilin, slitherlink, nonogram), with bidirectional conversion between puzz.link and Penpa+ URLs for supported genres (shared IR)."
+version = "0.4.0"
+description = "Solve logic puzzles from URLs with the cspuz Rust backend."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "SmilingWayne", email = "xiaoxiaowayne@gmail.com"}]
-license = {file = "LICENSE"}
-keywords = ["puzzle", "solver", "logic", "cp-sat", "python", "nonogram", "slitherlink", "yajilin", "sudoku", "puzzlink", "penpa", "url-conversion"]
+license = "MIT AND LicenseRef-cspuz-bundled"
+license-files = ["LICENSE", "LICENSE-cspuz"]
+keywords = ["puzzle", "solver", "logic", "cspuz", "puzzlink", "pzpr", "pzpr-trace"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Rust",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Games/Entertainment :: Puzzle Games",
-    "Operating System :: OS Independent",
 ]
 
-dependencies = [
-    "numpy",
-    "ortools>=9.6",
-    "matplotlib", 
-    "typeguard"
-]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build"]
+
+[tool.setuptools]
+include-package-data = false
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["puzzlekit*"]
 
+[[tool.setuptools-rust.ext-modules]]
+target = "puzzlekit._cspuz"
+path = "rust/Cargo.toml"
+binding = "PyO3"
+py-limited-api = true
+
+[tool.distutils.bdist_wheel]
+py-limited-api = "cp310"
+
+[tool.cibuildwheel]
+archs = ["auto64"]
+# One abi3 wheel per platform: built on the oldest supported Python and
+# tested on the others by the "Test wheels" job in publish.yml.
+build = "cp310-*"
+skip = "*-musllinux_*"
+test-requires = ["pytest"]
+test-command = "python -m pytest -c {project}/tests/native-pytest.ini --import-mode=importlib {project}/tests -q"
+
+# cibuildwheel defaults Intel macOS to 10.9, but Rust's x86_64-apple-darwin
+# target needs at least 10.12 and delocate rejects the mismatch. Apple silicon
+# keeps the default (11.0, which is also Rust's minimum there).
+[[tool.cibuildwheel.overrides]]
+select = "*-macosx_x86_64"
+environment = { MACOSX_DEPLOYMENT_TARGET = "10.15" }
+
 [project.urls]
 Homepage = "https://github.com/SmilingWayne/puzzlekit"
+Documentation = "https://smilingwayne.github.io/puzzlekit/"
 Repository = "https://github.com/SmilingWayne/puzzlekit"
 Issues = "https://github.com/SmilingWayne/puzzlekit/issues"

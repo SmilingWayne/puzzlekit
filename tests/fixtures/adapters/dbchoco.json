@@ -1,0 +1,18 @@
+[
+  {
+    "path": "dbchoco/4/4/8p7gg2j1k3i",
+    "status": "unique",
+    "record": "dbchoco0258",
+    "fileio": "pzprv3\ndbchoco\n4\n4\n. -2 . . \n. - -1 . \n. - . . \n-3 - - - \n1 -1 -1 \n1 1 -1 \n1 -1 1 \n-1 -1 1 \n-1 -1 1 1 \n-1 1 1 1 \n-1 1 1 -1 \n"
+  },
+  {
+    "path": "dbchoco/6/6/pu9hgpe05zu",
+    "status": "unique",
+    "fileio": "pzprv3\ndbchoco\n6\n6\n-5 - . . - - \n- - - . . - \n. . - - . . \n. - - . . . \n. - - . . - \n. - - - . . \n-1 -1 -1 1 -1 \n1 -1 -1 -1 1 \n1 1 1 1 1 \n1 1 1 1 -1 \n1 -1 -1 -1 1 \n-1 -1 -1 1 1 \n1 -1 -1 -1 1 -1 \n-1 1 -1 1 -1 -1 \n1 -1 1 -1 1 -1 \n-1 1 -1 1 1 1 \n-1 1 1 1 -1 -1 \n"
+  },
+  {
+    "path": "dbchoco/2/2/oj",
+    "status": "multiple",
+    "fileio": "pzprv3\ndbchoco\n2\n2\n- - \n. . \n0 \n0 \n-1 -1 \n"
+  }
+]

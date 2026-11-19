@@ -1,0 +1,4 @@
+"""Stostone adapter."""
+from puzzlekit._adapters.adapter import Adapter
+
+ADAPTER = Adapter('stostone', ('stostone',), 'regions')

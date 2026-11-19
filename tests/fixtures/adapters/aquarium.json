@@ -1,0 +1,12 @@
+[
+  {
+    "path": "aquarium/5/4/9lqgfk4/3h12h13",
+    "status": "unique",
+    "fileio": "pzprv3\naquarium\n4\n5\n0 1 0 0 \n1 1 0 1 \n0 1 1 1 \n0 1 0 1 \n0 1 1 1 1 \n1 0 1 0 0 \n0 0 1 0 0 \n. 3 . . 1 2 \n. # # # # # \n. # + + + + \n1 + + # + + \n3 # # + + # \n"
+  },
+  {
+    "path": "aquarium/r/5/4/17qgela/l24g",
+    "status": "multiple",
+    "fileio": "pzprv3\naquarium\n4\n5\nr\n0 0 0 0 \n1 0 0 1 \n1 1 1 1 \n0 1 0 1 \n0 1 1 1 0 \n1 0 1 0 1 \n0 1 0 1 0 \n. . . . . . \n. . . . . . \n2 # + + + # \n4 . # . # . \n. . . . . . \n"
+  }
+]

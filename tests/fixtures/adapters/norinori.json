@@ -1,0 +1,23 @@
+[
+  {
+    "path": "norinori/8/2/804vs",
+    "status": "unique",
+    "fileio": "pzprv3.1\nnorinori\n2\n8\n0 1 0 0 0 0 0 \n0 0 0 0 0 1 0 \n1 1 1 1 1 1 1 1 \n# # + + # # + + \n+ + # # + + # # \n",
+    "record": "norinori0356"
+  },
+  {
+    "path": "norinori/4/4/n804jo",
+    "status": "unique",
+    "fileio": "pzprv3.1\nnorinori\n4\n4\n1 0 1 \n1 1 0 \n1 0 0 \n0 0 0 \n0 0 1 0 \n0 1 0 0 \n1 1 1 1 \n+ # # + \n# + + # \n# + + # \n+ # # + \n",
+    "record": "norinori0406"
+  },
+  {
+    "path": "norinori/2/2/00",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nnorinori\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n"
+  },
+  {
+    "path": "norinori/2/2/vv",
+    "status": "no_solution"
+  }
+]

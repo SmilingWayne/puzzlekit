@@ -1,0 +1,20 @@
+[
+  {
+    "path": "koburin/6/5/j.hclbkai",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\nkoburin\n5\n6\n. . . . - . \n. 2 . . . . \n. . . . 1 . \n. . . . . . \n0 . . . . . \n+ + + + . # \n+ . # + + + \n+ # + + . + \n+ + + + # + \n. + + + + + \n1 1 1 -1 -1 \n-1 -1 -1 1 1 \n-1 -1 1 -1 -1 \n1 -1 -1 -1 -1 \n-1 1 -1 1 1 \n1 -1 -1 1 -1 -1 \n1 -1 -1 -1 -1 1 \n1 -1 1 1 -1 1 \n-1 1 1 1 -1 1 \n"
+  },
+  {
+    "path": "koburin/o/7/7/pcm.mbman",
+    "status": "unique",
+    "record": "cspuz serializer test",
+    "fileio": "pzprv3\nkoburin\n7\n7\no\n. . . . . . . \n. . . 2 . . . \n. . . . . . - \n. . . . . . . \n1 . . . . . . \n. . . 0 . . . \n. . . . . . . \n# + + # + + + \n+ + + . + + + \n+ + + # + + . \n# + + + + + # \n. + + + + + + \n+ + + . + + + \n+ + + + + + + \n-1 1 -1 -1 1 1 \n1 -1 -1 -1 -1 1 \n1 -1 -1 -1 -1 -1 \n-1 -1 1 -1 -1 -1 \n-1 1 -1 1 -1 1 \n1 1 -1 -1 1 -1 \n1 1 1 1 -1 1 \n-1 1 1 -1 1 -1 1 \n1 -1 1 -1 1 1 -1 \n-1 1 1 -1 1 1 -1 \n-1 1 -1 1 1 1 -1 \n-1 -1 1 -1 -1 -1 1 \n1 -1 -1 -1 1 1 1 \n"
+  },
+  {
+    "path": "koburin/mb/4/4/n.i..10",
+    "status": "unique",
+    "record": "cspuz example: minesweeper and display flags",
+    "fileio": "pzprv3\nkoburin\n4\n4\nm\nb\n. . . . \n. . . . \n- . . . \n- - 1 0 \n+ + + + \n+ + + + \n. # + + \n. . . . \n1 1 1 \n1 1 -1 \n-1 -1 1 \n-1 -1 -1 \n1 -1 -1 1 \n-1 -1 1 1 \n-1 -1 -1 -1 \n"
+  }
+]

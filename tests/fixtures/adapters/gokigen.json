@@ -1,0 +1,13 @@
+[
+  {
+    "path": "gokigen/3/3/k1b2ei",
+    "status": "unique",
+    "record": "gokigen0075",
+    "fileio": "pzprv3\ngokigen\n3\n3\n. . . . \n. 1 1 . \n. 2 4 . \n. . . . \n2 1 1 \n1 1 2 \n2 2 1 \n"
+  },
+  {
+    "path": "gokigen/2/2/o",
+    "status": "multiple",
+    "fileio": "pzprv3\ngokigen\n2\n2\n. . . \n. . . \n. . . \n. . \n. . \n"
+  }
+]

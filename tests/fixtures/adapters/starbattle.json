@@ -1,0 +1,12 @@
+[
+  {
+    "path": "starbattle/6/6/1/2u9gn9c9jpmk",
+    "status": "unique",
+    "fileio": "pzprv3\nstarbattle\n6\n6\n1\n6\n0 0 0 0 1 1 \n0 2 3 0 1 1 \n2 2 3 3 3 1 \n2 1 1 1 1 1 \n2 4 4 1 4 5 \n2 2 4 4 4 5 \n+ # + + + + \n+ + + + # + \n+ + # + + + \n# + + + + + \n+ + + + + # \n+ + + # + + \n"
+  },
+  {
+    "path": "starbattle/4/4/1/000vvo",
+    "status": "multiple",
+    "fileio": "pzprv3\nstarbattle\n4\n4\n1\n4\n0 0 0 0 \n1 1 1 1 \n2 2 2 2 \n3 3 3 3 \n+ . . + \n. + + . \n. + + . \n+ . . + \n"
+  }
+]

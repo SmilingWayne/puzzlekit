@@ -1,0 +1,20 @@
+[
+  {
+    "path": "tetrominous/4/4/n3m",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\ntetrominous\n4\n4\n. . . . \n. . . . \n3 . . . \n. . . . \n1 1 1 0 \n1 3 3 0 \n. 3 1 0 \n1 1 1 0 \n-1 -1 1 \n1 -1 1 \n-1 1 1 \n-1 -1 1 \n-1 1 1 -1 \n1 -1 1 -1 \n1 1 -1 -1 \n"
+  },
+  {
+    "path": "tetrominous/4/4/v",
+    "status": "multiple",
+    "record": "derived: remove clue",
+    "fileio": "pzprv3\ntetrominous\n4\n4\n. . . . \n. . . . \n. . . . \n. . . . \n. . . . \n. . . . \n. . . . \n. . . . \n0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n"
+  },
+  {
+    "path": "tetrominous/4/4/n3m400000",
+    "status": "unique",
+    "record": "derived: given boundary",
+    "fileio": "pzprv3\ntetrominous\n4\n4\n. . . . \n. . . . \n3 . . . \n. . . . \n1 1 1 0 \n1 3 3 0 \n. 3 1 0 \n1 1 1 0 \n-1 -1 X \n1 -1 1 \n-1 1 1 \n-1 -1 1 \n-1 1 1 -1 \n1 -1 1 -1 \n1 1 -1 -1 \n"
+  }
+]

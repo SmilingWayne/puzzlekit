@@ -1,0 +1,12 @@
+[
+  {
+    "path": "sendai/5/5/dj7ej83g14i2g",
+    "status": "unique",
+    "fileio": "pzprv3\nsendai\n5\n5\n1 . 4 . . \n. . . . . \n. . . . . \n. . . 2 . \n. . . . . \n4 1 1 2 \n1 1 4 2 \n1 1 2 2 \n1 1 1 2 \n1 1 1 2 \n1 4 2 1 1 \n2 1 2 4 4 \n2 4 4 1 1 \n1 4 4 4 4 \n"
+  },
+  {
+    "path": "sendai/5/5/dj7ej83g14i.g",
+    "status": "multiple",
+    "fileio": "pzprv3\nsendai\n5\n5\n1 . 4 . . \n. . . . . \n. . . . . \n. . . - . \n. . . . . \n4 1 1 2 \n1 1 4 2 \n1 1 2 2 \n1 1 1 2 \n1 1 1 2 \n1 4 2 1 1 \n2 1 2 4 4 \n2 4 4 1 1 \n1 4 4 0 4 \n"
+  }
+]

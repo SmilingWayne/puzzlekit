@@ -1,0 +1,14 @@
+[
+  {
+    "path": "nothing/5/5/jtbl6r52",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3.2\nnothing\n5\n5\n1 0 0 1 \n1 1 1 1 \n0 1 0 1 \n0 1 1 1 \n0 1 0 1 \n0 0 1 1 0 \n1 1 0 1 1 \n0 0 1 0 1 \n0 0 0 1 0 \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n-1 1 1 1 \n-1 -1 1 1 \n1 -1 1 -1 \n-1 1 -1 1 \n1 -1 1 1 \n-1 1 -1 -1 1 \n-1 1 1 -1 -1 \n1 -1 -1 1 -1 \n1 1 1 -1 1 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n"
+  },
+  {
+    "path": "nothing/5/5/itbl6r52",
+    "status": "multiple",
+    "record": "derived: change one wall",
+    "fileio": "pzprv3.2\nnothing\n5\n5\n1 0 0 1 \n0 1 1 1 \n0 1 0 1 \n0 1 1 1 \n0 1 0 1 \n0 0 1 1 0 \n1 1 0 1 1 \n0 0 1 0 1 \n0 0 0 1 0 \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n. . . . . \n1 1 1 1 \n1 0 0 0 \n0 -1 1 -1 \n-1 0 0 0 \n0 -1 1 1 \n1 -1 -1 -1 1 \n-1 0 1 -1 0 \n0 -1 -1 1 0 \n0 0 1 -1 1 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n0 0 0 0 0 \n"
+  }
+]

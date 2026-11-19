@@ -1,0 +1,20 @@
+[
+  {
+    "record": "cspuz",
+    "path": "reflect/5/6/40f30c5d5a26a155h",
+    "status": "unique",
+    "fileio": "pzprv3\nreflect\n6\n5\n4 . . . . \n. . 3 . . \n. + . . . \n. + . 26 . \n15 + . . . \n. . . . . \n1 1 1 1 \n-1 1 -1 1 \n1 1 -1 -1 \n1 1 1 -1 \n1 1 1 -1 \n-1 1 1 -1 \n1 -1 -1 -1 1 \n1 1 1 1 -1 \n-1 1 -1 1 -1 \n1 1 -1 -1 -1 \n-1 1 -1 1 -1 \n"
+  },
+  {
+    "record": "reflect0083",
+    "path": "reflect/5/5/f43a44d5c33b16d",
+    "status": "unique",
+    "fileio": "pzprv3\nreflect\n5\n5\n. . . . . \n. 43 . 44 . \n. . . + . \n. . 33 . . \n16 . . . . \n1 1 -1 -1 \n-1 1 -1 1 \n-1 1 1 1 \n-1 1 -1 1 \n1 -1 1 1 \n1 -1 1 -1 -1 \n1 1 -1 1 1 \n1 -1 -1 1 -1 \n1 1 1 -1 1 \n"
+  },
+  {
+    "record": "reflect0021",
+    "path": "reflect/6/6/45d35f10b5n15d25",
+    "status": "unique",
+    "fileio": "pzprv3\nreflect\n6\n6\n45 . . . . 35 \n. . . . . . \n1 . . + . . \n. . . . . . \n. . . . . . \n15 . . . . 25 \n1 1 -1 1 1 \n-1 -1 -1 -1 -1 \n1 -1 1 1 1 \n1 -1 -1 1 1 \n-1 -1 1 -1 -1 \n1 1 -1 1 1 \n1 -1 1 1 -1 1 \n1 -1 1 1 -1 1 \n-1 1 -1 1 -1 -1 \n1 -1 -1 -1 -1 1 \n1 -1 1 1 -1 1 \n"
+  }
+]

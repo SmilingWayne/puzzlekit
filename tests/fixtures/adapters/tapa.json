@@ -1,0 +1,13 @@
+[
+  {
+    "path": "tapa/4/4/hajo3h1",
+    "status": "unique",
+    "record": "tapa0243",
+    "fileio": "pzprv3\ntapa\n4\n4\n# # 3,1 # \n# + # # \n# # # + \n3 # + 1 \n"
+  },
+  {
+    "path": "tapa/2/2/1i",
+    "status": "multiple",
+    "fileio": "pzprv3\ntapa\n2\n2\n1 . \n. . \n"
+  }
+]

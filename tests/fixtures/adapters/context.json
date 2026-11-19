@@ -1,0 +1,13 @@
+[
+  {
+    "path": "context/6/6/i2h0i2h1i1h2l3h1i0g",
+    "status": "unique",
+    "record": "context0003",
+    "fileio": "pzprv3\ncontext\n6\n6\n. . . 2 . . \n0 . . . 2 . \n. 1 . . . 1 \n. . 2 . . . \n. . . 3 . . \n1 . . . 0 . \n+ + # + + + \n+ + + # + # \n+ # + + + + \n+ + # + # + \n# + + # + + \n+ + # + + + \n"
+  },
+  {
+    "path": "context/2/2/1i",
+    "status": "multiple",
+    "fileio": "pzprv3\ncontext\n2\n2\n1 . \n. . \n+ . \n. + \n"
+  }
+]

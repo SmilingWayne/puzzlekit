@@ -1,4 +1,13 @@
-# PuzzleKit 🧰
+# PuzzleKit
 
-This is the documentation for [PuzzleKit](https://github.com/SmilingWayne/puzzlekit). Currently, 90 + solvers for logic puzzles are provided, which have been tested on 30k + instances. The dataset can be found in github repo [puzzlekit-dataset](https://github.com/SmilingWayne/puzzlekit-dataset).
+PuzzleKit is a Python interface to the pinned Rust cspuz URL solver.
+Version 0.4 also exports native pzpr FileIO and pzpr-trace state for
+verified adapters.
 
+- [Installation and Python quick start](https://github.com/SmilingWayne/puzzlekit#readme)
+- [Puzzle coverage](PUZZLES.md)
+- [Adapter compatibility](ADAPTERS.md)
+- [cspuz integration](CSPUZ_INTEGRATION.md)
+- [Contributing adapters](CONTRIBUTING.md)
+- [Adapter roadmap](ROADMAP.md)
+- [Releasing](RELEASING.md)

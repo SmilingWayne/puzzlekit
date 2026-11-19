@@ -1,0 +1,18 @@
+[
+  {
+    "path": "geradeweg/5/5/2l3v4",
+    "status": "unique",
+    "record": "geradeweg0039",
+    "fileio": "pzprv3\ngeradeweg\n5\n5\n2 . . . . \n. . 3 . . \n. . . . . \n. . . . . \n. . . . 4 \n1 1 -1 1 \n-1 -1 -1 -1 \n1 -1 -1 -1 \n1 -1 1 -1 \n1 1 1 1 \n1 -1 1 1 1 \n1 -1 1 1 1 \n-1 1 1 1 1 \n1 -1 -1 -1 1 \n"
+  },
+  {
+    "path": "geradeweg/6/5/j1h23m.r4",
+    "status": "unique",
+    "fileio": "pzprv3\ngeradeweg\n5\n6\n. . . . 1 . \n. 2 3 . . . \n. . . . - . \n. . . . . . \n. . . . . 4 \n-1 1 -1 -1 1 \n-1 -1 -1 1 -1 \n1 -1 -1 1 -1 \n1 -1 1 1 -1 \n-1 1 1 1 1 \n-1 1 1 -1 1 1 \n-1 1 1 1 -1 1 \n1 -1 1 -1 1 1 \n-1 1 -1 -1 -1 1 \n"
+  },
+  {
+    "path": "geradeweg/f/4/4/p2g3i",
+    "status": "unique",
+    "fileio": "pzprv3\ngeradeweg\n4\n4\nf\n. . . . \n. . . . \n. . 2 . \n3 . . . \n1 1 1 \n-1 1 1 \n-1 1 1 \n1 1 1 \n1 -1 -1 1 \n1 1 -1 -1 \n1 -1 -1 1 \n"
+  }
+]

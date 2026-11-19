@@ -1,0 +1,14 @@
+[
+  {
+    "path": "archipelago/6/5/g3j2s2g3h.j",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\narchipelago\n5\n6\n+ 3 # # + + \n2 + + + # + \n# + # + + + \n+ + 2 + 3 + \n+ - + # # + \n"
+  },
+  {
+    "path": "archipelago/6/5/l2s2g3h.j",
+    "status": "multiple",
+    "record": "derived: remove first clue",
+    "fileio": "pzprv3\narchipelago\n5\n6\n+ # . . . . \n2 + + . . . \n# + # + . . \n+ + 2 + 3 . \n+ - + . . . \n"
+  }
+]

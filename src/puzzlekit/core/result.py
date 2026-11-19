@@ -1,49 +1,60 @@
-import time
-from typing import Dict, Any, Optional
-from puzzlekit.core.grid import Grid
-from puzzlekit.viz import visualize
+"""Results from the cspuz URL solver."""
 
+from dataclasses import dataclass, field
+import json
+from typing import Any, Optional
+
+from puzzlekit._adapters.shading import compress_state
+
+
+@dataclass(frozen=True)
 class PuzzleResult:
-    def __init__(self, 
-                 puzzle_type: str, 
-                 puzzle_data: Dict[str, Any], 
-                 solution_data: Dict[str, Any]):
-        self.puzzle_type = puzzle_type
-        self.puzzle_data = puzzle_data              # Original meta data (clues, rows, etc.)
-        self.solution_data = solution_data      # Solution data (status, solution_grid, cpu_time, build_time, etc.)
-        
-        # save additional data
-        self.sol_grid = self.solution_data.get('solution_grid', None)
-    
+    """Backend board and status, with optional pzpr exports for adapted puzzles."""
+
+    source: str
+    status: str
+    board: dict[str, Any]
+    normalized_url: str = ''
+    _puzzle: Any = field(default=None, repr=False, compare=False)
+    _adapter: Any = field(default=None, repr=False, compare=False)
+
+    @property
+    def board_json(self) -> str:
+        """The cspuz board encoded as JSON for transport."""
+        return json.dumps(self.board, ensure_ascii=False)
+
+    def to_pzpr(self) -> str:
+        """Return pzpr FileIO with confirmed answers; unknown marks stay empty."""
+        if self.status not in ('unique', 'multiple'):
+            raise ValueError('cannot export an answer when its existence is unknown or false')
+        if self._adapter is None:
+            raise ValueError('pzpr output is not supported for this puzzle')
+        return self._adapter.fileio(self._puzzle, self.board, self.status)
+
+    def to_state(self) -> str:
+        """Return a compressed pzpr-trace FileIO state."""
+        return compress_state(self.to_pzpr())
+
+    def to_trace_url(self) -> str:
+        return f"https://pzpr-trace.net/p?state={self.to_state()}&{self.normalized_url.split('?', 1)[1]}"
+
+    @property
+    def has_solution(self) -> Optional[bool]:
+        if self.status == 'no_solution':
+            return False
+        if self.status in ('unique', 'multiple'):
+            return True
+        return None
+
+    @property
+    def unique(self) -> Optional[bool]:
+        if self.status == 'unique':
+            return True
+        if self.status == 'multiple':
+            return False
+        return None
+
     @property
     def is_solved(self) -> bool:
-        return self.solution_data.get("status") in ["Optimal", "Feasible"]
-    
-    def __repr__(self) -> str:
-        header = f"[{self.puzzle_type.title()}] \nStatus: {self.solution_data['status']} \nCPU time {self.solution_data['cpu_time']:.4f} s \nBuild time {self.solution_data['build_time']:.4f} s"
-        if self.is_solved and self.sol_grid:
-            return f"{header}\n{self.sol_grid}"
-        return header
-    
-    def _call_visualizer(self, show: bool, save_path: Optional[str], auto_close_sec: float = 0):
-        try:
-            # print(self.puzzle_data,)
-            visualize(
-                puzzle_type = self.puzzle_type,
-                solution_grid = self.sol_grid,
-                puzzle_data = self.puzzle_data,
-                title=f"{self.puzzle_type.title()} Result",
-                show=show,
-                save_path=save_path,
-                auto_close_sec=auto_close_sec
-            )
-        except NotImplementedError:
-            print(f"Visualizer for {self.puzzle_type} is not implemented yet.")
-        except Exception as e:
-            print(f"Visualization failed: {e}")
-    
-    def show(self, auto_close_sec: float = 0, block: bool = True):
-        self._call_visualizer(show=True, save_path=None, auto_close_sec=auto_close_sec)
-
-    def save(self, path: str):
-        self._call_visualizer(show=False, save_path=path)
+        """True when the backend reports unique answer variables."""
+        return self.status == 'unique'

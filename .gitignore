@@ -161,3 +161,7 @@ pzprjs/
 .claude
 scripts/data/reports/
 scripts/data/maps/
+# Native build and wheel artifacts
+wheelhouse/
+*.pyd
+# Keep rust/Cargo.lock tracked for reproducible native builds.

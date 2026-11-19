@@ -1,0 +1,14 @@
+[
+  {
+    "record": "cspuz-test",
+    "path": "nothree/6/5/ger26eneq22eleq",
+    "status": "unique",
+    "fileio": "pzprv3\nnothree\n5\n6\n.1.........\n..........1\n.1...1.....\n..........1\n...........\n.......1.1.\n1..........\n...1.......\n...........\n# + + + + # \n+ # + # + + \n+ + + + + # \n# + + # + + \n+ + # + + + \n"
+  },
+  {
+    "record": "partial",
+    "path": "nothree/2/2/g0m",
+    "status": "multiple",
+    "fileio": "pzprv3\nnothree\n2\n2\n.1.\n...\n...\n. . \n+ + \n"
+  }
+]

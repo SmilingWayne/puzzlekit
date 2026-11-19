@@ -1,0 +1,23 @@
+[
+  {
+    "path": "nurimisaki/3/3/g.h.j",
+    "status": "unique",
+    "fileio": "pzprv3\nnurimisaki\n3\n3\n. - . \n. - . \n. . . \n# + # \n# + # \n# # # \n",
+    "record": "nurimisaki0530"
+  },
+  {
+    "path": "nurimisaki/3/3/g.g2j./",
+    "status": "unique",
+    "fileio": "pzprv3\nnurimisaki\n3\n3\n. - . \n2 . . \n. . - \n# + # \n+ + # \n# + + \n",
+    "record": "nurimisaki0534"
+  },
+  {
+    "path": "nurimisaki/2/2/j",
+    "status": "multiple",
+    "fileio": "pzprv3\nnurimisaki\n2\n2\n. . \n. . \n. . \n. . \n"
+  },
+  {
+    "path": "nurimisaki/2/2/4i",
+    "status": "no_solution"
+  }
+]

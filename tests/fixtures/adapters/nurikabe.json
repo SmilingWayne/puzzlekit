@@ -1,0 +1,23 @@
+[
+  {
+    "path": "nurikabe/4/1/2h1",
+    "status": "unique",
+    "fileio": "pzprv3\nnurikabe\n1\n4\n2 + # 1 \n",
+    "record": "nurikabe1876"
+  },
+  {
+    "path": "nurikabe/3/2/i2g2",
+    "status": "unique",
+    "fileio": "pzprv3\nnurikabe\n2\n3\n+ # + \n2 # 2 \n",
+    "record": "nurikabe1877"
+  },
+  {
+    "path": "nurikabe/2/2/2i",
+    "status": "multiple",
+    "fileio": "pzprv3\nnurikabe\n2\n2\n2 . \n. # \n"
+  },
+  {
+    "path": "nurikabe/2/2/1111",
+    "status": "no_solution"
+  }
+]

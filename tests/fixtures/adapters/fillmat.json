@@ -1,0 +1,13 @@
+[
+  {
+    "path": "fillmat/5/5/3h1b1i4b",
+    "status": "unique",
+    "record": "fillmat0004",
+    "fileio": "pzprv3\nfillmat\n5\n5\n3 . . . . \n. . . . 1 \n. . 1 . . \n. . . . . \n. . 4 . . \n-1 -1 1 -1 \n-1 -1 -1 1 \n1 1 1 -1 \n1 1 -1 -1 \n1 -1 -1 -1 \n1 1 1 1 1 \n1 1 1 1 1 \n-1 -1 1 1 1 \n-1 1 1 1 1 \n"
+  },
+  {
+    "path": "fillmat/3/3/c2b3b",
+    "status": "unique",
+    "fileio": "pzprv3\nfillmat\n3\n3\n. . . \n2 . . \n3 . . \n-1 -1 \n-1 1 \n-1 -1 \n1 1 1 \n1 1 1 \n"
+  }
+]

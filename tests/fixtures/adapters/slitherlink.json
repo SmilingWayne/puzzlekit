@@ -1,0 +1,23 @@
+[
+  {
+    "path": "slither/3/2/h17d",
+    "status": "unique",
+    "fileio": "pzprv3.1\nslither\n2\n3\n. . 1 \n2 . 3 \n0 0 0 \n0 0 0 \n1 1 -1 -1 \n1 -1 -1 1 \n1 -1 -1 \n-1 1 1 \n1 1 1 \n",
+    "record": "slitherlink0446"
+  },
+  {
+    "path": "slither/2/3/716c",
+    "status": "unique",
+    "fileio": "pzprv3.1\nslither\n3\n2\n2 . \n1 1 \n. 2 \n0 0 \n0 0 \n0 0 \n1 -1 1 \n1 -1 1 \n1 -1 1 \n1 1 \n-1 -1 \n-1 -1 \n1 1 \n",
+    "record": "slitherlink3255"
+  },
+  {
+    "path": "slither/2/2/1i",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nslither\n2\n2\n1 . \n. . \n0 0 \n0 0 \n-1 0 0 \n0 0 0 \n-1 0 \n0 0 \n0 0 \n"
+  },
+  {
+    "path": "slither/2/2/4444",
+    "status": "no_solution"
+  }
+]

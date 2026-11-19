@@ -1,0 +1,13 @@
+[
+  {
+    "path": "doubleback/4/4/9001s0",
+    "status": "unique",
+    "record": "doubleback0011",
+    "fileio": "pzprv3.2\ndoubleback\n4\n4\n0 1 0 \n0 1 0 \n0 0 0 \n0 0 0 \n0 0 0 0 \n1 1 1 1 \n0 0 0 0 \n. . . . \n. . . . \n. . . . \n. . . . \n1 1 1 \n-1 1 -1 \n-1 -1 -1 \n1 -1 1 \n1 -1 -1 1 \n1 1 1 1 \n1 1 1 1 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n"
+  },
+  {
+    "path": "doubleback/4/4/94g000h240",
+    "status": "unique",
+    "fileio": "pzprv3.2\ndoubleback\n4\n4\n0 1 0 \n0 1 0 \n0 1 0 \n0 1 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n* . . . \n* . . . \n* . . . \n* . . . \n-1 1 1 \n-1 1 -1 \n-1 1 -1 \n-1 1 1 \n-1 1 -1 1 \n-1 -1 1 1 \n-1 1 -1 1 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n0 0 0 0 \n"
+  }
+]

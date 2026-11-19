@@ -1,0 +1,13 @@
+[
+  {
+    "path": "stostone/4/4/r4g900i2",
+    "status": "unique",
+    "record": "stostone0061",
+    "fileio": "pzprv3.1\nstostone\n4\n4\n1 1 0 \n1 1 0 \n0 1 0 \n0 1 0 \n0 1 0 0 \n1 0 0 0 \n0 0 0 0 \n. . . . \n. . . . \n2 . . . \n. . . . \n+ # + + \n# + # # \n+ + # # \n# # + + \n"
+  },
+  {
+    "path": "stostone/2/2/00g",
+    "status": "multiple",
+    "fileio": "pzprv3.1\nstostone\n2\n2\n0 \n0 \n0 0 \n. . \n. . \n. . \n. . \n"
+  }
+]

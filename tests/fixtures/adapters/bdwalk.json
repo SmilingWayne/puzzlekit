@@ -1,0 +1,12 @@
+[
+  {
+    "path": "bdwalk/m/5/4/1244h1h442.k30g0h",
+    "status": "unique",
+    "fileio": "pzprv3\nbdwalk\n4\n5\nm\n1 3 7 7\n. . D . . \n3 3 1 - . \n. . . . 2 \nU . U . . \n-1 1 1 1 \n1 -1 1 -1 \n1 1 -1 1 \n1 1 1 -1 \n-1 1 -1 -1 1 \n-1 -1 1 1 1 \n1 -1 -1 -1 -1 \n"
+  },
+  {
+    "path": "bdwalk/m/5/4/1244h1i42.k30g0h",
+    "status": "multiple",
+    "fileio": "pzprv3\nbdwalk\n4\n5\nm\n1 3 7 7\n. . D . . \n. 3 1 - . \n. . . . 2 \nU . U . . \n-1 1 0 0 \n0 -1 1 0 \n0 0 0 0 \n1 0 0 0 \n-1 1 0 0 0 \n0 0 0 0 0 \n1 0 0 0 0 \n"
+  }
+]

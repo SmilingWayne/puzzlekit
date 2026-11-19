@@ -1,0 +1,18 @@
+[
+  {
+    "path": "mines/3/3/12k31",
+    "status": "unique",
+    "record": "mines0005",
+    "fileio": "pzprv3\nmines\n3\n3\n1 2 . \n. . . \n. 3 1 \n+ + + \n# + # \n# + + \n"
+  },
+  {
+    "path": "mines/2/2/1i",
+    "status": "multiple",
+    "fileio": "pzprv3\nmines\n2\n2\n1 . \n. . \n+ . \n. . \n"
+  },
+  {
+    "path": "mines/2/2/0i",
+    "status": "unique",
+    "fileio": "pzprv3\nmines\n2\n2\n0 . \n. . \n+ + \n+ + \n"
+  }
+]

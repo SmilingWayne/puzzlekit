@@ -1,0 +1,14 @@
+[
+  {
+    "path": "bramble/5/5/4cql3su032g222g",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3.1\nbramble\n5\n5\n0 0 1 0 \n0 0 1 1 \n0 0 1 1 \n0 1 0 1 \n0 1 0 1 \n0 0 0 1 1 \n1 1 1 0 0 \n1 1 1 1 0 \n0 0 0 0 0 \n3 . . 2 . \n. . . . 2 \n2 . . . . \n2 . . . . \n. . . . . \n# # + # # \n+ + # + + \n# # + + # \n+ + # # + \n# # + + # \n"
+  },
+  {
+    "path": "bramble/5/5/4cql3su0g2g222g",
+    "status": "multiple",
+    "record": "derived: remove first clue",
+    "fileio": "pzprv3.1\nbramble\n5\n5\n0 0 1 0 \n0 0 1 1 \n0 0 1 1 \n0 1 0 1 \n0 1 0 1 \n0 0 0 1 1 \n1 1 1 0 0 \n1 1 1 1 0 \n0 0 0 0 0 \n. . . 2 . \n. . . . 2 \n2 . . . . \n2 . . . . \n. . . . . \n. . + # # \n+ + # + + \n# # + + # \n+ + # # + \n# # + + # \n"
+  }
+]

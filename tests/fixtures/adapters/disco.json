@@ -1,0 +1,13 @@
+[
+  {
+    "path": "disco/5/5/d552apfg",
+    "status": "unique",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\ndisco\n5\n5\n0 1 1 0 \n1 0 0 1 \n0 1 0 0 \n1 0 1 0 \n0 0 1 0 \n0 1 0 1 0 \n1 1 0 0 1 \n0 1 1 1 1 \n1 0 0 0 0 \n+ # + # + \n# # # # # \n+ # + + # \n# # # + # \n# + # # + \n"
+  },
+  {
+    "path": "disco/2/2/00",
+    "status": "no_solution",
+    "record": "single room, no solution"
+  }
+]

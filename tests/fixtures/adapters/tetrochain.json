@@ -1,0 +1,14 @@
+[
+  {
+    "path": "tetrochain/8/8/m10c12b22e10j42e42b20c44m",
+    "status": "unique",
+    "record": "tetrochain0001",
+    "fileio": "pzprv3\ntetrochain\n8\n8\n. . . . . . . . \n. . . . . 1,0 . . \n. 1,2 . . 2,2 . . . \n. . 1,0 . . . . . \n. . . . . 4,2 . . \n. . . 4,2 . . 2,0 . \n. . 4,4 . . . . . \n. . . . . . . . \n+ # + + + + + + \n# # + # # . # + \n# . + # . # # + \n+ # . # + # + + \n+ # # + + . # # \n+ # + . # + . # \n# + . # # # + # \n# # # + + + + + \n"
+  },
+  {
+    "path": "tetrochain/7/5/i22e31a12p14",
+    "status": "multiple",
+    "record": "cspuz backend test",
+    "fileio": "pzprv3\ntetrochain\n5\n7\n. . . . . . . \n. . 2,2 . . . . \n. 3,1 . 1,2 . . . \n. . . . . . . \n. . . . . . 1,4 \n# . + # # + # \n# . . # # + # \n# . # . + + # \n+ # # + # + # \n+ # + # # # . \n"
+  }
+]

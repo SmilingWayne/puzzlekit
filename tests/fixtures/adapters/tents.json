@@ -1,0 +1,14 @@
+[
+  {
+    "path": "tents/3/3/g1ji7",
+    "status": "unique",
+    "fileio": "pzprv3\ntents\n3\n3\n. . 1 . \n. - 1 - \n. - A - \n. - - - \n0 0 \n0 0 \n0 0 \n0 -1 0 \n0 0 0 \n",
+    "record": "tents0041"
+  },
+  {
+    "path": "tents/6/6/r811032471",
+    "status": "unique",
+    "fileio": "pzprv3\ntents\n6\n6\n. . . . . . . \n. 1 A - A - A \n. - - - 1 - 1 \n. A 1 1 - - - \n. 1 - A 1 A - \n. A - 1 - - - \n. - - A - 1 A \n-1 0 0 0 0 \n0 0 0 0 0 \n-1 0 0 0 0 \n0 0 0 -1 0 \n0 0 0 0 0 \n0 0 0 0 -1 \n0 0 0 -1 0 -1 \n0 0 0 0 0 0 \n0 0 -1 0 0 0 \n-1 0 0 0 0 0 \n0 0 -1 0 0 0 \n",
+    "record": "tents0011"
+  }
+]
